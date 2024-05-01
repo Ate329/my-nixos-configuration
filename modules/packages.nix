@@ -30,7 +30,7 @@
      spotify
      spotify-qt
      gnomeExtensions.mute-spotify-ads
-     spotify-cli-linux
+     spotify-player
      nix-inspect
      krita
      btop
