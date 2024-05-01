@@ -104,7 +104,6 @@
     packages = with pkgs; [
       firefox
       thunderbird
-      # deja-dup
     ];
   };
 
@@ -159,12 +158,6 @@
     ];
     dates = "18:30";
     randomizedDelaySec = "45min";
-  };
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
   };
 
   # LD fix
