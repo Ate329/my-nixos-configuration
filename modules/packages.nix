@@ -31,6 +31,8 @@
      btop
      lutris
      htop
+     cmake
+     gnumake
      tree
      firefox
      thunderbird
