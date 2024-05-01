@@ -27,8 +27,10 @@
      miru
      ani-cli
      lolcat
+     spotify
      spotify-qt
-     spotifyd
+     gnomeExtensions.mute-spotify-ads
+     spotify-cli-linux
      nix-inspect
      krita
      btop
