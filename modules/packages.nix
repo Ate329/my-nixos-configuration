@@ -12,6 +12,7 @@
      uwufetch
      teams-for-linux
      gimp
+     gcc
      wine
      wine64
      winetricks
