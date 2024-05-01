@@ -27,6 +27,7 @@
      miru
      ani-cli
      lolcat
+     spotify-qt
      spotifyd
      nix-inspect
      krita
