@@ -27,6 +27,7 @@
      miru
      ani-cli
      lolcat
+     spotifyd
      nix-inspect
      krita
      btop
