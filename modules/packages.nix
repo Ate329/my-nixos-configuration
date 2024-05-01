@@ -36,6 +36,7 @@
      tree
      firefox
      thunderbird
+     cargo
      vscode
      auto-cpufreq
      libreoffice
