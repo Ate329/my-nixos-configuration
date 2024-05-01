@@ -28,6 +28,7 @@
      lolcat
      nix-inspect
      spotify
+     gnomeExtensions.mute-spotify-ads
      krita
      btop
      lutris
