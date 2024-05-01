@@ -22,6 +22,7 @@
      zip
      rippkgs
      gnome.gnome-tweaks
+     obsidian
      miru
      ani-cli
      lolcat
