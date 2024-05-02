@@ -6,6 +6,7 @@
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      sl
+     (wechat-uos.override { uosLicense = ./license.tar.gz; })
      okular
      discord
      deja-dup
@@ -17,6 +18,10 @@
      wine
      wine64
      winetricks
+     wineWowPackages.stable
+     (wine.override { wineBuild = "wine64"; })
+     wineWowPackages.staging
+     wineWowPackages.waylandFull
      git
      grub2
      gh
@@ -45,5 +50,8 @@
      vscode
      auto-cpufreq
      libreoffice
+  ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
   ];
 }
