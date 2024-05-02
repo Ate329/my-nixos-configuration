@@ -5,6 +5,8 @@ set -e
 sudo nixos-rebuild switch --flake /etc/nixos#default --upgrade
 sudo nixos-rebuild switch --flake /etc/nixos#default
 
+cd /home/ate329/nixconf/my-nixos-configuration
+
 git pull
 git add .
 git commit -m "Rebuild and update system"
