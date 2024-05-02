@@ -17,11 +17,11 @@ cd /home/ate329/nixconf/my-nixos-configuration
 # Git commands (assuming you have Git installed and configured)
 git pull
 git add .
-git commit -m "NixOS rebuild with flakes"
+git commit -m "Add/Remove packages"
 git diff
 
 # Push changes to remote repository on GitHub (replace with your details)
 git push
 
-echo "Rebuild complete and pushed to GitHub!"
+echo "Action complete and pushed to GitHub!"
 
