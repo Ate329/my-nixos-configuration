@@ -14,6 +14,8 @@
      uwufetch
      teams-for-linux
      gimp
+     wineWowPackages.unstableFull
+     wineWowPackages.stagingFull
      gcc
      wine
      wine64
