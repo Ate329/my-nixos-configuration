@@ -14,6 +14,19 @@
      uwufetch
      teams-for-linux
      gimp
+     winePackages.fonts
+     wine64Packages.fonts
+     wineWowPackages.fonts
+     wineWow64Packages.fonts
+     winePackages.unstableFull
+     winePackages.staging
+     wine64Packages.unstableFull
+     wine64Packages.staging
+     wine-staging
+     wineWow64Packages.full
+     wineWow64Packages.unstableFull
+     wineWow64Packages.stagingFull
+     wineWowPackages.full
      wineWowPackages.unstableFull
      wineWowPackages.stagingFull
      gcc
@@ -22,7 +35,6 @@
      winetricks
      wineWowPackages.stable
      (wine.override { wineBuild = "wine64"; })
-     wineWowPackages.staging
      wineWowPackages.waylandFull
      git
      grub2
