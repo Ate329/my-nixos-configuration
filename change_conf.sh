@@ -17,7 +17,16 @@ cd /home/ate329/nixconf/my-nixos-configuration
 # Git commands (assuming you have Git installed and configured)
 git pull
 git add .
-git commit -m "Change system config"
+
+# Prompt for commit message with default
+read -p "Enter commit message (default: Change system config): " commit_message
+
+# Set default message if user enters nothing
+if [[ -z "$commit_message" ]]; then
+  commit_message="Change system config"
+fi
+
+git commit -m "$commit_message"
 git diff
 
 # Push changes to remote repository on GitHub (replace with your details)
