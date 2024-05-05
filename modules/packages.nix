@@ -14,6 +14,7 @@
      uwufetch
      teams-for-linux
      gimp
+     gcc
      winePackages.fonts
      wine64Packages.fonts
      wineWowPackages.fonts
@@ -29,7 +30,6 @@
      wineWowPackages.full
      wineWowPackages.unstableFull
      wineWowPackages.stagingFull
-     gcc
      wine
      wine64
      winetricks
@@ -45,6 +45,8 @@
      gnome.gnome-tweaks
      obsidian
      miru
+     qtile
+     awesome
      ani-cli
      lolcat
      spotify
