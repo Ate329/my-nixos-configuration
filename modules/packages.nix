@@ -15,6 +15,8 @@
      teams-for-linux
      gimp
      gcc
+     fcitx5
+     fcitx5-rime
      winePackages.fonts
      wine64Packages.fonts
      wineWowPackages.fonts
