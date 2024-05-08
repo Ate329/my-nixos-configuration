@@ -17,6 +17,10 @@
      gcc
      fcitx5
      fcitx5-rime
+     fcitx5-mozc
+     fcitx5-skk
+     fcitx5-lua
+     fcitx5-gtk
      winePackages.fonts
      wine64Packages.fonts
      wineWowPackages.fonts
