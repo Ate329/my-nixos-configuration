@@ -21,6 +21,10 @@
      fcitx5-skk
      fcitx5-lua
      fcitx5-gtk
+     ibus
+     ibus-with-plugins
+     ibus-engines.rime
+     ibus-theme-tools
      winePackages.fonts
      wine64Packages.fonts
      wineWowPackages.fonts
