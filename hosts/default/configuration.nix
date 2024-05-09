@@ -87,7 +87,6 @@
     desktopManager.gnome = {
       enable = true;
     };
-
   };
 
   # Configure keymap in X11
@@ -191,7 +190,7 @@
   ];
 
   i18n.inputMethod = {
-      #enabled = "fcitx5";
+      enabled = "fcitx5";
       fcitx5.addons = with pkgs; [
           fcitx5-mozc
           fcitx5-gtk
@@ -200,7 +199,7 @@
           fcitx5-lua
       ];
 
-      enabled = "ibus";
+      #enabled = "ibus";
       ibus.engines = with pkgs.ibus-engines; [rime];
   };
 
