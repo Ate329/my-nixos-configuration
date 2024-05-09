@@ -152,19 +152,6 @@
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      sl
-     deja-dup
-     neofetch
-     uwufetch
-     git
-     grub2
-     lolcat
-     btop
-     htop
-     firefox
-     thunderbird
-     vscode
-     auto-cpufreq
-     libreoffice
   ]; */
   
   services.auto-cpufreq.enable = true;
@@ -198,9 +185,9 @@
           fcitx5-skk
           fcitx5-lua
       ];
-
+      
       #enabled = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [rime];
+      #ibus.engines = with pkgs.ibus-engines; [rime];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
