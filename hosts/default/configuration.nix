@@ -177,7 +177,7 @@
   ];
 
   i18n.inputMethod = {
-      enabled = "fcitx5";
+      #enabled = "fcitx5";
       fcitx5.addons = with pkgs; [
           fcitx5-mozc
           fcitx5-gtk
@@ -186,8 +186,8 @@
           fcitx5-lua
       ];
       
-      #enabled = "ibus";
-      #ibus.engines = with pkgs.ibus-engines; [rime];
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [rime];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
