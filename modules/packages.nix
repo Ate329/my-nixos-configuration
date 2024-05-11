@@ -25,6 +25,7 @@
      ibus-with-plugins
      ibus-engines.rime
      ibus-theme-tools
+     xorg.xdpyinfo
      winePackages.fonts
      wine64Packages.fonts
      wineWowPackages.fonts
