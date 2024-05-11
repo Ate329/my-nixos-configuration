@@ -15,12 +15,12 @@
      teams-for-linux
      gimp
      gcc
-     fcitx5
-     fcitx5-rime
-     fcitx5-mozc
-     fcitx5-skk
-     fcitx5-lua
-     fcitx5-gtk
+     #fcitx5
+     #fcitx5-rime
+     #fcitx5-mozc
+     #fcitx5-skk
+     #fcitx5-lua
+     #fcitx5-gtk
      ibus
      ibus-with-plugins
      ibus-engines.rime
