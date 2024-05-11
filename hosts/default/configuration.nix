@@ -10,7 +10,9 @@
       ./hardware-configuration.nix
       ../../modules/packages.nix
       inputs.home-manager.nixosModules.default
-    ];
+      # For wayland support see the following config
+      #./qtile.nix    
+];
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = false;
