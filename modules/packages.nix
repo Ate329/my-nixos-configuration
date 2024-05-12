@@ -7,7 +7,7 @@
      picom
      rofi
      nh
-     #hyprland
+     hyprland
      waybar
      eww
      (waybar.overrideAttrs (oldAttrs: {
