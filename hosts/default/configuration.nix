@@ -33,12 +33,6 @@
 
   # Enable experimental features (flakes)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
-  /*
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-  };*/
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -77,37 +71,25 @@
         # sddm.enable = true;
         # defaultSession = "none+awesome";
     };
+
+    windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks # is the package manager for Lua modules
+        luadbi-mysql # Database abstraction layer
+      ];
+
+    };
+
+    windowManager.qtile = {
+      enable = true;
+    };
     
     # Enable the GNOME Desktop Environment.
     desktopManager.gnome = {
       enable = true;
     };
   };
-  
-  /*
-  programs.hyprland = {
-    enable = true;
-    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    xwayland.enable = true;
-  };
-
-  programs.waybar = {
-    enable = true;
-    package = pkgs.waybar;
-  };
-
-    
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
-
-  hardware = {
-    opengl.enable = true;
-  };
-  
-  xdg.portal.enable = true;
-  */
 
   # Configure keymap in X11
   services.xserver = {
@@ -128,7 +110,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    # jack.enable = true;
+    #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
