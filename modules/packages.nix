@@ -3,24 +3,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     alacritty
-     picom
-     rofi
-     nh
-     #hyprland
-     waybar
-     eww
-     (waybar.overrideAttrs (oldAttrs: {
-     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-       	})
-     )
-     dunst
-     mako
-     libnotify
-     xdg-desktop-portal-gtk
-     rofi-wayland
-     nitrogen
-     xfce.mousepad
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      sl
