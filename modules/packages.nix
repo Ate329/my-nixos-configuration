@@ -13,6 +13,7 @@
      deja-dup
      neofetch
      uwufetch
+     waydroid
      teams-for-linux
      gimp
      gcc
