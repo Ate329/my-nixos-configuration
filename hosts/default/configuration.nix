@@ -84,6 +84,13 @@
     xkb.variant = "";
   };
 
+  programs.hyprland = {
+    # Install the packages from nixpkgs
+    enable = true;
+    # Whether to enable XWayland
+    xwayland.enable = true;
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
