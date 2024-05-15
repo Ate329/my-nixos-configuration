@@ -10,6 +10,7 @@
      (wechat-uos.override { uosLicense = ./license.tar.gz; })
      okular
      discord
+     waybar
      deja-dup
      neofetch
      uwufetch
