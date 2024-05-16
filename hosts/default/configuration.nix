@@ -90,6 +90,10 @@
     # Whether to enable XWayland
     xwayland.enable = true;
   };
+  
+  programs.waybar = {
+    enable = true;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

@@ -76,7 +76,7 @@
      firefox
      thunderbird
      cargo
-     vscode
+     vscode-fhs
      auto-cpufreq
      libreoffice
   ];
