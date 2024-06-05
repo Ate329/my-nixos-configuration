@@ -89,8 +89,7 @@ with lib;
 		windowrule = center,^(vscode-fhs)$
 		windowrule = center,^(obsidian)$
 		windowrule = center,^(thunar)$
-		windowrule = center, floating:1
-		windowrulev2 = float,class:^.*,title:^.*,appID:^.*,floatpos:-1,-1,float_size:800x600,layer:above
+		windowrule = center, floating:1		
                 windowrulev2 = stayfocused, title:^()$,class:^(steam)$
                 windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
 		# Dialogs
