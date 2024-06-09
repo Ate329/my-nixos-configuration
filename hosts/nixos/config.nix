@@ -215,8 +215,11 @@
       swww
       hyprpaper
       swaybg
-      nodePackages_latest.webtorrent-cli
+      #nodePackages_latest.webtorrent-cli
       grim
+      nodejs_22
+      nodejs_20
+      nodejs_18
       heroic
       vlc
       neovim-qt
