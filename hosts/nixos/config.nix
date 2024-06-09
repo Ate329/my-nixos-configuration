@@ -212,7 +212,6 @@
       nixfmt-rfc-style
       discord
       libvirt
-      devenv
       swww
       hyprpaper
       swaybg
