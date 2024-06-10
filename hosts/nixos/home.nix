@@ -42,6 +42,7 @@ in
     ../../config/swaync.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
+    ../../config/waypaper.nix
   ];
 
   # Define Settings For Xresources

@@ -216,7 +216,9 @@
       hyprpaper
       swaybg
       #nodePackages_latest.webtorrent-cli
+      clash-verge-rev
       grim
+      waypaper
       nodejs_22
       nodejs_20
       nodejs_18
@@ -348,21 +350,26 @@
         variant = "";
       };
     };
+
     smartd = {
       enable = true;
       autodetect = true;
     };
+
     libinput.enable = true;
     openssh.enable = true;
     flatpak.enable = false;
     printing.enable = true;
     gnome.gnome-keyring.enable = true;
+
     avahi = {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
     };
+
     ipp-usb.enable = true;
+
     syncthing = {
       enable = false;
       user = "${username}";
