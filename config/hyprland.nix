@@ -1,4 +1,4 @@
-	{
+{
   pkgs,
   config,
   lib,
@@ -37,13 +37,14 @@ with lib;
                 exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
                 # exec-once=swaybg -i /home/ate329/Pictures/Wallpapers/richard-horvath-_nWaeTF6qo0-unsplash.png -m fill
 		# exec-once = killall -q hyprpaper;sleep .5 && hyprpaper
-		exec-once = killall -q swww;sleep 0.01 && swww init
+		# exec-once = killall -q swww;sleep 0.01 && swww init
                 exec-once = killall -q waybar;sleep .5 && waybar
                 exec-once = killall -q swaync;sleep .5 && swaync
                 exec-once = nm-applet --indicator
                 exec-once = lxqt-policykit-agent
 		exec-once = wl-paste --watch cliphist store
-		exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
+		exec-once = waypaper --restore
+		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
                 monitor=,preferred,auto,1.8
                 ${extraMonitorSettings}
 
@@ -110,7 +111,8 @@ with lib;
                   key_press_enables_dpms = false
 		  disable_hyprland_logo = true
 		  force_default_wallpaper = 1
-		  initial_workspace_tracking = 2
+		  # initial_workspace_tracking = 2
+		  background_color = 0xf1eaff
                 }
 
                 animations {

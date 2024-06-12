@@ -7,17 +7,9 @@
   gtkThemeFromScheme,
   ...
 }:
+
 let
   palette = config.colorScheme.palette;
-
-  # hyprlock variables
-  textColor = "rgba(DFE3E7FF)";
-  entryBackgroundColor = "rgba(0F141711)";
-  entryBorderColor = "rgba(8B929755)";
-  entryColor = "rgba(C1C7CEFF)";
-  fontFamily = "Gabarito";
-  fontFamilyClock = "Gabarito";
-  fontMaterialSymbols = "Material Symbols Rounded";
 
   inherit (import ./variables.nix)
     gitUsername
