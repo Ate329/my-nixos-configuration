@@ -203,9 +203,12 @@
       appimage-run
       networkmanagerapplet
       yad
-      python310
-      python39
-      python312
+      python310Full
+      python39Full
+      python311Full
+      python312Full
+      python311Packages.tkinter
+      python310Packages.tkinter
       jupyter
       playerctl
       nh
@@ -264,7 +267,8 @@
       unzip
       zip
       gnome.gnome-tweaks
-      obsidian
+      #obsidian
+      zed-editor
       miru
       ani-cli
       spotify
@@ -391,6 +395,8 @@
     logind.extraConfig = ''
        # don’t shutdown when power button is short-pressed
        HandlePowerKey=ignore
+       IdleAction=suspend
+       IdleActionSec=600
      '';
   };
 

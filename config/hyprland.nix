@@ -45,6 +45,7 @@ with lib;
 		exec-once = wl-paste --watch cliphist store
 		exec-once = waypaper --restore
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
+		exec-once = hypridle
                 monitor=,preferred,auto,1.8
                 ${extraMonitorSettings}
 
