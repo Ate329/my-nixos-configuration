@@ -2,6 +2,7 @@
 
 let
   palette = config.colorScheme.palette;
+
 in {
   home.file.".config/rofi/config.rasi".text = ''
     @theme "/dev/null"

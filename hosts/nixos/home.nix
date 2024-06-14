@@ -35,6 +35,8 @@ in
     ../../config/waybar.nix
     ../../config/wlogout.nix
     ../../config/waypaper.nix
+    ../../config/hypridle.nix
+    ../../config/rofi.nix
   ];
 
   # Define Settings For Xresources
@@ -81,11 +83,12 @@ in
     separator=" $(color 4)>"
     stdout="off"
   '';
+
   home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = /home/ate329/Pictures/Wallpapers/richard-horvath-_nWaeTF6qo0-unsplash.png
-    wallpaper = eDP-1,/home/ate329/Pictures/Wallpapers/richard-horvath-_nWaeTF6qo0-unsplash.png
+    preload = /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
+    wallpaper = eDP-1,/home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
     splash = true
-  '';  
+  '';
 
   home.file.".config/swappy/config".text = ''
     [Default]
@@ -98,123 +101,6 @@ in
     paint_mode=brush
     early_exit=true
     fill_shape=false
-  '';
-
- home.file.".config/rofi/config.rasi".text = ''
-    @theme "/dev/null"
-
-    * {
-      bg: #${palette.base00};
-      background-color: @bg;
-    }
-
-    configuration {
-      modi: "run,filebrowser,drun";
-      show-icons: true;
-      icon-theme: "Papirus";
-      location: 0;
-      font: "JetBrains Nerd Font 14";   
-      drun-display-format: "{icon} {name}";
-      display-drun: "   Apps ";
-      display-run: "   Run ";
-      display-filebrowser: "   File ";
-    }
-
-    window { 
-      width: 35%;
-      transparency: "real";
-      orientation: vertical;
-      border: 1px;
-      border-color: #${palette.base04};
-      border-radius: 7px;
-    }
-
-    mainbox {
-      children: [ inputbar, listview, mode-switcher ];
-    }
-
-    element {
-      padding: 6 12;
-      text-color: #${palette.base05};
-      border-radius: 4px;
-    }
-
-    element selected {
-      text-color: #${palette.base01};
-      background-color: #${palette.base0C};
-    }
-
-    element-text {
-      background-color: inherit;
-      text-color: inherit;
-    }
-
-    element-icon {
-      size: 20px;
-      background-color: inherit;
-      padding: 0 5 0 0;
-      alignment: vertical;
-    }
-
-    listview {
-      columns: 1;
-      lines: 7;
-      padding: 6 0;
-      fixed-height: true;
-      fixed-columns: true;
-      fixed-lines: true;
-      border: 0 7 5 7;
-    }
-
-    entry {
-      text-color: #${palette.base05};
-      padding: 8 10 0 2;
-      margin: 0 0 0 0;
-    }
-
-    inputbar {
-      background-image: url("~/zaneyos/config/rofi.jpg", width);
-      padding: 120 0 0 0;
-      margin: 0 0 0 0;
-    } 
-
-    prompt {
-      text-color: #${palette.base0D};
-      padding: 8 8 0 9;
-      margin: 0 0 0 0;
-    }
-
-    mode-switcher {
-      border-color: #${palette.base0F};
-      spacing: 0;
-    }
-
-    button {
-      padding: 8px;
-      background-color: @bg;
-      text-color: #${palette.base01};
-      vertical-align: 0.5; 
-      horizontal-align: 0.5;
-    }
-
-    button selected {
-      background-color: @bg;
-      text-color: #${palette.base0F};
-    }
-
-    message {
-      background-color: @bg;
-      margin: 1px;
-      padding: 1px;
-      border-radius: 4px;
-    }
-
-    textbox {
-      padding: 4px;
-      margin: 15px 0px 0px 15px;
-      text-color: #${palette.base0F};
-      background-color: @bg;
-    }
   '';
 
   # Install & Configure Git
@@ -279,29 +165,6 @@ in
     style = {
       name = "adwaita-dark";
       package = pkgs.adwaita-qt;
-    };
-  };
-
-  services = {
-    hypridle = {
-      settings = {
-        general = {
-          after_sleep_cmd = "hyprctl dispatch dpms on";
-          ignore_dbus_inhibit = false;
-          lock_cmd = "hyprlock";
-        };
-        listener = [
-          {
-            timeout = 300;
-            on-timeout = "hyprlock";
-          }
-          {
-            timeout = 600;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on";
-          }  
-        ];
-      };
     };
   };
 
