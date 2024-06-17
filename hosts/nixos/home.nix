@@ -210,7 +210,7 @@ in
         luajitPackages.lua-lsp
         nil
         rust-analyzer
-        nodePackages.bash-language-server
+        # nodePackages.bash-language-server
         yaml-language-server
         pyright
         marksman
@@ -417,7 +417,7 @@ in
         flake-update = "nh os switch --hostname ${host} --update /home/${username}/zaneyos";
         flake-rebuild-impure = "sudo nixos-rebuild switch --flake /home/${username}/zaneyos#${host} --impure";
 	gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-        zed = "WAYLAND_DISPLAY='' zed" # Until the issue (https://github.com/zed-industries/zed/issues/12054) is fixed
+        zed = "WAYLAND_DISPLAY='' zed"; # Until the issue (https://github.com/zed-industries/zed/issues/12054) is fixed
         v = "nvim";
         ls = "lsd";
         ll = "lsd -l";

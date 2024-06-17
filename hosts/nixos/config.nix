@@ -218,7 +218,7 @@
       swww
       hyprpaper
       swaybg
-      nodePackages_latest.webtorrent-cli
+      # nodePackages_latest.webtorrent-cli
       clash-verge-rev
       grim
       hypridle
