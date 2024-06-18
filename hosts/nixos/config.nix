@@ -12,6 +12,7 @@
   imports = [
     ./hardware.nix
     ./users.nix
+    ./pkgs.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
@@ -111,11 +112,11 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/ate329/zaneyos";
     };
-    
+
     # auto-cpufreq config
     auto-cpufreq = {
       enable = true;
-      
+
       settings = {
         charger = {
           governor = "performance";
@@ -127,7 +128,7 @@
           turbo = "never";
         };
       };
-    }; 
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -143,190 +144,13 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
-    noto-fonts-extra  
-    noto-fonts-cjk-serif 
+    noto-fonts-extra
+    noto-fonts-cjk-serif
     noto-fonts-cjk-sans
     noto-fonts-emoji
     noto-fonts-lgc-plus
     noto-fonts-color-emoji
     nerdfonts
-  ];
-
-  environment.systemPackages =
-    let
-      sugar = pkgs.callPackage ../../pkgs/sddm-sugar-dark.nix { };
-      tokyo-night = pkgs.libsForQt5.callPackage ../../pkgs/sddm-tokyo-night.nix { };
-    in
-    with pkgs;
-    [
-      vim
-      wget
-      git
-      cmatrix
-      lolcat
-      neofetch
-      htop
-      libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qt5.qtgraphicaleffects
-      libvirt
-      lxqt.lxqt-policykit
-      mangohud
-      blueman
-      lm_sensors
-      unzip
-      bluez
-      unrar
-      libnotify
-      eza
-      v4l-utils
-      ydotool
-      auto-cpufreq
-      wl-clipboard
-      lm_sensors
-      pciutils
-      socat
-      cowsay
-      ripgrep
-      lsd
-      lshw
-      pkg-config
-      meson
-      gnumake
-      ninja
-      symbola
-      noto-fonts-color-emoji
-      material-icons
-      brightnessctl
-      virt-viewer
-      swappy
-      rofi-wayland
-      appimage-run
-      networkmanagerapplet
-      yad
-      python310Full
-      python39Full
-      python311Full
-      python312Full
-      python311Packages.tkinter
-      python310Packages.tkinter
-      jupyter
-      playerctl
-      nh
-      nixfmt-rfc-style
-      discord
-      libvirt
-      swww
-      hyprpaper
-      swaybg
-      # nodePackages_latest.webtorrent-cli
-      clash-verge-rev
-      grim
-      hypridle
-      waypaper
-      nodejs_22
-      nodejs_20
-      nodejs_18
-      heroic
-      vlc
-      neovim-qt
-      neovim
-      gnome.gnome-power-manager
-      dmenu
-      tesseract
-      cliphist
-      slurp
-      gnome.file-roller
-      swaynotificationcenter
-      imv
-      transmission-gtk
-      distrobox
-      mpv
-      killall
-      gimp
-      obs-studio
-      rustup
-      audacity
-      pavucontrol
-      tree
-      protonup-qt
-      font-awesome
-      spotify
-      neovide
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      sugar.sddm-sugar-dark # Name: sugar-dark
-      tokyo-night # Name: tokyo-night-sddm
-      pkgs.libsForQt5.qt5.qtgraphicaleffects
-      #wineWowPackages.stagingFull
-      wine
-      wine64
-      winetricks
-      #wineWowPackages.stable
-      (wine.override { wineBuild = "wine64"; })
-      #wineWowPackages.waylandFull
-      git
-      gh
-      unzip
-      zip
-      gnome.gnome-tweaks
-      #obsidian
-      zed-editor
-      miru
-      ani-cli
-      spotify
-      krita
-      btop
-      lutris
-      htop
-      cmake
-      gnumake
-      tree
-      firefox
-      thunderbird
-      cargo
-      vscode-fhs
-      libreoffice
-      (wechat-uos.override { uosLicense = ../../config/license.tar.gz; })
-      okular
-      discord
-      deja-dup
-      uwufetch
-      waydroid
-      teams-for-linux
-      gcc
-      #fcitx5
-      #fcitx5-rime
-      #fcitx5-mozc
-      #fcitx5-skk
-      #fcitx5-lua
-      #fcitx5-gtk
-      ibus
-      ibus-with-plugins
-      ibus-engines.rime
-      ibus-theme-tools
-      xorg.xdpyinfo
-      winePackages.fonts
-      wine64Packages.fonts
-      #wineWowPackages.fonts
-      #wineWow64Packages.fonts
-      winePackages.unstableFull
-      winePackages.staging
-      wine64Packages.unstableFull
-      wine64Packages.staging
-      wine-staging
-      #wineWow64Packages.full
-      #wineWow64Packages.unstableFull
-      #wineWow64Packages.stagingFull
-      #wineWowPackages.full
-      #wineWowPackages.unstableFull
-      heroic
-      prismlauncher
-      vim # Do not forget to add an editor to edit configuration.nix! >
-      sl
-      alacritty    
-    ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
   ];
 
   environment.variables = {
@@ -424,7 +248,7 @@
   hardware.bluetooth = {
     enable = true; # enables support for Bluetooth
     powerOnBoot = true; # powers up the default Bluetooth controller on boot
-    
+
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
@@ -434,12 +258,12 @@
   };
 
   services.blueman.enable = true; # paring
-  
+
   hardware.pulseaudio = {
     enable = false;
     package = pkgs.pulseaudioFull;
   };
-  
+
   # Bluetooth headset control
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
