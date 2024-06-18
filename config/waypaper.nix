@@ -11,11 +11,11 @@
     language = en
     folder = /home/${username}/Pictures/Wallpapers
     wallpaper = /home/${username}/Pictures/Wallpapers/richard-horvath-_nWaeTF6qo0-unsplash.png
-    backend = swww
+    backend = swaybg
     monitors = All
     fill = Fill
     sort = name
-    color = #ffffff
+    color = #f1eaff
     subfolders = False
     number_of_columns = 3
     post_command = 
