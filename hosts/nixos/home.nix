@@ -210,7 +210,7 @@ in
         luajitPackages.lua-lsp
         nil
         rust-analyzer
-        # nodePackages.bash-language-server
+        nodePackages.bash-language-server
         yaml-language-server
         pyright
         marksman
@@ -455,7 +455,7 @@ in
             dots_size = 0.1;
             dots_spacing = 0.3;
             outer_color = "rgb(139, 146, 151)";
-            inner_color = "rgb(52, 177, 235)";
+            inner_color = "rgb(93, 141, 212)";
             font_color = "rgb(193, 199, 206)";
 
             position = "0, 0";

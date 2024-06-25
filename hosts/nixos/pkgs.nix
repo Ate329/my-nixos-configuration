@@ -113,19 +113,25 @@
       sugar.sddm-sugar-dark # Name: sugar-dark
       tokyo-night # Name: tokyo-night-sddm
       pkgs.libsForQt5.qt5.qtgraphicaleffects
-      #wineWowPackages.stagingFull
       wine
       wine64
+      wine-wayland
       winetricks
-      #wineWowPackages.stable
       (wine.override { wineBuild = "wine64"; })
-      #wineWowPackages.waylandFull
+      winePackages.stableFull
+      winePackages.waylandFull
+      wine64Packages.stableFull
+      wine64Packages.waylandFull
+      wineWowPackages.stableFull
+      wineWowPackages.waylandFull
+      wineWow64Packages.stableFull
+      wineWow64Packages.waylandFull
       git
       gh
       unzip
       zip
       gnome.gnome-tweaks
-      #obsidian
+      obsidian
       zed-editor
       miru
       ani-cli
@@ -163,18 +169,8 @@
       xorg.xdpyinfo
       winePackages.fonts
       wine64Packages.fonts
-      #wineWowPackages.fonts
-      #wineWow64Packages.fonts
-      winePackages.unstableFull
-      winePackages.staging
-      wine64Packages.unstableFull
-      wine64Packages.staging
-      wine-staging
-      #wineWow64Packages.full
-      #wineWow64Packages.unstableFull
-      #wineWow64Packages.stagingFull
-      #wineWowPackages.full
-      #wineWowPackages.unstableFull
+      wineWowPackages.fonts
+      wineWow64Packages.fonts
       heroic
       prismlauncher
       vim # Do not forget to add an editor to edit configuration.nix! >
