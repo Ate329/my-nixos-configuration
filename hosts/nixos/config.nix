@@ -212,6 +212,14 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+
+      wireplumber.extraConfig = {
+        "monitor.bluez.properties" = {
+        "bluez5.enable-sbc-xq" = true;
+        "bluez5.enable-msbc" = true;
+        "bluez5.enable-hw-volume" = true;
+        "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+      };
     };
 
     rpcbind.enable = true;
@@ -272,6 +280,7 @@
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
 
+  
   # Security / Polkit
   security.rtkit.enable = true;
   security.polkit.enable = true;
