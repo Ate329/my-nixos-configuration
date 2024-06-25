@@ -52,7 +52,7 @@ with lib;
 
                 general {
                   gaps_in = 6
-                  gaps_out = 8
+                  gaps_out = 6
                   border_size = 2
                   col.active_border = rgba(${theme.base0C}ff) rgba(${theme.base0D}ff) rgba(${theme.base0B}ff) rgba(${theme.base0E}ff) 45deg
                   col.inactive_border = rgba(${theme.base00}cc) rgba(${theme.base01}cc) 45deg
@@ -113,7 +113,6 @@ with lib;
                   key_press_enables_dpms = false
 		  disable_hyprland_logo = true
 		  force_default_wallpaper = 1
-		  # initial_workspace_tracking = 2
 		  background_color = 0xf1eaff
                 }
 

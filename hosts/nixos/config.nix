@@ -25,7 +25,6 @@
   # boot.kernelPackages = pkgs.linuxPackages;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages_6_8;
 
   # Bootloader.
   boot.loader = {
@@ -308,7 +307,7 @@
   '';
 
   # Optimization settings and garbage collection automation
-  nix = {
+  /* nix = {
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -324,6 +323,7 @@
       options = "--delete-older-than 7d";
     };
   };
+  */
 
   # automatic upgrade
   system.autoUpgrade = {
