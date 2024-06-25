@@ -443,7 +443,7 @@ in
           {
             color = "rgb(15, 20, 23)";
             path = "/home/${username}/zaneyos/config/hyprlock.jpg";
-            blur_size = 5;
+            blur_size = 7;
             blur_passes = 4;
           }
         ];

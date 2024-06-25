@@ -46,6 +46,7 @@ with lib;
 		exec-once = waypaper --restore
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
 		exec-once = hypridle
+		exec = brightnessctl -rd rgb:kbd_backlight # keyboard backlight
                 monitor=,preferred,auto,1.8
                 ${extraMonitorSettings}
 
