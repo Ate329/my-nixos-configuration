@@ -46,8 +46,8 @@ with lib;
 		exec-once = waypaper --restore
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
 		exec-once = hypridle
-		exec = brightnessctl -rd rgb:kbd_backlight # keyboard backlight
-                monitor=,preferred,auto,1.8
+                monitor = eDP-1, highrr, auto, 1.8
+                monitor = HDMI-A-1, highrr, auto, auto, mirror
                 ${extraMonitorSettings}
 
                 general {
@@ -78,6 +78,7 @@ with lib;
                 env = XDG_SESSION_TYPE, wayland
                 env = XDG_SESSION_DESKTOP, Hyprland
                 env = GDK_BACKEND, wayland
+		env = GDK_SCALE, 2
                 env = CLUTTER_BACKEND, wayland
                 env = QT_QPA_PLATFORM, wayland
                 env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
@@ -153,6 +154,7 @@ with lib;
 
 		xwayland {
 		  use_nearest_neighbor = false
+		  force_zero_scaling = true
 		}
 
                 plugin {
