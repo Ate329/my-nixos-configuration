@@ -27,6 +27,7 @@
       libsForQt5.qt5.qtgraphicaleffects
       libvirt
       lxqt.lxqt-policykit
+      logisim-evolution
       mangohud
       blueman
       lm_sensors
@@ -108,7 +109,6 @@
       tree
       protonup-qt
       font-awesome
-      spotify
       neovide
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       sugar.sddm-sugar-dark # Name: sugar-dark

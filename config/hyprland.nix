@@ -46,7 +46,7 @@ with lib;
 		exec-once = waypaper --restore
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
 		exec-once = hypridle
-                monitor = eDP-1, highrr, auto, 1.8
+                monitor = eDP-1, preferred, auto, auto
                 monitor = HDMI-A-1, highrr, auto, auto, mirror
                 ${extraMonitorSettings}
 
@@ -94,15 +94,22 @@ with lib;
 		windowrule = center,^(vscode-fhs)$
 		windowrule = center,^(obsidian)$
 		windowrule = center,^(thunar)$
-		windowrule = center, floating:1		
+		windowrule = center,^(gimp)$
+		windowrule = center,^(wechat-uos)$
+		windowrule = nearestneighbor,^(wechat-uos)$
+		windowrule = maximize,^(logisim-evolution)$
+		windowrule = center,^(logisim-evolution)$
+		windowrule = center,title:^(Wine)(.*)$
+		windowrule = float,title:^(Wine)(.*)$
                 windowrulev2 = stayfocused, title:^()$,class:^(steam)$
                 windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
+
 		# Dialogs
-		windowrule=float,title:^(Open File)(.*)$
-		windowrule=float,title:^(Select a File)(.*)$
-		windowrule=float,title:^(Open Folder)(.*)$
-		windowrule=float,title:^(Save As)(.*)$
-		windowrule=float,title:^(Library)(.*)$
+		windowrule = float,title:^(Open File)(.*)$
+		windowrule = float,title:^(Select a File)(.*)$
+		windowrule = float,title:^(Open Folder)(.*)$
+		windowrule = float,title:^(Save As)(.*)$
+		windowrule = float,title:^(Library)(.*)$
 
 		gestures {
                   workspace_swipe = true
