@@ -50,7 +50,7 @@
           modules = [
             ./hosts/${host}/config.nix
             home-manager.nixosModules.home-manager
-            auto-cpufreq.nixosModules.default
+            #auto-cpufreq.nixosModules.default
             {
               home-manager.extraSpecialArgs = {
                 inherit username;

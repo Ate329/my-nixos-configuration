@@ -48,6 +48,16 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  networking = {
+    nameservers = [ "1.1.1.1" "2606:4700:4700::1111"
+		    "1.0.0.1" "2606:4700:4700::1001"];
+
+    # If using dhcpcd:
+    #dhcpcd.extraConfig = "nohook resolv.conf";
+    # If using NetworkManager:
+    networkmanager.dns = "none";
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "${host}";
@@ -114,9 +124,9 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/ate329/zaneyos";
     };
-
+ 
     # auto-cpufreq config
-    auto-cpufreq = {
+    /*auto-cpufreq = {
       enable = true;
 
       settings = {
@@ -130,7 +140,7 @@
           turbo = "never";
         };
       };
-    };
+    };*/
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -254,9 +264,6 @@
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-
   # Bluetooth
   hardware.bluetooth = {
     enable = true; # enables support for Bluetooth
@@ -365,7 +372,7 @@
   local.hardware-clock.enable = false;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

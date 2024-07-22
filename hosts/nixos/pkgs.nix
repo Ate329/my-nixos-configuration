@@ -19,7 +19,12 @@
       vim
       wget
       git
+      nmap
+      hping
+      metasploit
+      tcpreplay
       cmatrix
+      mcrcon
       lolcat
       neofetch
       htop
@@ -28,6 +33,11 @@
       libvirt
       lxqt.lxqt-policykit
       logisim-evolution
+      stdenv.cc.cc.lib
+      libcxx
+      libgcc
+      gnat
+      glibc
       mangohud
       blueman
       lm_sensors
@@ -35,14 +45,16 @@
       bluez
       unrar
       libnotify
+      rpi-imager
       eza
       v4l-utils
       ydotool
-      auto-cpufreq
+      #auto-cpufreq
       wl-clipboard
       lm_sensors
       pciutils
       socat
+      waydroid
       cowsay
       ripgrep
       lsd
@@ -52,6 +64,7 @@
       gnumake
       ninja
       symbola
+      libstdcxx5
       noto-fonts-color-emoji
       material-icons
       brightnessctl
@@ -61,12 +74,13 @@
       appimage-run
       networkmanagerapplet
       yad
-      python310Full
       python39Full
+      python310Full
       python311Full
       python312Full
-      python311Packages.tkinter
-      python310Packages.tkinter
+      python3Full
+      python311Packages.pip
+      python312Packages.pip
       jupyter
       playerctl
       nh
@@ -157,6 +171,7 @@
       waydroid
       teams-for-linux
       gcc
+      gcc-unwrapped
       #fcitx5
       #fcitx5-rime
       #fcitx5-mozc
@@ -174,7 +189,8 @@
       wineWow64Packages.fonts
       heroic
       prismlauncher
-      vim # Do not forget to add an editor to edit configuration.nix! >
+      fastfetch
+      vim
       sl
       alacritty    
     ];

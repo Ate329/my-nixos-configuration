@@ -47,7 +47,7 @@ with lib;
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
 		exec-once = hypridle
                 monitor = eDP-1, preferred, auto, auto
-                monitor = HDMI-A-1, highrr, auto, auto, mirror
+                monitor = HDMI-A-1, highres, auto, auto
                 ${extraMonitorSettings}
 
                 general {
@@ -62,14 +62,15 @@ with lib;
 
                 input {
                   kb_layout = us
-          	      kb_options = grp:alt_shift_toggle
-                  #kb_options=caps:super
+          	  kb_options = grp:alt_shift_toggle
                   follow_mouse = 1
+
                   touchpad {
+		    drag_lock = true
                     natural_scroll = false
                   }
                   sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-                  accel_profile = adaptive
+                  accel_profile = flat
                 }
 
                 env = NIXOS_OZONE_WL, 1
@@ -114,6 +115,11 @@ with lib;
 		gestures {
                   workspace_swipe = true
                   workspace_swipe_fingers = 3
+		  workspace_swipe_invert = false
+		  workspace_swipe_min_speed_to_force = 25
+		  workspace_swipe_forever = true
+		  workspace_swipe_direction_lock_threshold = 5
+		  workspace_swipe_distance = 350
                 }
                 
 		misc {
@@ -122,6 +128,8 @@ with lib;
 		  disable_hyprland_logo = true
 		  force_default_wallpaper = 1
 		  background_color = 0xf1eaff
+		  initial_workspace_tracking = 2
+		  animate_manual_resizes = true
                 }
 
                 animations {

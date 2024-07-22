@@ -10,6 +10,8 @@ let
   inherit (import ./variables.nix) gitUsername;
 in
 {
+  users.groups.pcap = {};
+
   users.users = {
     "${username}" = {
       homeMode = "755";
@@ -21,11 +23,14 @@ in
         "libvirtd"
         "scanner"
         "lp"
+	"pcap"
       ];
+
       shell = pkgs.bash;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [ ];
     };
+
     # "newuser" = {
     #   homeMode = "755";
     #   isNormalUser = true;
