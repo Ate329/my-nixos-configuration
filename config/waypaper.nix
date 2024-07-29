@@ -10,8 +10,8 @@
     [Settings]
     language = en
     folder = /home/${username}/Pictures/Wallpapers
-    # wallpaper = /home/${username}/Pictures/Wallpapers/azusa_flower_crop.png
-    wallpaper = /home/${username}/Pictures/Wallpapers/richard-horvath-_nWaeTF6qo0-unsplash.png
+    wallpaper = /home/${username}/Pictures/Wallpapers/azusa_flower_crop.png
+    # wallpaper = /home/${username}/Pictures/Wallpapers/richard-horvath-_nWaeTF6qo0-unsplash.png
     backend = hyprpaper
     monitors = All
     fill = Fill

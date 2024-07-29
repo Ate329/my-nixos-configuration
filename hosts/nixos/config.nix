@@ -124,23 +124,28 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/ate329/zaneyos";
     };
+  };
  
-    # auto-cpufreq config
-    /*auto-cpufreq = {
-      enable = true;
+  #auto-cpufreq config
+  services.auto-cpufreq = {
+    enable = true;
 
-      settings = {
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-
-        battery = {
-          governor = "powersave";
-          turbo = "never";
-        };
+    settings = {
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+	energy_performance_preference = "performance";
       };
-    };*/
+
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+	energy_performance_preference = "power";
+        enable_thresholds = true;
+        start_threshold = 30;
+        stop_threshold = 85;
+      };
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -239,6 +244,8 @@
 
     rpcbind.enable = true;
     nfs.server.enable = true;
+ 
+    power-profiles-daemon.enable = false;
 
     logind.extraConfig = ''
        # don’t shutdown when power button is short-pressed

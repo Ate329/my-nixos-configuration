@@ -19,8 +19,14 @@
       vim
       wget
       git
+      gparted
       nmap
       hping
+      rename
+      virtualbox
+      getent
+      virtualbox
+      ventoy-full
       metasploit
       tcpreplay
       cmatrix
@@ -28,6 +34,7 @@
       lolcat
       neofetch
       htop
+      gnome.gnome-boxes
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtgraphicaleffects
       libvirt
@@ -49,12 +56,11 @@
       eza
       v4l-utils
       ydotool
-      #auto-cpufreq
+      auto-cpufreq
       wl-clipboard
       lm_sensors
       pciutils
       socat
-      waydroid
       cowsay
       ripgrep
       lsd
@@ -74,13 +80,12 @@
       appimage-run
       networkmanagerapplet
       yad
-      python39Full
-      python310Full
       python311Full
       python312Full
       python3Full
       python311Packages.pip
       python312Packages.pip
+      python311Packages.django
       jupyter
       playerctl
       nh
@@ -130,9 +135,8 @@
       pkgs.libsForQt5.qt5.qtgraphicaleffects
       wine
       wine64
-      wine-wayland
       winetricks
-      (wine.override { wineBuild = "wine64"; })
+      wine-wayland
       winePackages.stableFull
       winePackages.waylandFull
       wine64Packages.stableFull
