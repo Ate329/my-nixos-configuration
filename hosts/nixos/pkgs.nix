@@ -32,6 +32,9 @@
       cmatrix
       mcrcon
       lolcat
+      jellyfin
+      jellyfin-web
+      jellyfin-media-player
       neofetch
       htop
       gnome.gnome-boxes

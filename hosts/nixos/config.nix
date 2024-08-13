@@ -49,8 +49,8 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   networking = {
-    nameservers = [ "1.1.1.1" "2606:4700:4700::1111"
-		    "1.0.0.1" "2606:4700:4700::1001"];
+    /*nameservers = [ "1.1.1.1" "2606:4700:4700::1111"
+		    "1.0.0.1" "2606:4700:4700::1001"];*/
 
     # If using dhcpcd:
     #dhcpcd.extraConfig = "nohook resolv.conf";
@@ -80,6 +80,16 @@
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
+  };
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      rime-data
+      fcitx5-gtk
+      fcitx5-rime
+      fcitx5-chinese-addons
+    ];
   };
 
   programs = {

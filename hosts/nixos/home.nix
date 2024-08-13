@@ -196,7 +196,7 @@ in
   programs = {
     gh.enable = true;
     neovim = {
-      enable = true;
+      enable = false;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;

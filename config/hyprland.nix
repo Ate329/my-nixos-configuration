@@ -46,6 +46,8 @@ with lib;
 		exec-once = waypaper --restore
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
 		exec-once = hypridle
+		exec-once=fcitx5 -d -r
+		exec-once=fcitx5-remote -r   
                 monitor = eDP-1, preferred, auto, auto
                 monitor = HDMI-A-1, highres, auto, auto
                 ${extraMonitorSettings}
@@ -80,13 +82,15 @@ with lib;
                 env = XDG_SESSION_DESKTOP, Hyprland
                 env = GDK_BACKEND, wayland
 		env = GDK_SCALE, 2
-                env = CLUTTER_BACKEND, wayland
+                env = XCURSOR_SIZE,24
+		env = CLUTTER_BACKEND, wayland
                 env = QT_QPA_PLATFORM, wayland
                 env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
                 env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
                 env = SDL_VIDEODRIVER, x11
                 env = MOZ_ENABLE_WAYLAND, 1
-                windowrule = noborder,^(rofi)$
+                windowrule = pseudo, fcitx
+		windowrule = noborder,^(rofi)$
                 windowrule = center,^(rofi)$
                 windowrule = center,^(steam)$
 		windowrule = center,^(discord)$
