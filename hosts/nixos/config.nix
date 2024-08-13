@@ -55,7 +55,7 @@
     # If using dhcpcd:
     #dhcpcd.extraConfig = "nohook resolv.conf";
     # If using NetworkManager:
-    networkmanager.dns = "none";
+    networkmanager.dns = "default";
   };
 
   # Enable networking
