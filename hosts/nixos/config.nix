@@ -189,15 +189,20 @@
   services = {
     hypridle.enable = true;
 
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+      wayland.enable = true;
+      theme = "${import ../../pkgs/where-is-my-sddm-theme.nix {inherit pkgs;}}";
+    };
+
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "client";
+    };
+
     xserver = {
       enable = true;
-
-      displayManager.sddm = {
-        enable = true;
-        autoNumlock = true;
-        wayland.enable = true;
-        theme = "${import ../../pkgs/where-is-my-sddm-theme.nix {inherit pkgs;}}";
-      };
 
       displayManager.gdm.enable = false;
       desktopManager.gnome.enable = true;
@@ -371,9 +376,9 @@
   };
 
   # OpenGL
-  hardware.opengl = {
+  hardware.graphic = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Extra Module Options

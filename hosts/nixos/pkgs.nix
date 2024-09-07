@@ -27,6 +27,7 @@
       getent
       virtualbox
       ventoy-full
+      tailscale
       metasploit
       tcpreplay
       cmatrix
