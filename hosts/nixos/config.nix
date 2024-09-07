@@ -83,7 +83,8 @@
   };
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    type = "fcitx5";
+    enable = true;
     fcitx5.addons = with pkgs; [
       rime-data
       fcitx5-gtk
@@ -132,7 +133,7 @@
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/ate329/zaneyos";
+      flake = "/home/ate329/nix-config";
     };
   };
  
@@ -161,7 +162,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.variables = {
-    FLAKE = "/home/ate329/zaneyos";
+    FLAKE = "/home/ate329/nix-config";
   };
 
   users = {
@@ -376,7 +377,7 @@
   };
 
   # OpenGL
-  hardware.graphic = {
+  hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };

@@ -38,7 +38,7 @@
       jellyfin-media-player
       neofetch
       htop
-      gnome.gnome-boxes
+      gnome-boxes
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtgraphicaleffects
       libvirt
@@ -112,15 +112,16 @@
       vlc
       neovim-qt
       neovim
-      gnome.gnome-power-manager
+      gnome-power-manager
       dmenu
       tesseract
       cliphist
       slurp
-      gnome.file-roller
+      file-roller
       swaynotificationcenter
       imv
-      transmission-gtk
+      transmission_3-gtk
+      transmission_4-gtk
       distrobox
       mpv
       killall
@@ -153,7 +154,7 @@
       gh
       unzip
       zip
-      gnome.gnome-tweaks
+      gnome-tweaks
       obsidian
       zed-editor
       miru
