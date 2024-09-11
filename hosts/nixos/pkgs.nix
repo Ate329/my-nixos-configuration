@@ -27,6 +27,8 @@
       getent
       alsa-utils
       ventoy-full
+      gamescope
+      gamescope-wsi
       tailscale
       metasploit
       tcpreplay

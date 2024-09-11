@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 # Variables
 enable_battery=false
@@ -13,7 +13,9 @@ for battery in /sys/class/power_supply/*BAT*; do
       battery_icon="⚡(+)" # Lightning bolt for charging
     else
       capacity=$(cat /sys/class/power_supply/*/capacity | head -1)
-      if [ $capacity -ge 90 ]; then
+      if [ $status == "Full" ]; then
+        battery_icon="󰁹 (+)" # Full battery but charging
+      elif [ $capacity -ge 90 ]; then
         battery_icon="󰁹 (-)" # Full battery
       elif [ $capacity -ge 60 ]; then
         battery_icon="󰂀 (-)" # 3/4 battery
