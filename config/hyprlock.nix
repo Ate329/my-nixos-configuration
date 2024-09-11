@@ -60,8 +60,7 @@
     }
     label { # Greeting
         monitor =
-        text = Welcome! 
-        #$USER
+        text = cmd[update:300000] /home/$USER/nix-config/config/hyprlock/greeting.sh
         shadow_passes = 1
         shadow_boost = 0.5
         color = $text_color
@@ -102,7 +101,7 @@
 
     label { # Status
         monitor =
-        text = cmd[update:5000] /home/$USER/nix-config/config/hyprlock/status.sh
+        text = cmd[update:10000] /home/$USER/nix-config/config/hyprlock/status.sh
         shadow_passes = 1
         shadow_boost = 0.5
         color = $text_color
