@@ -23,6 +23,7 @@
       nmap
       hping
       rename
+      jq
       virtualbox
       getent
       alsa-utils
