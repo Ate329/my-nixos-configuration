@@ -102,7 +102,7 @@
 
     label { # Status
         monitor =
-        text = cmd[update:5000] /home/$USER/nix-config/config/hyprlock/status.sh
+        text = cmd[update:5000] sleep 1 && /home/$USER/nix-config/config/hyprlock/status.sh
         shadow_passes = 1
         shadow_boost = 0.5
         color = $text_color
