@@ -25,7 +25,7 @@
       rename
       virtualbox
       getent
-      virtualbox
+      alsa-utils
       ventoy-full
       tailscale
       metasploit

@@ -37,6 +37,7 @@ in
     ../../config/waypaper.nix
     ../../config/hypridle.nix
     ../../config/rofi.nix
+    ../../config/hyprlock.nix
   ];
 
   # Define Settings For Xresources
@@ -196,7 +197,7 @@ in
   programs = {
     gh.enable = true;
     neovim = {
-      enable = false;
+      enable = true;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
@@ -427,42 +428,5 @@ in
       };
     };
     home-manager.enable = true;
-
-    hyprlock = {
-      enable = true;
-      settings = {
-        general = {
-          disable_loading_bar = false;
-          grace = 10;
-          hide_cursor = true;
-          no_fade_in = false;
-          ignore_empty_input = false;
-        };
-        background = [
-          {
-            color = "rgb(15, 20, 23)";
-            path = "/home/${username}/zaneyos/config/hyprlock.jpg";
-            blur_size = 7;
-            blur_passes = 4;
-          }
-        ];
-        input-field = [
-          {
-            size = "500, 100";
-            monitor = "";
-            outline_thickness = 2;
-            dots_size = 0.1;
-            dots_spacing = 0.3;
-            outer_color = "rgb(139, 146, 151)";
-            inner_color = "rgb(93, 141, 212)";
-            font_color = "rgb(193, 199, 206)";
-
-            position = "0, 0";
-            dots_center = true;
-            fade_on_empty = true;
-          }
-        ];
-      };
-    };
   };
 }

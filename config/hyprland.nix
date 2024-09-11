@@ -49,7 +49,7 @@ with lib;
 		exec-once=fcitx5 -d -r
 		exec-once=fcitx5-remote -r   
                 monitor = eDP-1, preferred, auto, auto
-                monitor = HDMI-A-1, highres, auto, auto
+                monitor = HDMI-A-1, preferred, auto-left, auto
                 ${extraMonitorSettings}
 
                 general {
@@ -115,6 +115,28 @@ with lib;
 		windowrule = float,title:^(Open Folder)(.*)$
 		windowrule = float,title:^(Save As)(.*)$
 		windowrule = float,title:^(Library)(.*)$
+
+		workspace = 1, monitor:eDP-1
+		workspace = 2, monitor:eDP-1
+		workspace = 3, monitor:eDP-1
+		workspace = 4, monitor:eDP-1
+		workspace = 5, monitor:eDP-1
+		workspace = 6, monitor:eDP-1
+		workspace = 7, monitor:eDP-1
+		workspace = 8, monitor:eDP-1
+		workspace = 9, monitor:eDP-1
+		workspace = 10, monitor:eDP-1
+
+		workspace = 11, monitor:HDMI-A-1
+		workspace = 12, monitor:HDMI-A-1
+		workspace = 13, monitor:HDMI-A-1
+		workspace = 14, monitor:HDMI-A-1
+		workspace = 15, monitor:HDMI-A-1
+		workspace = 16, monitor:HDMI-A-1
+		workspace = 17, monitor:HDMI-A-1
+		workspace = 18, monitor:HDMI-A-1
+		workspace = 19, monitor:HDMI-A-1
+		workspace = 20, monitor:HDMI-A-1
 
 		gestures {
                   workspace_swipe = true
@@ -207,7 +229,7 @@ with lib;
                 bind = ${modifier},G,exec,gimp
                 bind = ${modifier}SHIFT,G,exec,godot4
                 bind = ${modifier},T,exec,thunar
-                bind = ${modifier},M,exec,spotify
+                bind = ${modifier},S,exec,spotify
                 bind = ${modifier},E,killactive,
                 bind = ${modifier},P,pseudo,
                 bind = ${modifier}SHIFT,I,togglesplit,
@@ -240,8 +262,19 @@ with lib;
                 bind = ${modifier},8,workspace,8
                 bind = ${modifier},9,workspace,9
                 bind = ${modifier},0,workspace,10
+                bind = ${modifier}ALT,1,workspace,11
+                bind = ${modifier}ALT,2,workspace,12
+                bind = ${modifier}ALT,3,workspace,13
+                bind = ${modifier}ALT,4,workspace,14
+                bind = ${modifier}ALT,5,workspace,15
+                bind = ${modifier}ALT,6,workspace,16
+                bind = ${modifier}ALT,7,workspace,17
+                bind = ${modifier}ALT,8,workspace,18
+                bind = ${modifier}ALT,9,workspace,19
+                bind = ${modifier}ALT,0,workspace,20
                 bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
                 bind = ${modifier},SPACE,togglespecialworkspace
+		bind = ${modifier},M,moveworkspacetomonitor,1 current
                 bind = ${modifier}SHIFT,1,movetoworkspace,1
                 bind = ${modifier}SHIFT,2,movetoworkspace,2
                 bind = ${modifier}SHIFT,3,movetoworkspace,3
@@ -252,11 +285,15 @@ with lib;
                 bind = ${modifier}SHIFT,8,movetoworkspace,8
                 bind = ${modifier}SHIFT,9,movetoworkspace,9
                 bind = ${modifier}SHIFT,0,movetoworkspace,10
+		bind = ${modifier}SHIFT,Up,workspace,-10
+		bind = ${modifier}SHIFT,Down,workspace,+10
 		bind = Control+Super+Shift,Right,movetoworkspace,+1
 		bind = Control+Super+Shift,Left,movetoworkspace,-1
-                bind = ${modifier}CONTROL,right,workspace,e+1
-                bind = ${modifier}CONTROL,left,workspace,e-1
-                bind = ${modifier},mouse_down,workspace,e+1
+                bind = ${modifier}CONTROL,Right,workspace,e+1
+                bind = ${modifier}CONTROL,Left,workspace,e-1
+                bind = ${modifier}SHIFT,left,workspace,-1
+		bind = ${modifier}SHIFT,right,workspace,+1
+		bind = ${modifier},mouse_down,workspace,e+1
                 bind = ${modifier},mouse_up,workspace,e-1
                 bindm = ${modifier},mouse:272,movewindow
                 bindm = ${modifier},mouse:273,resizewindow
