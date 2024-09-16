@@ -36,7 +36,7 @@ in
             urgent = mkLiteral "#${palette.base0E}";
           };
           "window" = {
-            width = mkLiteral "45%"; # Reduced from 50%
+            width = mkLiteral "55%";
             transparency = "real";
             orientation = mkLiteral "vertical";
             cursor = mkLiteral "default";
@@ -72,14 +72,14 @@ in
           };
           "entry" = {
             enabled = true;
-            expand = false;
-            width = mkLiteral "20%";
+            expand = true;
+            width = mkLiteral "30%";
             padding = mkLiteral "10px";
             border-radius = mkLiteral "12px";
             background-color = mkLiteral "@selected";
             text-color = mkLiteral "@text-selected";
             cursor = mkLiteral "text";
-            placeholder = "🖥️ Search ";
+            placeholder = "🖥️ Search... ";
             placeholder-color = mkLiteral "inherit";
           };
           "listbox" = {
@@ -115,9 +115,10 @@ in
             enabled = true;
             spacing = mkLiteral "10px";
             background-color = mkLiteral "transparent";
+            margin = mkLiteral "0 0 0 20px";
           };
           "button" = {
-            width = mkLiteral "5%";
+            width = mkLiteral "6%";
             padding = mkLiteral "12px";
             border-radius = mkLiteral "12px";
             background-color = mkLiteral "@text-selected";
