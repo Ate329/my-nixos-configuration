@@ -34,6 +34,7 @@
       tailscale
       metasploit
       tcpreplay
+      evhz
       cmatrix
       mcrcon
       lolcat

@@ -36,7 +36,7 @@ in
             urgent = mkLiteral "#${palette.base0E}";
           };
           "window" = {
-            width = mkLiteral "50%";
+            width = mkLiteral "45%"; # Reduced from 50%
             transparency = "real";
             orientation = mkLiteral "vertical";
             cursor = mkLiteral "default";
@@ -47,7 +47,7 @@ in
             background-color = mkLiteral "@bg";
           };
           "mainbox" = {
-            padding = mkLiteral "15px";
+            padding = mkLiteral "12px"; # Reduced from 15px
             enabled = true;
             orientation = mkLiteral "vertical";
             children = map mkLiteral [
@@ -58,8 +58,8 @@ in
           };
           "inputbar" = {
             enabled = true;
-            padding = mkLiteral "10px 10px 200px 10px";
-            margin = mkLiteral "10px";
+            padding = mkLiteral "10px 10px 150px 10px"; # Reduced height from 200px to 150px
+            margin = mkLiteral "8px"; # Reduced from 10px
             background-color = mkLiteral "transparent";
             border-radius = "25px";
             orientation = mkLiteral "horizontal";
@@ -83,8 +83,8 @@ in
             placeholder-color = mkLiteral "inherit";
           };
           "listbox" = {
-            spacing = mkLiteral "10px";
-            padding = mkLiteral "10px";
+            spacing = mkLiteral "8px"; # Reduced from 10px
+            padding = mkLiteral "8px"; # Reduced from 10px
             background-color = mkLiteral "transparent";
             orientation = mkLiteral "vertical";
             children = map mkLiteral [
@@ -95,7 +95,7 @@ in
           "listview" = {
             enabled = true;
             columns = 2;
-            lines = 6;
+            lines = 5; # Reduced from 6
             cycle = true;
             dynamic = true;
             scrollbar = false;
@@ -103,7 +103,7 @@ in
             reverse = false;
             fixed-height = false;
             fixed-columns = true;
-            spacing = mkLiteral "10px";
+            spacing = mkLiteral "8px"; # Reduced from 10px
             background-color = mkLiteral "transparent";
             border = mkLiteral "0px";
           };
