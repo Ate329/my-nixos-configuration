@@ -36,7 +36,9 @@ in
     ../../config/wlogout.nix
     ../../config/waypaper.nix
     ../../config/hypridle.nix
-    ../../config/rofi.nix
+    ../../config/rofi/rofi.nix
+    ../../config/rofi/config-emoji.nix
+    ../../config/rofi/config-long.nix
     ../../config/hyprlock.nix
   ];
 

@@ -22,10 +22,15 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    oskars-dotfiles = {
+      url = "github:oskardotglobal/.dotfiles/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, auto-cpufreq, ... }:
+    inputs@{ nixpkgs, home-manager, auto-cpufreq, oskars-dotfiles, ... }:
     let
       system = "x86_64-linux";
       host = "nixos";
@@ -51,6 +56,12 @@
             ./hosts/${host}/config.nix
             home-manager.nixosModules.home-manager
             #auto-cpufreq.nixosModules.default
+
+            ({pkgs, ...}: {
+              nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];
+              environment.systemPackages = [pkgs.spotify];
+            })
+
             {
               home-manager.extraSpecialArgs = {
                 inherit username;

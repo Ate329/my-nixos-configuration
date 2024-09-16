@@ -28,6 +28,7 @@
       getent
       alsa-utils
       ventoy-full
+      minecraft
       gamescope
       gamescope-wsi
       tailscale
@@ -211,4 +212,6 @@
     "openssl-1.1.1w"
     "electron-27.3.11"
   ];
+
+  nixpkgs.config.allowBroken = true;
 }

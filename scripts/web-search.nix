@@ -5,7 +5,7 @@ pkgs.writeShellScriptBin "web-search" ''
 
     URLS=(
       ["🌎 Search"]="https://search.brave.com/search?q="
-      ["❄️  Unstable Packages"]="https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query="
+      ["❄️  nstable Packages"]="https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query="
       ["🎞️ YouTube"]="https://www.youtube.com/results?search_query="
       ["🦥 Arch Wiki"]="https://wiki.archlinux.org/title/"
       ["🐃 Gentoo Wiki"]="https://wiki.gentoo.org/index.php?title="

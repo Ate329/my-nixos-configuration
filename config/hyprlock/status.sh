@@ -10,7 +10,7 @@ for battery in /sys/class/power_supply/*BAT*; do
     enable_battery=true
     status=$(cat /sys/class/power_supply/*/status | head -1)
     if [[ $status == "Charging" ]]; then
-      battery_icon="⚡(+)" # Lightning bolt for charging
+      battery_icon="⚡ (+)" # Lightning bolt for charging
     else
       capacity=$(cat /sys/class/power_supply/*/capacity | head -1)
       if [ $status == "Full" ]; then
