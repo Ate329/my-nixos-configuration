@@ -108,8 +108,9 @@ in
             border = mkLiteral "0px";
           };
           "dummy" = {
-            expand = true;
+            expand = false;
             background-color = mkLiteral "transparent";
+            width = mkLiteral "11.5%";
           };
           "mode-switcher" = {
             enabled = true;
