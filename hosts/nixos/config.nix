@@ -45,8 +45,17 @@
         enable = true;
         efiSupport = true;
         device = "nodev";
-        gfxmodeEfi = "1024x768x32";
-        fontSize = 36;
+        #gfxmodeEfi = "1024x576x32";
+	#font = "/home/${username}/nix-config/config/fonts/JetBrainsMono.ttf";
+        fontSize = 48;
+      };
+      grub2-theme = {
+    	enable = true;
+    	theme = "stylish";
+	#screen = "custom";
+	customResolution = "2880x1800";
+	icon = "color";
+    	footer = true;
       };
     };
 
@@ -65,6 +74,7 @@
       mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
+
     plymouth.enable = true;
   };
 

@@ -48,7 +48,7 @@ with lib;
 		exec-once = hypridle
 		exec-once= fcitx5 -d -r
 		exec-once= fcitx5-remote -r   
-		exec-once= sleep 0.5 && firefox 
+		exec-once= sleep 0.4 && firefox 
                 monitor = eDP-1, preferred, auto, auto
                 monitor = HDMI-A-1, preferred, auto-left, auto
                 ${extraMonitorSettings}

@@ -41,6 +41,7 @@
       jellyfin
       jellyfin-web
       jellyfin-media-player
+      tor-browser
       neofetch
       htop
       gnome-boxes

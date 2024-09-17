@@ -27,10 +27,14 @@
       url = "github:oskardotglobal/.dotfiles/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    grub2-themes = {
+      url = "github:Ate329/grub2-themes";
+    };
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, auto-cpufreq, oskars-dotfiles, ... }:
+    inputs@{ nixpkgs, home-manager, auto-cpufreq, oskars-dotfiles, grub2-themes, ... }:
     let
       system = "x86_64-linux";
       host = "nixos";
@@ -55,6 +59,7 @@
           modules = [
             ./hosts/${host}/config.nix
             home-manager.nixosModules.home-manager
+	    grub2-themes.nixosModules.default
             #auto-cpufreq.nixosModules.default
 
             ({pkgs, ...}: {
