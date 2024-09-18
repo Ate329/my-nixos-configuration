@@ -29,7 +29,7 @@
     };
 
     grub2-themes = {
-      url = "github:Ate329/grub2-themes";
+      url = "github:vinceliuice/grub2-themes";
     };
   };
 
