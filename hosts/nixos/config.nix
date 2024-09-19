@@ -48,6 +48,18 @@
         #gfxmodeEfi = "1024x576x32";
 	#font = "/home/${username}/nix-config/config/fonts/JetBrainsMono.ttf";
         fontSize = 48;
+	configurationLimit = 1000;
+	extraEntries = ''
+    	  menuentry "Reboot" --class restart {
+            reboot
+    	  }
+    	  menuentry "Poweroff" --class shutdown {
+      	    halt
+    	  }
+    	  menuentry "UEFI Setup" --class efi {
+      	    fwsetup
+    	  }
+  	'';
       };
       grub2-theme = {
     	enable = true;
@@ -381,11 +393,11 @@
       substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
-    /*gc = {
-      automatic = true;
+    gc = {
+      automatic = false;
       dates = "weekly";
       options = "--delete-older-than 7d";
-    };*/
+    };
   };
   
 
