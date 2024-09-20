@@ -8,6 +8,9 @@
   ...
 }:
 
+let
+  hyprlock-scripts = pkgs.callPackage ./hyprlock-scripts.nix {};
+in
 {
   home.file.".config/hypr/hyprlock.conf".text = ''
     $text_color = rgba(DFE3E7FF)
@@ -16,7 +19,7 @@
     $entry_color = rgb(193, 199, 206)
     $font_family = JetBrainsMono Nerd Font
     $font_family_clock = JetBrainsMono Nerd Font
-    $font_material_symbols = JetBrainsMono Nerd Font                       
+    $font_material_symbols = JetBrainsMono Nerd Font
     #Material Symbols Rounded
 
     text_trim = false
@@ -60,7 +63,7 @@
     }
     label { # Greeting
         monitor =
-        text = cmd[update:300000] /home/$USER/nix-config/config/hyprlock/greeting.sh
+        text = cmd[update:300000] ${hyprlock-scripts.greeting-script}/bin/hyprlock-greeting
         shadow_passes = 1
         shadow_boost = 0.5
         color = $text_color
@@ -73,7 +76,7 @@
     }
     label { # lock icon
         monitor =
-        text =       
+        text =
         shadow_passes = 1
         shadow_boost = 0.5
         color = $text_color
@@ -87,7 +90,7 @@
 
     label { # "locked" text
         monitor =
-        text = 
+        text =
         shadow_passes = 1
         shadow_boost = 0.5
         color = $text_color
@@ -101,7 +104,7 @@
 
     label { # Status
         monitor =
-        text = cmd[update:10000] /home/$USER/nix-config/config/hyprlock/status.sh
+        text = cmd[update:10000] ${hyprlock-scripts.status-script}/bin/hyprlock-status
         shadow_passes = 1
         shadow_boost = 0.5
         color = $text_color
