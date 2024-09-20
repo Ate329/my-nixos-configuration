@@ -257,16 +257,7 @@ with lib;
             bind = ${modifier},right,movefocus,r
             bind = ${modifier},up,movefocus,u
             bind = ${modifier},down,movefocus,d
-            #bind = ${modifier}ALT,1,workspace,11
-            #bind = ${modifier}ALT,2,workspace,12
-            #bind = ${modifier}ALT,3,workspace,13
-            #bind = ${modifier}ALT,4,workspace,14
-            #bind = ${modifier}ALT,5,workspace,15
-            #bind = ${modifier}ALT,6,workspace,16
-            #bind = ${modifier}ALT,7,workspace,17
-            #bind = ${modifier}ALT,8,workspace,18
-            #bind = ${modifier}ALT,9,workspace,19
-            #bind = ${modifier}ALT,0,workspace,20
+
             bind = ${modifier},1,exec,${workspace-switcher}/bin/workspace-switcher 1
             bind = ${modifier},2,exec,${workspace-switcher}/bin/workspace-switcher 2
             bind = ${modifier},3,exec,${workspace-switcher}/bin/workspace-switcher 3
@@ -277,6 +268,25 @@ with lib;
             bind = ${modifier},8,exec,${workspace-switcher}/bin/workspace-switcher 8
             bind = ${modifier},9,exec,${workspace-switcher}/bin/workspace-switcher 9
             bind = ${modifier},0,exec,${workspace-switcher}/bin/workspace-switcher 10
+
+            # Bindings for cross-monitor workspace switching (without moving window)
+            bind = ${modifier}CONTROL,left,exec,${workspace-switcher}/bin/workspace-switcher switch left
+            bind = ${modifier}CONTROL,right,exec,${workspace-switcher}/bin/workspace-switcher switch right
+
+            # Bindings for moving windows between workspaces and monitors
+            bind = ${modifier}CONTROL_SHIFT,left,exec,${workspace-switcher}/bin/workspace-switcher move left
+            bind = ${modifier}CONTROL_SHIFT,right,exec,${workspace-switcher}/bin/workspace-switcher move right
+
+            #bind = ${modifier}ALT,1,workspace,11
+            #bind = ${modifier}ALT,2,workspace,12
+            #bind = ${modifier}ALT,3,workspace,13
+            #bind = ${modifier}ALT,4,workspace,14
+            #bind = ${modifier}ALT,5,workspace,15
+            #bind = ${modifier}ALT,6,workspace,16
+            #bind = ${modifier}ALT,7,workspace,17
+            #bind = ${modifier}ALT,8,workspace,18
+            #bind = ${modifier}ALT,9,workspace,19
+            #bind = ${modifier}ALT,0,workspace,20
             bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
             bind = ${modifier},SPACE,togglespecialworkspace
             bind = ${modifier},M,moveworkspacetomonitor,1 current
@@ -292,8 +302,6 @@ with lib;
             bind = ${modifier}SHIFT,0,movetoworkspace,10
             bind = ${modifier}SHIFT,Up,workspace,-10
             bind = ${modifier}SHIFT,Down,workspace,+10
-            bind = Control+Super+Shift,Right,movetoworkspace,+1
-            bind = Control+Super+Shift,Left,movetoworkspace,-1
             bind = ${modifier}CONTROL,Right,workspace,e+1
             bind = ${modifier}CONTROL,Left,workspace,e-1
             bind = ${modifier}SHIFT,left,workspace,-1
@@ -322,7 +330,7 @@ with lib;
     		# English
     		bind = Super+Shift,T,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract -l eng "tmp.png" - | wl-copy && rm "tmp.png"
     		# Japanese
-    		bind = Super+Shift,J,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract -l jpn "tmp.png" - | wl-copy && rm "tmp.png"
+            bind = Super+Shift,J,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract -l jpn "tmp.png" - | wl-copy && rm "tmp.png"
         ''
       ];
   };
