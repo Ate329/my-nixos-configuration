@@ -30,7 +30,7 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
-    ../../config/hyprland.nix
+    ../../config/hypr/default.nix
     ../../config/swaync.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
