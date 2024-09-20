@@ -46,9 +46,10 @@ with lib;
 		exec-once = waypaper --restore
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
 		exec-once = hypridle
-		exec-once= fcitx5 -d -r
-		exec-once= fcitx5-remote -r   
-		exec-once= sleep 0.3 && firefox 
+		exec-once = fcitx5 -d -r
+		exec-once = fcitx5-remote -r   
+		exec-once = sleep 0.3 && firefox 
+		exec-once = bash /home/${username}/nix-config/scripts/power_manager.sh &
                 monitor = eDP-1, preferred, auto, auto
                 monitor = HDMI-A-1, preferred, auto-left, auto
                 ${extraMonitorSettings}
