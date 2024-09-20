@@ -10,26 +10,26 @@
 {
   home.file.".config/hypr/hypridle-ac.conf".text = ''
     general {
-      lock_cmd = pidof hyprlock || hyprlock
-      before_sleep_cmd = loginctl lock-session
-      after_sleep_cmd = hyprctl dispatch dpms on
+        lock_cmd = pidof hyprlock || hyprlock
+        before_sleep_cmd = loginctl lock-session
+        after_sleep_cmd = hyprctl dispatch dpms on
     }
 
     listener {
-      timeout = 180
-      on-timeout = brightnessctl -s set 10
-      on-resume = brightnessctl -r
-    }
-
-    listener { 
-      timeout = 180
-      on-timeout = brightnessctl -sd rgb:kbd_backlight set 0
-      on-resume = brightnessctl -rd rgb:kbd_backlight
+        timeout = 180
+        on-timeout = brightnessctl -s set 10
+        on-resume = brightnessctl -r
     }
 
     listener {
-      timeout = 300
-      on-timeout = loginctl lock-session
+        timeout = 180
+        on-timeout = brightnessctl -sd rgb:kbd_backlight set 0
+        on-resume = brightnessctl -rd rgb:kbd_backlight
+    }
+
+    listener {
+        timeout = 300
+        on-timeout = loginctl lock-session
     }
   '';
 
@@ -46,7 +46,7 @@
       on-resume = brightnessctl -r
     }
 
-    listener { 
+    listener {
       timeout = 180
       on-timeout = brightnessctl -sd rgb:kbd_backlight set 0
       on-resume = brightnessctl -rd rgb:kbd_backlight

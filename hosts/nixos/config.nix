@@ -49,7 +49,7 @@
 	#font = "/home/${username}/nix-config/config/fonts/JetBrainsMono.ttf";
         fontSize = 48;
 	configurationLimit = 1000;
-	useOSProber = true;
+	useOSProber = false;
 	extraEntries = ''
     	  menuentry "Reboot" --class restart {
             reboot

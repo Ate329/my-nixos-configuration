@@ -45,7 +45,7 @@ with lib;
 		exec-once = wl-paste --watch cliphist store
 		exec-once = waypaper --restore
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
-		exec-once = hypridle
+		# exec-once = hypridle
 		exec-once = fcitx5 -d -r
 		exec-once = fcitx5-remote -r   
 		exec-once = sleep 0.3 && firefox 
