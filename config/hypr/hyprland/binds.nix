@@ -7,7 +7,6 @@ let
   up = "k";
   down = "j";
 in
-with lib;
 ''
   # Application launchers
   bind = ${modifier},Q,exec,${terminal}
@@ -49,14 +48,28 @@ with lib;
   binde = ${modifier},Apostrophe,splitratio,0.1
 
   # Workspace management
-  ${concatMapStrings (i: ''
-    bind = ${modifier},${toString i},exec,${workspace-switcher}/bin/workspace-switcher ${toString i}
-  '') (range 1 10)}
+  bind = ${modifier},1,exec,${workspace-switcher}/bin/workspace-switcher 1
+  bind = ${modifier},2,exec,${workspace-switcher}/bin/workspace-switcher 2
+  bind = ${modifier},3,exec,${workspace-switcher}/bin/workspace-switcher 3
+  bind = ${modifier},4,exec,${workspace-switcher}/bin/workspace-switcher 4
+  bind = ${modifier},5,exec,${workspace-switcher}/bin/workspace-switcher 5
+  bind = ${modifier},6,exec,${workspace-switcher}/bin/workspace-switcher 6
+  bind = ${modifier},7,exec,${workspace-switcher}/bin/workspace-switcher 7
+  bind = ${modifier},8,exec,${workspace-switcher}/bin/workspace-switcher 8
+  bind = ${modifier},9,exec,${workspace-switcher}/bin/workspace-switcher 9
+  bind = ${modifier},0,exec,${workspace-switcher}/bin/workspace-switcher 10
 
   # Move window to workspace
-  ${concatMapStrings (i: ''
-    bind = ${modifier}SHIFT,${toString i},movetoworkspace,${toString i}
-  '') (range 1 10)}
+  bind = ${modifier}SHIFT,1,movetoworkspace,1
+  bind = ${modifier}SHIFT,2,movetoworkspace,2
+  bind = ${modifier}SHIFT,3,movetoworkspace,3
+  bind = ${modifier}SHIFT,4,movetoworkspace,4
+  bind = ${modifier}SHIFT,5,movetoworkspace,5
+  bind = ${modifier}SHIFT,6,movetoworkspace,6
+  bind = ${modifier}SHIFT,7,movetoworkspace,7
+  bind = ${modifier}SHIFT,8,movetoworkspace,8
+  bind = ${modifier}SHIFT,9,movetoworkspace,9
+  bind = ${modifier}SHIFT,0,movetoworkspace,10
 
   # Workspace navigation
   bind = ${modifier}CONTROL,left,exec,${workspace-switcher}/bin/workspace-switcher switch left

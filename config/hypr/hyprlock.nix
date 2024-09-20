@@ -9,7 +9,7 @@
 }:
 
 let
-  hyprlock-scripts = pkgs.callPackage ../scripts/hyprlock-scripts.nix {};
+  hyprlock-scripts = pkgs.callPackage ../../scripts/hyprlock-scripts.nix {};
 in
 {
   home.file.".config/hypr/hyprlock.conf".text = ''
@@ -27,7 +27,7 @@ in
     background {
         color = rgba(0F141777)
         # path = {{ SWWW_WALL }}
-        path = /home/${username}/nix-config/config/hyprlock.jpg
+        path = /home/${username}/nix-config/config/wallpapers/hyprlock.jpg
         blur_size = 5
         blur_passes = 4
     }

@@ -3,12 +3,12 @@
 let
   theme = config.colorScheme.palette;
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
-  inherit (import ../../hosts/${host}/variables.nix)
+  inherit (import ../../../hosts/${host}/variables.nix)
     browser
     borderAnim
     terminal
     extraMonitorSettings;
-  workspace-switcher = pkgs.callPackage ../../scripts/workspace-switcher.nix {
+  workspace-switcher = pkgs.callPackage ../../../scripts/workspace-switcher.nix {
     inherit (pkgs) writeShellScriptBin jq;
     hyprland = inputs.hyprland.packages.${pkgs.system}.default;
   };
