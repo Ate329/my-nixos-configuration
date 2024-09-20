@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, username, ... }:
 
 let
   powerManagerScript = pkgs.writeShellScriptBin "power-manager" ''
-    HYPRIDLE_CONF="/home/ate329/.config/hypr/hypridle.conf"
-    HYPRIDLE_CONF_AC="/home/ate329/.config/hypr/hypridle-ac.conf"
-    HYPRIDLE_CONF_BATTERY="/home/ate329/.config/hypr/hypridle-battery.conf"
+    HYPRIDLE_CONF="/home/${username}/.config/hypr/hypridle.conf"
+    HYPRIDLE_CONF_AC="/home/${username}/.config/hypr/hypridle-ac.conf"
+    HYPRIDLE_CONF_BATTERY="/home/${username}/.config/hypr/hypridle-battery.conf"
 
     check_power() {
         for supply in /sys/class/power_supply/*/status; do
@@ -64,7 +64,7 @@ let
             echo "No change in power state at $(date)"
         fi
 
-        sleep 10  # Check every 10 seconds
+        sleep 20  # Check every 20 seconds
     done
   '';
 in
@@ -76,7 +76,7 @@ in
     serviceConfig = {
       ExecStart = "${powerManagerScript}/bin/power-manager";
       Restart = "always";
-      RestartSec = "10s";
+      RestartSec = "20s";
       User = "root";  # The service needs root privileges to modify the config and restart hypridle
     };
   };
