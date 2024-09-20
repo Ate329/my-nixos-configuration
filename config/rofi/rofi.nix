@@ -110,7 +110,7 @@ in
           "dummy" = {
             expand = false;
             background-color = mkLiteral "transparent";
-            width = mkLiteral "11.5%";
+            width = mkLiteral "11.2%";
           };
           "mode-switcher" = {
             enabled = true;
