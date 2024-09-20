@@ -35,11 +35,9 @@ in
     ../../config/waybar.nix
     ../../config/wlogout.nix
     ../../config/waypaper.nix
-    ../../config/hypridle.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
-    ../../config/hyprlock.nix
   ];
 
   # Define Settings For Xresources
