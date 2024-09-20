@@ -9,7 +9,7 @@
 }:
 
 let
-  hyprlock-scripts = pkgs.callPackage ./hyprlock-scripts.nix {};
+  hyprlock-scripts = pkgs.callPackage ../scripts/hyprlock-scripts.nix {};
 in
 {
   home.file.".config/hypr/hyprlock.conf".text = ''
