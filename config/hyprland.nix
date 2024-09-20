@@ -17,6 +17,10 @@ let
     terminal
     extraMonitorSettings
     ;
+  workspace-switcher = pkgs.callPackage ../scripts/workspace-switcher.nix {
+    inherit (pkgs) writeShellScriptBin jq;
+    hyprland = inputs.hyprland.packages.${pkgs.system}.default;
+  };
 in
 with lib;
 {
@@ -47,8 +51,8 @@ with lib;
 		# exec-once = swww img /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
 		exec-once = hypridle
 		exec-once = fcitx5 -d -r
-		exec-once = fcitx5-remote -r   
-		exec-once = sleep 0.3 && firefox 
+		exec-once = fcitx5-remote -r
+		exec-once = sleep 0.3 && firefox
 		exec-once = bash /home/${username}/nix-config/scripts/power_manager.sh &
                 monitor = eDP-1, preferred, auto, auto
                 monitor = HDMI-A-1, preferred, auto-left, auto
@@ -149,7 +153,7 @@ with lib;
 		  workspace_swipe_direction_lock_threshold = 5
 		  workspace_swipe_distance = 350
                 }
-                
+
 		misc {
                   mouse_move_enables_dpms = true
                   key_press_enables_dpms = false
@@ -274,16 +278,16 @@ with lib;
                 #bind = ${modifier}ALT,8,workspace,18
                 #bind = ${modifier}ALT,9,workspace,19
                 #bind = ${modifier}ALT,0,workspace,20
-		bind = ${modifier},1,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 1
-		bind = ${modifier},2,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 2
-		bind = ${modifier},3,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 3
-		bind = ${modifier},4,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 4
-		bind = ${modifier},5,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 5
-		bind = ${modifier},6,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 6
-		bind = ${modifier},7,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 7
-		bind = ${modifier},8,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 8
-		bind = ${modifier},9,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 9
-		bind = ${modifier},0,exec,/home/${username}/nix-config/scripts/workspace_switcher.sh 10
+                bind = ${modifier},1,exec,${workspace-switcher}/bin/workspace-switcher 1
+                bind = ${modifier},2,exec,${workspace-switcher}/bin/workspace-switcher 2
+                bind = ${modifier},3,exec,${workspace-switcher}/bin/workspace-switcher 3
+                bind = ${modifier},4,exec,${workspace-switcher}/bin/workspace-switcher 4
+                bind = ${modifier},5,exec,${workspace-switcher}/bin/workspace-switcher 5
+                bind = ${modifier},6,exec,${workspace-switcher}/bin/workspace-switcher 6
+                bind = ${modifier},7,exec,${workspace-switcher}/bin/workspace-switcher 7
+                bind = ${modifier},8,exec,${workspace-switcher}/bin/workspace-switcher 8
+                bind = ${modifier},9,exec,${workspace-switcher}/bin/workspace-switcher 9
+                bind = ${modifier},0,exec,${workspace-switcher}/bin/workspace-switcher 10
 		bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
                 bind = ${modifier},SPACE,togglespecialworkspace
 		bind = ${modifier},M,moveworkspacetomonitor,1 current
