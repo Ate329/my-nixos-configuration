@@ -1,8 +1,18 @@
 # !/bin/bash
 
-HYPRIDLE_CONF="/home/$USER/.config/hypr/hypridle.conf"
-HYPRIDLE_CONF_AC="/home/$USER/.config/hypr/hypridle-ac.conf"
-HYPRIDLE_CONF_BATTERY="/home/$USER/.config/hypr/hypridle-battery.conf"
+HYPRIDLE_CONF="/home/ate329/.config/hypr/hypridle.conf"
+HYPRIDLE_CONF_AC="/home/ate329/.config/hypr/hypridle-ac.conf"
+HYPRIDLE_CONF_BATTERY="/home/ate329/.config/hypr/hypridle-battery.conf"
+
+# Find the correct paths for commands
+CP_CMD=$(command -v cp)
+PKILL_CMD=$(command -v pkill)
+HYPRIDLE_CMD=$(command -v hypridle)
+
+if [ -z "$CP_CMD" ] || [ -z "$PKILL_CMD" ] || [ -z "$HYPRIDLE_CMD" ]; then
+    echo "Error: One or more required commands (cp, pkill, hypridle) not found."
+    exit 1
+fi
 
 check_power() {
     for supply in /sys/class/power_supply/*/status; do
@@ -30,19 +40,21 @@ check_power() {
 update_config() {
     if [ $1 -eq 0 ]; then
         # On AC power
-        cp "$HYPRIDLE_CONF_AC" "$HYPRIDLE_CONF"
+        sudo "$CP_CMD" "$HYPRIDLE_CONF_AC" "$HYPRIDLE_CONF"
         echo "Switched to AC power configuration at $(date)"
     else
         # On battery
-        cp "$HYPRIDLE_CONF_BATTERY" "$HYPRIDLE_CONF"
+        sudo "$CP_CMD" "$HYPRIDLE_CONF_BATTERY" "$HYPRIDLE_CONF"
         echo "Switched to battery power configuration at $(date)"
     fi
 
-    # Restart Hypridle
-    pkill hypridle
-    hypridle &
+    # Restart Hypridle only when the state changes
+    sudo "$PKILL_CMD" hypridle
+    sudo "$HYPRIDLE_CMD" &
     echo "Restarted Hypridle at $(date)"
 }
+
+last_state=-1  # Initialize to an invalid state
 
 while true; do
     if check_power; then
