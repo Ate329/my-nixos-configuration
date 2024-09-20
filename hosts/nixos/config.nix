@@ -13,6 +13,7 @@
     ./hardware.nix
     ./users.nix
     ./pkgs.nix
+    ../../scripts/power_manager.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
@@ -26,7 +27,7 @@
     # kernelPackages = pkgs.linuxPackages;
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_zen;
-    
+
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
@@ -142,7 +143,7 @@
 
   programs = {
     hyprlock.enable = true;
-    
+
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -183,7 +184,7 @@
       flake = "/home/ate329/nix-config";
     };
   };
- 
+
   #auto-cpufreq config
   services.auto-cpufreq = {
     enable = true;
@@ -307,7 +308,7 @@
 
     rpcbind.enable = true;
     nfs.server.enable = true;
- 
+
     power-profiles-daemon.enable = false;
 
     logind.extraConfig = ''
@@ -362,7 +363,7 @@
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
 
-  
+
   # Security / Polkit
   security.rtkit.enable = true;
   security.polkit.enable = true;
@@ -400,7 +401,7 @@
       options = "--delete-older-than 7d";
     };
   };
-  
+
 
   # automatic upgrade
   system.autoUpgrade = {
