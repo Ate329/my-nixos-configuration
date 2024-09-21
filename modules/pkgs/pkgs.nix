@@ -21,6 +21,7 @@
       git
       gparted
       nmap
+      xwaylandvideobridge
       hping
       rename
       jq
