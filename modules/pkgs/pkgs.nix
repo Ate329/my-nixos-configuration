@@ -33,6 +33,8 @@
       gamescope
       gamescope-wsi
       tailscale
+      webcord
+      vesktop
       jstest-gtk
       linuxConsoleTools
       metasploit
