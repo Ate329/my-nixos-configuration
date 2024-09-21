@@ -1,7 +1,7 @@
 { pkgs, lib, username, theme, borderAnim, extraMonitorSettings }:
 
 ''
-  # Environment
+  # Start-up apps
   exec-once = dbus-update-activation-environment --systemd --all
   exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = killall -q waybar;sleep .5 && waybar
