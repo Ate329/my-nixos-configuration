@@ -170,24 +170,24 @@ in
 
   # Scripts
   home.packages = [
-    (import ../../scripts/emopicker9000.nix { inherit pkgs; })
-    (import ../../scripts/task-waybar.nix { inherit pkgs; })
-    (import ../../scripts/squirtle.nix { inherit pkgs; })
-    (import ../../scripts/themechange.nix {
+    (import ../../home/scripts/emopicker9000.nix { inherit pkgs; })
+    (import ../../home/scripts/task-waybar.nix { inherit pkgs; })
+    (import ../../home/scripts/squirtle.nix { inherit pkgs; })
+    (import ../../home/scripts/themechange.nix {
       inherit pkgs;
       inherit host;
       inherit username;
     })
-    (import ../../scripts/theme-selector.nix { inherit pkgs; })
-    (import ../../scripts/nvidia-offload.nix { inherit pkgs; })
-    (import ../../scripts/wallsetter.nix {
+    (import ../../home/scripts/theme-selector.nix { inherit pkgs; })
+    (import ../../home/scripts/nvidia-offload.nix { inherit pkgs; })
+    (import ../../home/scripts/wallsetter.nix {
       inherit pkgs;
       inherit username;
     })
-    (import ../../scripts/web-search.nix { inherit pkgs; })
-    (import ../../scripts/rofi-launcher.nix { inherit pkgs; })
-    (import ../../scripts/screenshootin.nix { inherit pkgs; })
-    (import ../../scripts/list-hypr-bindings.nix {
+    (import ../../home/scripts/web-search.nix { inherit pkgs; })
+    (import ../../home/scripts/rofi-launcher.nix { inherit pkgs; })
+    (import ../../home/scripts/screenshootin.nix { inherit pkgs; })
+    (import ../../home/scripts/list-hypr-bindings.nix {
       inherit pkgs;
       inherit host;
     })
