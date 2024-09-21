@@ -31,7 +31,6 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
     ../../home/programs/hypr/default.nix
-    #../../config/hyprland.nix
     ../../home/programs/swaync.nix
     ../../home/programs/waybar.nix
     ../../home/programs/wlogout.nix
