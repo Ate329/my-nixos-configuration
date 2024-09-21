@@ -30,14 +30,12 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
-    ../../config/hypr/default.nix
-    ../../config/swaync.nix
-    ../../config/waybar.nix
-    ../../config/wlogout.nix
-    ../../config/waypaper.nix
-    ../../config/rofi/rofi.nix
-    ../../config/rofi/config-emoji.nix
-    ../../config/rofi/config-long.nix
+    ../../home/programs/hypr/default.nix
+    ../../home/programs/swaync.nix
+    ../../home/programs/waybar.nix
+    ../../home/programs/wlogout.nix
+    ../../home/programs/waypaper.nix
+    ../../home/programs/rofi/default.nix
   ];
 
   # Define Settings For Xresources
@@ -47,21 +45,21 @@ in
 
   # Place Files Inside Home Directory
   home.file."Pictures/Wallpapers" = {
-    source = ../../config/wallpapers;
+    source = ../../home/themes/wallpapers;
     recursive = true;
   };
   home.file.".config/wlogout/icons" = {
-    source = ../../config/wlogout;
+    source = ../../home/programs/wlogout;
     recursive = true;
   };
   home.file.".local/share/fonts" = {
-    source = ../../config/fonts;
+    source = ../../home/themes/fonts;
     recursive = true;
   };
-  home.file.".config/starship.toml".source = ../../config/starship.toml;
-  home.file.".config/ascii-neofetch".source = ../../config/ascii-neofetch;
-  home.file.".base16-themes".source = ../../config/base16-themes;
-  home.file.".emoji".source = ../../config/emoji;
+  home.file.".config/starship.toml".source = ../../home/shell/starship.toml;
+  home.file.".config/ascii-neofetch".source = ../../home/shell/ascii-neofetch;
+  home.file.".base16-themes".source = ../../home/themes/base16-themes;
+  home.file.".emoji".source = ../../home/shell/emoji;
   home.file.".config/neofetch/config.conf".text = ''
     print_info() {
         prin "$(color 6)  ate329@nixos"
@@ -253,18 +251,18 @@ in
         set noemoji
       '';
       extraLuaConfig = ''
-        ${builtins.readFile ../../config/nvim/options.lua}
-        ${builtins.readFile ../../config/nvim/keymaps.lua}
-        ${builtins.readFile ../../config/nvim/plugins/alpha.lua}
-        ${builtins.readFile ../../config/nvim/plugins/autopairs.lua}
-        ${builtins.readFile ../../config/nvim/plugins/auto-session.lua}
-        ${builtins.readFile ../../config/nvim/plugins/comment.lua}
-        ${builtins.readFile ../../config/nvim/plugins/cmp.lua}
-        ${builtins.readFile ../../config/nvim/plugins/lsp.lua}
-        ${builtins.readFile ../../config/nvim/plugins/nvim-tree.lua}
-        ${builtins.readFile ../../config/nvim/plugins/telescope.lua}
-        ${builtins.readFile ../../config/nvim/plugins/todo-comments.lua}
-        ${builtins.readFile ../../config/nvim/plugins/treesitter.lua}
+        ${builtins.readFile ../../home/programs/nvim/options.lua}
+        ${builtins.readFile ../../home/programs/nvim/keymaps.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/alpha.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/autopairs.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/auto-session.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/comment.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/cmp.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/lsp.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/nvim-tree.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/telescope.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/todo-comments.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/treesitter.lua}
         require("ibl").setup()
         require("bufferline").setup{}
         require("lualine").setup({
@@ -413,9 +411,9 @@ in
       '';
       shellAliases = {
         sv = "sudo nvim";
-        flake-rebuild = "nh os switch --hostname ${host} /home/${username}/zaneyos";
-        flake-update = "nh os switch --hostname ${host} --update /home/${username}/zaneyos";
-        flake-rebuild-impure = "sudo nixos-rebuild switch --flake /home/${username}/zaneyos#${host} --impure";
+        flake-rebuild = "nh os switch --hostname ${host} /home/${username}/nix-config";
+        flake-update = "nh os switch --hostname ${host} --update /home/${username}/nix-config";
+        flake-rebuild-impure = "sudo nixos-rebuild switch --flake /home/${username}/nix-config#${host} --impure";
 	gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
         v = "nvim";
         ls = "lsd";

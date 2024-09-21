@@ -11,8 +11,8 @@
 {
   environment.systemPackages =
     let
-      sugar = pkgs.callPackage ../../pkgs/sddm-sugar-dark.nix { };
-      tokyo-night = pkgs.libsForQt5.callPackage ../../pkgs/sddm-tokyo-night.nix { };
+      sugar = pkgs.callPackage ./sddm-themes/sddm-sugar-dark.nix { };
+      tokyo-night = pkgs.libsForQt5.callPackage ./sddm-themes/sddm-tokyo-night.nix { };
     in
     with pkgs;
     [
@@ -178,7 +178,7 @@
       cargo
       vscode-fhs
       libreoffice
-      (wechat-uos.override { uosLicense = ../../config/license.tar.gz; })
+      (wechat-uos.override { uosLicense = ./license.tar.gz; })
       okular
       discord
       deja-dup
@@ -187,12 +187,6 @@
       teams-for-linux
       gcc
       gcc-unwrapped
-      #fcitx5
-      #fcitx5-rime
-      #fcitx5-mozc
-      #fcitx5-skk
-      #fcitx5-lua
-      #fcitx5-gtk
       ibus
       ibus-with-plugins
       ibus-engines.rime
@@ -207,7 +201,7 @@
       fastfetch
       vim
       sl
-      alacritty    
+      alacritty
     ];
 
   nixpkgs.config.permittedInsecurePackages = [

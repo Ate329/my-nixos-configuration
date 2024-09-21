@@ -68,7 +68,7 @@ in
               "dummy"
               "mode-switcher"
             ];
-            background-image = mkLiteral ''url("~/nix-config/config/wallpapers/rofi.jpg", width)'';
+            background-image = mkLiteral ''url("~/nix-config/home/themes/wallpapers/rofi.jpg", width)'';
           };
           "entry" = {
             enabled = true;

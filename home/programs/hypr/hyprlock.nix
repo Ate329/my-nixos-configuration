@@ -27,7 +27,7 @@ in
     background {
         color = rgba(0F141777)
         # path = {{ SWWW_WALL }}
-        path = /home/${username}/nix-config/config/wallpapers/hyprlock.jpg
+        path = /home/${username}/nix-config/home/themes/wallpapers/hyprlock.jpg
         blur_size = 5
         blur_passes = 4
     }

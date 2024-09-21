@@ -14,7 +14,7 @@
   exec-once = fcitx5 -d -r
   exec-once = fcitx5-remote -r
   exec-once = sleep 0.3 && firefox
-  exec-once = bash /home/${username}/nix-config/scripts/power_manager.sh &
+  exec-once = bash /home/${username}/nix-config/home/scripts/power_manager.sh &
 
   # Monitor configuration
   monitor = eDP-1, preferred, auto, auto

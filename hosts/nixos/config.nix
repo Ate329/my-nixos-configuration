@@ -12,14 +12,14 @@
   imports = [
     ./hardware.nix
     ./users.nix
-    ./pkgs.nix
-    ../../scripts/power_manager.nix
-    ../../modules/amd-drivers.nix
-    ../../modules/nvidia-drivers.nix
-    ../../modules/nvidia-prime-drivers.nix
-    ../../modules/intel-drivers.nix
-    ../../modules/vm-guest-services.nix
-    ../../modules/local-hardware-clock.nix
+    ../../modules/pkgs/pkgs.nix
+    ../../home/scripts/power_manager.nix
+    ../../modules/hardware/amd-drivers.nix
+    ../../modules/hardware/nvidia-drivers.nix
+    ../../modules/hardware/nvidia-prime-drivers.nix
+    ../../modules/hardware/intel-drivers.nix
+    ../../modules/services/vm-guest-services.nix
+    ../../modules/services/local-hardware-clock.nix
   ];
 
   boot = {
@@ -47,7 +47,7 @@
         efiSupport = true;
         device = "nodev";
         #gfxmodeEfi = "1024x576x32";
-	#font = "/home/${username}/nix-config/config/fonts/JetBrainsMono.ttf";
+	#font = "/home/${username}/nix-config/home/themes/fonts/JetBrainsMono.ttf";
         fontSize = 48;
 	configurationLimit = 1000;
 	useOSProber = false;
@@ -138,6 +138,10 @@
       fcitx5-gtk
       fcitx5-rime
       fcitx5-chinese-addons
+      fcitx5-mozc
+      fcitx5-skk
+      fcitx5-lua
+      fcitx5-gtk
     ];
   };
 
@@ -242,7 +246,7 @@
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
-      theme = "${import ../../pkgs/where-is-my-sddm-theme.nix {inherit pkgs;}}";
+      theme = "${import ../../modules/pkgs/sddm-themes/where-is-my-sddm-theme.nix {inherit pkgs;}}";
     };
 
     tailscale = {
