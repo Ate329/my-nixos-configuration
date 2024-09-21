@@ -168,11 +168,17 @@
 
     virt-manager.enable = true;
 
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+
     steam = {
       enable = true;
       gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
     };
 
     thunar = {
@@ -188,6 +194,8 @@
       flake = "/home/ate329/nix-config";
     };
   };
+
+  hardware.xone.enable = true; # support for the xbox controller USB dongle
 
   #auto-cpufreq config
   services.auto-cpufreq = {

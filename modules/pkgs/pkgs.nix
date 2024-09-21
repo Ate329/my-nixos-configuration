@@ -32,6 +32,8 @@
       gamescope
       gamescope-wsi
       tailscale
+      jstest-gtk
+      linuxConsoleTools
       metasploit
       tcpreplay
       evhz
