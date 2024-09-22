@@ -65,7 +65,6 @@
             ./hosts/${host}/config.nix
             home-manager.nixosModules.home-manager
             grub2-themes.nixosModules.default
-            inputs.spicetify-nix.homeManagerModules.default
             #auto-cpufreq.nixosModules.default
 
             ({pkgs, ...}: {

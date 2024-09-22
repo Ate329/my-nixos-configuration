@@ -21,7 +21,6 @@
     ../../modules/services/vm-guest-services.nix
     ../../modules/services/local-hardware-clock.nix
     ../../modules/pkgs/custom-packages/noise-suppression.nix
-    ../../modules/pkgs/custom-packages/spicetify.nix
   ];
 
   boot = {

@@ -30,12 +30,14 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
+    inputs.spicetify-nix.homeManagerModules.default
     ../../home/programs/hypr/default.nix
     ../../home/programs/swaync.nix
     ../../home/programs/waybar.nix
     ../../home/programs/wlogout.nix
     ../../home/programs/waypaper.nix
     ../../home/programs/rofi/default.nix
+    ../../modules/pkgs/custom-packages/spicetify.nix
   ];
 
   # Define Settings For Xresources
