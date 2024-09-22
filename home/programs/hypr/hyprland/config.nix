@@ -9,12 +9,12 @@
   exec-once = nm-applet --indicator
   exec-once = lxqt-policykit-agent
   exec-once = wl-paste --watch cliphist store
-  exec-once = waypaper --restore
   exec-once = hypridle
   exec-once = fcitx5 -d -r
   exec-once = fcitx5-remote -r
   exec-once = sleep 0.3 && firefox
   exec-once = bash /home/${username}/nix-config/home/scripts/power_manager.sh &
+  exec = waypaper --restore
 
   # Environment
   env = NIXOS_OZONE_WL, 1
