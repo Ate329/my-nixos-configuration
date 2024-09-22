@@ -32,6 +32,7 @@
       minecraft
       gamescope
       gamescope-wsi
+      clinfo
       tailscale
       webcord
       vesktop

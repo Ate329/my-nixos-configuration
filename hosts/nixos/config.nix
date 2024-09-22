@@ -38,6 +38,15 @@
       "vm.max_map_count" = 2147483642;
     };
 
+    kernelParams = [
+      "video=eDP-1:2880x1800@120"
+      "video=HDMI-A-1:2560x1440@144"
+      "radeon.si_support=0" "amdgpu.si_support=1"
+      "radeon.cik_support=0" "amdgpu.cik_support=1"
+    ];
+
+    initrd.kernelModules = [ "amdgpu" ];
+
     # Bootloader.
     loader = {
       efi = {
@@ -348,6 +357,8 @@
   hardware.logitech.wireless.enable = false;
   hardware.logitech.wireless.enableGraphical = false;
 
+  hardware.cpu.amd.updateMicrocode = true;
+
   # Bluetooth
   hardware.bluetooth = {
     enable = true; # enables support for Bluetooth
@@ -441,6 +452,9 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+        rocmPackages.clr.icd
+    ];
   };
 
   # Extra Module Options
