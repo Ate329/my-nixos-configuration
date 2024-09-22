@@ -25,6 +25,11 @@
       hping
       rename
       jq
+      amdenc
+      amd-blis
+      amdgpu_top
+      microcode-amd
+      zenmonitor
       virtualbox
       getent
       alsa-utils
