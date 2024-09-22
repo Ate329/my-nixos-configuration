@@ -24,6 +24,17 @@ in {
       fullAppDisplay
       shuffle # shuffle+ (special characters are sanitized out of ext names)
       hidePodcasts
+      beautifulLyrics
+      copyLyrics
+      volumePercentage
+      betterGenres
+      history
+      copyToClipboard
+      showQueueDuration
+      songStats
+      wikify
+      fullAlbumDate
+      groupSession
     ];
   };
 }
