@@ -6,7 +6,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
-    
+
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -30,6 +30,11 @@
 
     grub2-themes = {
       url = "github:vinceliuice/grub2-themes";
+    };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
