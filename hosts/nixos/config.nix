@@ -27,7 +27,8 @@
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
     # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_6_6;
 
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
