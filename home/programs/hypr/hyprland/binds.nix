@@ -71,6 +71,17 @@ in
   bind = ${modifier}SHIFT,9,movetoworkspace,9
   bind = ${modifier}SHIFT,0,movetoworkspace,10
 
+  bind = ${modifier}ALT,1,movetoworkspace,11
+  bind = ${modifier}ALT,2,movetoworkspace,12
+  bind = ${modifier}ALT,3,movetoworkspace,13
+  bind = ${modifier}ALT,4,movetoworkspace,14
+  bind = ${modifier}ALT,5,movetoworkspace,15
+  bind = ${modifier}ALT,6,movetoworkspace,16
+  bind = ${modifier}ALT,7,movetoworkspace,17
+  bind = ${modifier}ALT,8,movetoworkspace,18
+  bind = ${modifier}ALT,9,movetoworkspace,19
+  bind = ${modifier}ALT,0,movetoworkspace,20
+
   # Workspace navigation
   bind = ${modifier}CONTROL,left,exec,${workspace-switcher}/bin/workspace-switcher switch left
   bind = ${modifier}CONTROL,right,exec,${workspace-switcher}/bin/workspace-switcher switch right
