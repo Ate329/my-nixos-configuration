@@ -28,8 +28,8 @@
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
     # kernelPackages = pkgs.linuxPackages_latest;
-    # kernelPackages = pkgs.linuxPackages_zen;
-    kernelPackages = pkgs.linuxPackages_6_6;
+    kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_6_6;
 
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
@@ -43,8 +43,6 @@
     kernelParams = [
       "video=eDP-1:2880x1800@120"
       "video=HDMI-A-1:2560x1440@144"
-      "radeon.si_support=0" "amdgpu.si_support=1"
-      "radeon.cik_support=0" "amdgpu.cik_support=1"
     ];
 
     initrd.kernelModules = [ "amdgpu" ];
