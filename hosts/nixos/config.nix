@@ -150,12 +150,15 @@
         rime-data
         fcitx5-rime
         fcitx5-chinese-addons
+        fcitx5-pinyin-moegirl
         fcitx5-gtk
         fcitx5-mozc
         fcitx5-skk
         fcitx5-lua
+        fcitx5-chewing
         libsForQt5.fcitx5-qt
         fcitx5-tokyonight
+        fcitx5-rose-pine
       ];
     };
   };
