@@ -357,6 +357,22 @@
     '';
   };
 
+  systemd.user.services.waybar = {
+    Unit = {
+      Description = "Waybar";
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session.target"];
+    };
+    Install = {
+      WantedBy = ["graphical-session.target"];
+    };
+    Service = {
+      ExecStart = "${pkgs.waybar}/bin/waybar";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+  };
+
   hardware.sane = {
     enable = true;
     extraBackends = [ pkgs.sane-airscan ];

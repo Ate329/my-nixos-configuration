@@ -4,18 +4,8 @@ let
   palette = config.colorScheme.palette;
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
   inherit (import ../../hosts/${host}/variables.nix) bar-number clock24h waybarAnim;
+
 in with lib; {
-  # System service
-  systemd.user.services.waybar = {
-    description = "Waybar";
-    wantedBy = [ "hyprland-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.waybar}/bin/waybar";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-  };
   # Configure & Theme Waybar
   programs.waybar = {
     enable = true;
