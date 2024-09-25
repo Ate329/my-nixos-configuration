@@ -4,8 +4,8 @@
   # Start-up apps
   exec-once = dbus-update-activation-environment --systemd --all
   exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-  # exec-once = killall -q waybar; sleep 1 && waybar
-  exec-once = killall -q swaync; sleep 1 && swaync
+  exec-once = killall -q waybar; sleep 1 && waybar
+  exec-once = killall -q swaync; sleep 0.9 && swaync
   exec-once = nm-applet --indicator
   exec-once = lxqt-policykit-agent
   exec-once = wl-paste --watch cliphist store
@@ -14,6 +14,7 @@
   exec-once = fcitx5-remote -r
   exec-once = sleep 0.5 && firefox
   exec-once = bash /home/${username}/nix-config/home/scripts/power_manager.sh &
+  exec-once = restart-apps
   exec = waypaper --restore
 
   # Environment

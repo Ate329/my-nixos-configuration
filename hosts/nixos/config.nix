@@ -14,6 +14,7 @@
     ./users.nix
     ../../modules/pkgs/pkgs.nix
     ../../home/scripts/power_manager.nix
+    ../../home/scripts/restart-apps.nix
     ../../modules/hardware/amd-drivers.nix
     ../../modules/hardware/nvidia-drivers.nix
     ../../modules/hardware/nvidia-prime-drivers.nix
@@ -355,22 +356,6 @@
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
-  };
-
-  systemd.user.services.waybar = {
-    Unit = {
-      Description = "Waybar";
-      PartOf = ["graphical-session.target"];
-      After = ["graphical-session.target"];
-    };
-    Install = {
-      WantedBy = ["graphical-session.target"];
-    };
-    Service = {
-      ExecStart = "${pkgs.waybar}/bin/waybar";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
   };
 
   hardware.sane = {
