@@ -31,9 +31,10 @@
   env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
   env = SDL_VIDEODRIVER, x11
   env = MOZ_ENABLE_WAYLAND, 1
+  env = AQ_NO_MODIFIERS, 1
 
   # Monitor configuration
-  monitor = eDP-1, preferred, auto, auto
+  monitor = eDP-1, highres, auto, auto
   monitor = HDMI-A-1, preferred, auto-left, auto
   ${extraMonitorSettings}
 
