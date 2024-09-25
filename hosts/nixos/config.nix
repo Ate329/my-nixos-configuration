@@ -12,15 +12,15 @@
   imports = [
     ./hardware.nix
     ./users.nix
-    ../../modules/pkgs/pkgs.nix
     ../../home/scripts/power_manager.nix
-    ../../home/scripts/restart-apps.nix
     ../../modules/hardware/amd-drivers.nix
     ../../modules/hardware/nvidia-drivers.nix
     ../../modules/hardware/nvidia-prime-drivers.nix
     ../../modules/hardware/intel-drivers.nix
     ../../modules/services/vm-guest-services.nix
     ../../modules/services/local-hardware-clock.nix
+    ../../modules/services/restart-apps.nix
+    ../../modules/pkgs/pkgs.nix
     ../../modules/pkgs/custom-packages/noise-suppression.nix
   ];
 
