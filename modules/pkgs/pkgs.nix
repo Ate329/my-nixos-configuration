@@ -34,6 +34,8 @@
       zenmonitor
       virtualbox
       getent
+      iconv
+      glibc_memusage
       alsa-utils
       ventoy-full
       minecraft
@@ -79,7 +81,7 @@
       eza
       v4l-utils
       ydotool
-      auto-cpufreq
+      #auto-cpufreq
       wl-clipboard
       lm_sensors
       pciutils

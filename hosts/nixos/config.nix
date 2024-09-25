@@ -59,11 +59,11 @@
         efiSupport = true;
         device = "nodev";
         #gfxmodeEfi = "1024x576x32";
-	#font = "/home/${username}/nix-config/home/themes/fonts/JetBrainsMono.ttf";
+        #font = "/home/${username}/nix-config/home/themes/fonts/JetBrainsMono.ttf";
         fontSize = 48;
-	configurationLimit = 1000;
-	useOSProber = false;
-	extraEntries = ''
+        configurationLimit = 1000;
+        useOSProber = false;
+        extraEntries = ''
     	  menuentry "Reboot" --class restart {
             reboot
     	  }
@@ -78,9 +78,9 @@
       grub2-theme = {
     	enable = true;
     	theme = "stylish";
-	#screen = "custom";
-	customResolution = "2880x1800";
-	icon = "color";
+        #screen = "custom";
+        customResolution = "2880x1800";
+        icon = "color";
     	footer = true;
       };
     };
@@ -217,20 +217,20 @@
   hardware.xone.enable = true; # support for the xbox controller USB dongle
 
   #auto-cpufreq config
-  services.auto-cpufreq = {
+  programs.auto-cpufreq = {
     enable = true;
 
     settings = {
       charger = {
         governor = "performance";
         turbo = "auto";
-	energy_performance_preference = "performance";
+        energy_performance_preference = "performance";
       };
 
       battery = {
         governor = "powersave";
         turbo = "never";
-	energy_performance_preference = "power";
+        energy_performance_preference = "power";
         enable_thresholds = true;
         start_threshold = 30;
         stop_threshold = 85;

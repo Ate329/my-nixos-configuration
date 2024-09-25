@@ -65,7 +65,7 @@
             ./hosts/${host}/config.nix
             home-manager.nixosModules.home-manager
             grub2-themes.nixosModules.default
-            #auto-cpufreq.nixosModules.default
+            auto-cpufreq.nixosModules.default
 
             ({pkgs, ...}: {
               nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];
