@@ -4,13 +4,12 @@
   # Start-up apps
   exec-once = dbus-update-activation-environment --systemd --all
   exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-  exec-once = killall -q waybar; sleep 1 && waybar
+  # exec-once = killall -q waybar; sleep 1 && waybar
   exec-once = killall -q swaync; sleep 1 && swaync
   exec-once = nm-applet --indicator
   exec-once = lxqt-policykit-agent
   exec-once = wl-paste --watch cliphist store
   exec-once = hypridle
-  exec-once = xwaylandvideobridge
   exec-once = fcitx5 -d -r
   exec-once = fcitx5-remote -r
   exec-once = sleep 0.5 && firefox
