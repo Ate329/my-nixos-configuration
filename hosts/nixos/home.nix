@@ -32,11 +32,12 @@ in
     inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
     ../../home/programs/hypr/default.nix
+    ../../home/programs/rofi/default.nix
     ../../home/programs/swaync.nix
     ../../home/programs/waybar.nix
     ../../home/programs/wlogout.nix
     ../../home/programs/waypaper.nix
-    ../../home/programs/rofi/default.nix
+    ../../home/programs/fcitx5.nix
     ../../modules/pkgs/custom-packages/spicetify.nix
   ];
 

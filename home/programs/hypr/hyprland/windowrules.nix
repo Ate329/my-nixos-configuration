@@ -18,6 +18,10 @@
   windowrule = float,title:^(Wine)(.*)$
   windowrulev2 = stayfocused, title:^()$,class:^(steam)$
   windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
+  windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
+  windowrulev2 = noanim,class:^(xwaylandvideobridge)$
+  windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
+  windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
 
   # Dialogs
   windowrule = float,title:^(Open File)(.*)$

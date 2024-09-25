@@ -10,6 +10,7 @@
   exec-once = lxqt-policykit-agent
   exec-once = wl-paste --watch cliphist store
   exec-once = hypridle
+  exec-once = xwaylandvideobridge
   exec-once = fcitx5 -d -r
   exec-once = fcitx5-remote -r
   exec-once = sleep 0.5 && firefox
@@ -31,7 +32,7 @@
   env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
   env = SDL_VIDEODRIVER, x11
   env = MOZ_ENABLE_WAYLAND, 1
-  env = AQ_NO_MODIFIERS, 1
+  env = AQ_NO_MODIFIERS, 1 # For systems with limitation (iGPU)
 
   # Monitor configuration
   monitor = eDP-1, highres, auto, auto

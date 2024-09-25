@@ -144,16 +144,20 @@
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
-    fcitx5.addons = with pkgs; [
-      rime-data
-      fcitx5-gtk
-      fcitx5-rime
-      fcitx5-chinese-addons
-      fcitx5-mozc
-      fcitx5-skk
-      fcitx5-lua
-      fcitx5-gtk
-    ];
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        rime-data
+        fcitx5-rime
+        fcitx5-chinese-addons
+        fcitx5-gtk
+        fcitx5-mozc
+        fcitx5-skk
+        fcitx5-lua
+        libsForQt5.fcitx5-qt
+        fcitx5-tokyonight
+      ];
+    };
   };
 
   programs = {

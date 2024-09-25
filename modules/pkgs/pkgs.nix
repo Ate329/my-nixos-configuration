@@ -22,6 +22,8 @@
       gparted
       nmap
       xwaylandvideobridge
+      xwayland-satellite
+      xwayland-run
       hping
       rename
       jq
