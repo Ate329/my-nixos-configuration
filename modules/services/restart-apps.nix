@@ -2,45 +2,28 @@
 
 let
   restart-script = pkgs.writeShellScriptBin "restart-apps" ''
-    monitor_and_restart() {
-      app_name=$1
-      binary_path=$2
+    sleep 5
 
-      while true; do
-        if ! ${pkgs.procps}/bin/pgrep -x "$app_name" > /dev/null; then
-          echo "$(date): $app_name is not running. Attempting to start..."
-          ${pkgs.procps}/bin/pkill -x "$app_name" || true
-          $binary_path &
+    # Function to start an application if it's not running
+    start_app() {
+      local app_name=$1
+      local app_command=$2
 
-          # Wait and check if the app started successfully
-          for i in {1..3}; do
-            sleep 2
-            if ${pkgs.procps}/bin/pgrep -x "$app_name" > /dev/null; then
-              echo "$(date): $app_name started successfully"
-              break
-            fi
-            if [ $i -eq 3 ]; then
-              echo "$(date): Failed to start $app_name after attempts. Restarting..."
-              ${pkgs.procps}/bin/pkill -x "$app_name" || true
-              $binary_path &
-            fi
-          done
-        else
-          # Check if the app is responsive
-          if ! ${pkgs.procps}/bin/pgrep -x "$app_name" > /dev/null; then
-            echo "$(date): $app_name is unresponsive. Restarting..."
-            ${pkgs.procps}/bin/pkill -x "$app_name" || true
-            $binary_path &
-          fi
-        fi
-        sleep 3
-      done
+      if ! ${pkgs.procps}/bin/pgrep -x "$app_name" > /dev/null; then
+        # If the app isn't running, start it
+        $app_command &
+        sleep 2
+      fi
     }
 
-    monitor_and_restart "waybar" "${pkgs.waybar}/bin/waybar" &
-    monitor_and_restart "swaync" "${pkgs.swaynotificationcenter}/bin/swaync" &
+    # Ensure no leftover instances before starting
+    ${pkgs.psmisc}/bin/killall -q waybar swaync || true
 
-    wait
+    # Start Waybar
+    start_app "waybar" "${pkgs.waybar}/bin/waybar"
+
+    # Start Swaync
+    start_app "swaync" "${pkgs.swaynotificationcenter}/bin/swaync"
   '';
 in
 {
@@ -50,12 +33,14 @@ in
     description = "Restart Waybar and Swaync";
     wantedBy = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session-pre.target" "hyprland.service" ]; # Ensures Hyprland is ready
 
     serviceConfig = {
       Type = "simple";
       ExecStart = "${restart-script}/bin/restart-apps";
-      Restart = "always";
-      RestartSec = 3;
+      Restart = "on-failure";
+      RestartSec = 5;
+      ExecStartPre = "${pkgs.psmisc}/bin/killall -q waybar swaync || true"; # Clean up any old instances
     };
   };
 }
