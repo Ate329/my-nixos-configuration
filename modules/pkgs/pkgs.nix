@@ -26,6 +26,7 @@
       xwayland-run
       hping
       rename
+      psmisc
       jq
       amdenc
       amd-blis
@@ -145,7 +146,6 @@
       transmission_4-gtk
       distrobox
       mpv
-      killall
       gimp
       obs-studio
       rustup
