@@ -22,6 +22,7 @@
     ../../modules/services/restart-apps.nix
     ../../modules/pkgs/pkgs.nix
     ../../modules/pkgs/custom-packages/noise-suppression.nix
+    ../../modules/pkgs/custom-packages/steam.nix
   ];
 
   boot = {
@@ -187,19 +188,6 @@
     };
 
     virt-manager.enable = true;
-
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
-
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      localNetworkGameTransfers.openFirewall = true;
-    };
 
     thunar = {
       enable = true;
@@ -396,7 +384,6 @@
     wantedBy = [ "default.target" ];
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
-
 
   # Security / Polkit
   security.rtkit.enable = true;
