@@ -77,6 +77,7 @@
     	enable = true;
     	theme = "stylish";
         #screen = "custom";
+        #splashImage = /home/${username}/nix-config/home/themes/wallpapers/azusa_flower_crop.png;
         customResolution = "2880x1800";
         icon = "color";
     	footer = true;
