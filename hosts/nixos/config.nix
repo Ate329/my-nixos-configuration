@@ -35,10 +35,12 @@
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
+    /*
     # Needed For Some Steam Games
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
     };
+    */
 
     kernelParams = [
       "video=eDP-1:2880x1800@120"
