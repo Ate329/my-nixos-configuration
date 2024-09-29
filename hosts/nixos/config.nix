@@ -456,15 +456,6 @@
     defaultNetwork.settings.dns_enabled = true;
   };
 
-  # OpenGL
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [
-        #rocmPackages.clr.icd
-    ];
-  };
-
   # Extra Module Options
   drivers.amdgpu.enable = true;
   drivers.nvidia.enable = false;
