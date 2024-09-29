@@ -33,6 +33,7 @@
       amdgpu_top
       microcode-amd
       zenmonitor
+      stress
       virtualbox
       getent
       iconv

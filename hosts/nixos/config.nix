@@ -339,7 +339,7 @@
     rpcbind.enable = true;
     nfs.server.enable = true;
 
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
 
     logind.extraConfig = ''
        # don’t shutdown when power button is short-pressed
@@ -364,8 +364,6 @@
   };
   hardware.logitech.wireless.enable = false;
   hardware.logitech.wireless.enableGraphical = false;
-
-  hardware.cpu.amd.updateMicrocode = true;
 
   # Bluetooth
   hardware.bluetooth = {
