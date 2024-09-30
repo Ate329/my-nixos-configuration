@@ -108,11 +108,12 @@ in
   bind = ${modifier}SHIFT,S,exec,grim -g "$(slurp)" - | wl-copy
   bindl = ,Print,exec,grim - | wl-copy
   bind = ${modifier},V,exec,cliphist list | rofi -dmenu | cliphist decode | wl-copy
+  bind = ${modifier},TAB,hyprexpo:expo,toggle
 
   # Text-to-image functions
-  bind = Control+Super+Shift,S,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract "tmp.png" - | wl-copy && rm "tmp.png"
-  bind = Super+Shift,T,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract -l eng "tmp.png" - | wl-copy && rm "tmp.png"
-  bind = Super+Shift,J,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract -l jpn "tmp.png" - | wl-copy && rm "tmp.png"
+  bind = ${modifier}Control+Shift,S,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract "tmp.png" - | wl-copy && rm "tmp.png"
+  bind = ${modifier}Shift,T,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract -l eng "tmp.png" - | wl-copy && rm "tmp.png"
+  bind = ${modifier}Shift,J,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract -l jpn "tmp.png" - | wl-copy && rm "tmp.png"
 
   # Multimedia keys
   bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+

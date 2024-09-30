@@ -31,6 +31,7 @@
       amdenc
       amd-blis
       amdgpu_top
+      qq
       microcode-amd
       zenmonitor
       stress

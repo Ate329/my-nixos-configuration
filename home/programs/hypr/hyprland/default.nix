@@ -20,6 +20,8 @@ in
     systemd.enable = true;
     plugins = [
       # hyprplugins.hyprtrails
+      # hyprplugins.csgo-vulkan-fix
+      hyprplugins.hyprexpo
     ];
     extraConfig =
       (import ./config.nix { inherit pkgs lib username theme borderAnim extraMonitorSettings; }) +
