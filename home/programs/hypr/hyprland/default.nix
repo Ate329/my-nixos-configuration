@@ -22,6 +22,7 @@ in
       # hyprplugins.hyprtrails
       # hyprplugins.csgo-vulkan-fix
       hyprplugins.hyprexpo
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
     extraConfig =
       (import ./config.nix { inherit pkgs lib username theme borderAnim extraMonitorSettings; }) +

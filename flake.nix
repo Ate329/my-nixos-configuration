@@ -11,10 +11,17 @@
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
       inputs.hyprland.follows = "hyprland";
     };
 
