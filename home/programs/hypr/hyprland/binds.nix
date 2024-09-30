@@ -12,10 +12,8 @@ in
   bind = ${modifier},Q,exec,${terminal}
   bind = ${modifier}SHIFT,Return,exec,rofi-launcher
   bind = ${modifier},W,exec,${browser}
-  bind = ${modifier},D,exec,discord
   bind = ${modifier},O,exec,obs
   bind = ${modifier},G,exec,gimp
-  bind = ${modifier}SHIFT,G,exec,godot4
   bind = ${modifier},T,exec,thunar
   bind = ${modifier},S,exec,spotify
 

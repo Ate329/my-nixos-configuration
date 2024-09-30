@@ -173,7 +173,7 @@
       hideTopLayers = true
 
       # Behavior settings
-      autoDrag = false
+      autoDrag = true
       autoScroll = true
       exitOnClick = true
       switchOnDrop = true
