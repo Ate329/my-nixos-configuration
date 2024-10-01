@@ -30,11 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    oskars-dotfiles = {
-      url = "github:oskardotglobal/.dotfiles/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     grub2-themes = {
       url = "github:vinceliuice/grub2-themes";
     };
@@ -73,11 +68,6 @@
             home-manager.nixosModules.home-manager
             grub2-themes.nixosModules.default
             auto-cpufreq.nixosModules.default
-
-            ({pkgs, ...}: {
-              nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];
-              environment.systemPackages = [pkgs.spotify];
-            })
 
             {
               home-manager.extraSpecialArgs = {
