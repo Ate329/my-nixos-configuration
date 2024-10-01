@@ -41,7 +41,7 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, auto-cpufreq, oskars-dotfiles, grub2-themes, spicetify-nix, ... }:
+    inputs@{ nixpkgs, home-manager, auto-cpufreq, grub2-themes, spicetify-nix, ... }:
     let
       system = "x86_64-linux";
       host = "nixos";
