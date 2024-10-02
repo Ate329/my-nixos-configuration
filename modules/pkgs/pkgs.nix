@@ -32,6 +32,7 @@
       adwaita-qt
       adwsteamgtk
       psmisc
+      amf
       jq
       amdenc
       amd-blis
@@ -156,7 +157,6 @@
       distrobox
       mpv
       gimp
-      obs-studio
       rustup
       audacity
       pavucontrol

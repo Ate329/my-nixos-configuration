@@ -201,6 +201,19 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/ate329/nix-config";
     };
+
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        waveform
+        input-overlay
+        obs-vaapi
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-vkcapture
+      ];
+    };
   };
 
   hardware.xone.enable = true; # support for the xbox controller USB dongle
