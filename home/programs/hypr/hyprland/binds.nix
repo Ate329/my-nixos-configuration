@@ -109,7 +109,7 @@ in
   bind = ALT,TAB,hyprexpo:expo,toggle
   bind = ${modifier},TAB,exec,hyprctl dispatch overview:toggle
   bind = ${modifier}SHIFT,TAB,exec,hyprctl dispatch overview:toggle all
-  bind = ${modifier},M,exec,[float] kitty-zenith-resize
+  bind = ${modifier},M,exec,kitty btop
 
   # Text-to-image functions
   bind = ${modifier}Control+Shift,S,exec,grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract "tmp.png" - | wl-copy && rm "tmp.png"

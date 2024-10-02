@@ -83,7 +83,7 @@ in with lib; {
       };
       "custom/themeselector" = {
         tooltip = false;
-        format = "";
+        format = ""; # 
         on-click = "sleep 0.1 && theme-selector";
       };
       "custom/exit" = {
@@ -319,7 +319,7 @@ in with lib; {
     	color: #${palette.base0D};
 	background: #${palette.base01};
 	margin: 4px 0px;
-	padding: 2px 10px 2px 5px;
+	padding: 2px 15px 1px 4px;
 	border-radius: 0px 11px 10px 0px;
       }
       #custom-startmenu {

@@ -28,6 +28,9 @@
       rename
       xdotool
       zenith
+      adwaita-icon-theme
+      adwaita-qt
+      adwsteamgtk
       psmisc
       jq
       amdenc
