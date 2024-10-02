@@ -35,6 +35,8 @@ in {
       wikify
       fullAlbumDate
       groupSession
+      goToSong
+      playlistIntersection
     ];
   };
 }

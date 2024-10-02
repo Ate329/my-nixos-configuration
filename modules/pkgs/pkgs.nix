@@ -30,6 +30,8 @@
       jq
       amdenc
       amd-blis
+      youtube-tui
+      bilibili
       amdgpu_top
       qq
       microcode-amd

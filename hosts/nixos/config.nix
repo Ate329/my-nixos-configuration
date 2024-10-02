@@ -333,12 +333,16 @@
 
     power-profiles-daemon.enable = true;
 
-    logind.extraConfig = ''
-       # don’t shutdown when power button is short-pressed
-       HandlePowerKey=ignore
-       IdleAction=suspend
-       IdleActionSec=600
-     '';
+    logind = {
+      powerKeyLongPress = "poweroff";
+      lidSwitchExternalPower = "ignore";
+      extraConfig = ''
+        # don’t shutdown when power button is short-pressed
+        HandlePowerKey=ignore
+        IdleAction=suspend
+        IdleActionSec=600
+      '';
+    };
   };
 
   systemd.services.flatpak-repo = {
