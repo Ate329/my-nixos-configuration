@@ -33,6 +33,12 @@
       adwsteamgtk
       psmisc
       amf
+      vaapi-intel-hybrid
+      libva
+      libva-vdpau-driver
+      libva-utils
+      mesa
+      vdpauinfo
       jq
       amdenc
       amd-blis

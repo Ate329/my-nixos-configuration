@@ -25,10 +25,12 @@ in
       enable32Bit = true;
 
       extraPackages = with pkgs; [
+        mesa
         amdvlk
         rocmPackages_5.clr.icd
       ];
       extraPackages32 = with pkgs.driversi686Linux; [
+        mesa
         amdvlk
       ];
     };

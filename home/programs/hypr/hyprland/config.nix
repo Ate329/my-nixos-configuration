@@ -17,6 +17,7 @@
 
   # Environment
   env = NIXOS_OZONE_WL, 1
+  env = LIBVA_DRIVER_NAME, radeonsi # For amd VA-API
   env = NIXPKGS_ALLOW_UNFREE, 1
   env = XDG_CURRENT_DESKTOP, Hyprland
   env = XDG_SESSION_TYPE, wayland
