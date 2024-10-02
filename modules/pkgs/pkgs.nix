@@ -26,6 +26,8 @@
       xwayland-run
       hping
       rename
+      xdotool
+      zenith
       psmisc
       jq
       amdenc

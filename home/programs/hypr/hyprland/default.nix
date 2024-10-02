@@ -8,10 +8,17 @@ let
     borderAnim
     terminal
     extraMonitorSettings;
+
   workspace-switcher = pkgs.callPackage ../../../../home/scripts/workspace-switcher.nix {
     inherit (pkgs) writeShellScriptBin jq;
     hyprland = inputs.hyprland.packages.${pkgs.system}.default;
   };
+
+  kitty-zenith-resize = pkgs.callPackage ../../../../home/scripts/resize-kitty.nix {
+    inherit (pkgs) writeShellScriptBin;
+    hyprland = inputs.hyprland.packages.${pkgs.system}.default;
+  }
+
 in
 {
   wayland.windowManager.hyprland = {

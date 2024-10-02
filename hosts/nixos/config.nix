@@ -249,6 +249,7 @@
     noto-fonts-lgc-plus
     noto-fonts-color-emoji
     nerdfonts
+    cantarell-fonts
   ];
 
   environment.variables = {
@@ -276,7 +277,7 @@
       enable = true;
 
       displayManager.gdm.enable = false;
-      desktopManager.gnome.enable = true;
+      desktopManager.gnome.enable = false;
       desktopManager.cinnamon.enable = false;
 
       xkb = {
