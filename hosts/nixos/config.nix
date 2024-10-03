@@ -28,13 +28,16 @@
   boot = {
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
-    kernelPackages = pkgs.linuxPackages_latest;
-    # kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_6_6;
 
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback.out ];
+    extraModprobeConfig = ''
+      options v4l2loopback devices=1 video_nr=1 card_label="OBS VCam" exclusive_caps=1
+    '';
 
     /*
     # Needed For Some Steam Games

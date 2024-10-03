@@ -26,6 +26,7 @@
       xwayland-run
       hping
       rename
+      mupdf
       xdotool
       zenith
       adwaita-icon-theme
