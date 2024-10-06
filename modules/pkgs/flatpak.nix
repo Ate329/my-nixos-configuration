@@ -2,11 +2,12 @@
 
 let
   flatpakPackages = [
-    # Add packages here
+    # Add flatpak packages here
     "org.blender.Blender"
     "net.ankiweb.Anki"
     "org.kde.isoimagewriter"
     "com.github.cassidyjames.clairvoyant"
+    "com.github.cassidyjames.dippi"
   ];
 in
 {
@@ -34,11 +35,16 @@ in
       # Update repository information (silent operation)
       ${pkgs.flatpak}/bin/flatpak update --appstream --noninteractive &>> /tmp/flatpak-setup.log
 
-      # Install or update specified packages (showing progress)
+      # Install or update specified packages (showing progress only for new or updated packages)
       for pkg in ${lib.concatStringsSep " " flatpakPackages}; do
-        echo "Installing/Updating Flatpak package: $pkg"
-        ${pkgs.flatpak}/bin/flatpak install --or-update -y flathub $pkg
-        echo "Finished processing $pkg"
+        log_message "Processing package: $pkg"
+        if ! ${pkgs.flatpak}/bin/flatpak info $pkg &> /dev/null || ${pkgs.flatpak}/bin/flatpak remote-info --user flathub $pkg | grep -q "^Installed: .*$"; then
+          echo "Installing/Updating Flatpak package: $pkg"
+          ${pkgs.flatpak}/bin/flatpak install --or-update -y flathub $pkg
+          echo "Finished processing $pkg"
+        else
+          log_message "Package $pkg is already up to date"
+        fi
       done
 
       # Remove packages not in the list (showing removal)
