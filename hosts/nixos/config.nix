@@ -229,7 +229,7 @@
     settings = {
       charger = {
         governor = "performance";
-        turbo = "auto";
+        turbo = "always";
         energy_performance_preference = "performance";
         platform_profile = "performance";
       };
