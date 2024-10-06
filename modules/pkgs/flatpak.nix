@@ -4,6 +4,9 @@ let
   flatpakPackages = [
     # Add packages here
     "org.blender.Blender"
+    "net.ankiweb.Anki"
+    "org.kde.isoimagewriter"
+    "com.github.cassidyjames.clairvoyant"
   ];
 in
 {
