@@ -3,8 +3,8 @@
 let
   # Define the list of Flatpak packages
   flatpakPackages = [
-    org.blender.Blender
     # Add packages here
+    "org.blender.Blender"
   ];
 in
 {
