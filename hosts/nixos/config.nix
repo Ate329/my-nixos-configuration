@@ -23,13 +23,14 @@
     ../../modules/pkgs/pkgs.nix
     ../../modules/pkgs/custom-packages/noise-suppression.nix
     ../../modules/pkgs/custom-packages/steam.nix
+    ../../modules/pkgs/flatpak.nix
   ];
 
   boot = {
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_6_6;
 
     # This is for OBS Virtual Cam Support
@@ -309,7 +310,6 @@
 
     libinput.enable = true;
     openssh.enable = true;
-    flatpak.enable = false;
     printing.enable = true;
     gnome.gnome-keyring.enable = true;
 
@@ -360,14 +360,6 @@
         IdleActionSec=600
       '';
     };
-  };
-
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
   };
 
   hardware.sane = {
