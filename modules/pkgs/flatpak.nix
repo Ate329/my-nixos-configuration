@@ -3,44 +3,44 @@
 let
   # Define the list of Flatpak packages
   flatpakPackages = [
-    # Add packages here
+    # Add or remove packages here
     "org.blender.Blender"
   ];
 in
 {
-  services.flatpak.enable = true;
-
-  # Ensure the Flathub repository is added
-  systemd.services.flatpak-repo = {
-    description = "Add Flathub repository to Flatpak";
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];  # Ensure the Flatpak binary is available
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-    };
+  services.flatpak = {
+    enable = true;
+    package = pkgs.flatpak;
   };
 
-  # Install Flatpak packages
-  systemd.services.install-flatpak-packages = {
-    description = "Install Flatpak packages";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "flatpak-repo.service" ];  # Ensure it runs after the repo is added
-    path = [ pkgs.flatpak ];  # Ensure the Flatpak binary is available
-    script = ''
-      # Iterate over the list of Flatpak packages and install them if not already installed
+  # Enable Flatpak support in NixOS
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
+  # Use system.activationScripts to manage Flatpak repository and packages
+  system.activationScripts.flatpak-setup = {
+    text = ''
+      # Add Flathub repository
+      ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+      # Get list of currently installed Flatpak packages
+      installed_packages=$(${pkgs.flatpak}/bin/flatpak list --app --columns=application)
+
+      # Install or update specified Flatpak packages
       for pkg in ${lib.concatStringsSep " " flatpakPackages}; do
-        if ! flatpak info $pkg > /dev/null 2>&1; then
-          flatpak install -y flathub $pkg
-        fi
+        ${pkgs.flatpak}/bin/flatpak install --or-update -y flathub $pkg
+        # Remove the package from the list of installed packages
+        installed_packages=$(echo "$installed_packages" | grep -v "^$pkg$")
+      done
+
+      # Remove packages that are no longer in the flatpakPackages list
+      for pkg in $installed_packages; do
+        echo "Removing Flatpak package: $pkg"
+        ${pkgs.flatpak}/bin/flatpak uninstall -y $pkg
       done
     '';
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-    };
+    deps = [];
   };
 }
