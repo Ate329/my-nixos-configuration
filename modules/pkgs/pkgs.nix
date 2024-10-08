@@ -27,8 +27,12 @@
       hping
       rename
       mupdf
+      calibre
+      qalculate-qt
       xdotool
       zenith
+      opendrop
+      nomacs
       adwaita-icon-theme
       adwaita-qt
       adwsteamgtk
@@ -38,6 +42,7 @@
       libva
       libva-vdpau-driver
       libva-utils
+      ladybird
       mesa
       vdpauinfo
       jq

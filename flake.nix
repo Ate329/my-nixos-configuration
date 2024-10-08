@@ -38,10 +38,15 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    oskars-dotfiles = {
+      url = "github:oskardotglobal/.dotfiles/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, auto-cpufreq, grub2-themes, spicetify-nix, ... }:
+    inputs@{ nixpkgs, home-manager, auto-cpufreq, grub2-themes, spicetify-nix, oskars-dotfiles, ... }:
     let
       system = "x86_64-linux";
       host = "nixos";
@@ -68,6 +73,11 @@
             home-manager.nixosModules.home-manager
             grub2-themes.nixosModules.default
             auto-cpufreq.nixosModules.default
+
+            ({pkgs, ...}: {
+              nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];
+              environment.systemPackages = [pkgs.spotify];
+            })
 
             {
               home-manager.extraSpecialArgs = {

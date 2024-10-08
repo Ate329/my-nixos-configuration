@@ -31,7 +31,7 @@
     # kernelPackages = pkgs.linuxPackages;
     kernelPackages = pkgs.linuxPackages_latest;
     # kernelPackages = pkgs.linuxPackages_zen;
-    # kernelPackages = pkgs.linuxPackages_6_6;
+    # kernelPackages = pkgs.linuxPackages_6_1;
 
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
@@ -229,16 +229,16 @@
     settings = {
       charger = {
         governor = "performance";
-        turbo = "always";
+        turbo = "auto";
         energy_performance_preference = "performance";
-        platform_profile = "performance";
+        # platform_profile = "performance";
       };
 
       battery = {
         governor = "powersave";
         turbo = "never";
         energy_performance_preference = "power";
-        platform_profile = "low-power";
+        # platform_profile = "low-power";
         enable_thresholds = true;
         start_threshold = 30;
         stop_threshold = 85;

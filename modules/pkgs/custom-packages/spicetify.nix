@@ -15,7 +15,7 @@ in {
     ];
 
   programs.spicetify = {
-    enable = true;
+    enable = false;
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "mocha";
 

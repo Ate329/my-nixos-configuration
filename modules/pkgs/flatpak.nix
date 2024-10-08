@@ -57,7 +57,7 @@ in
       done
 
       log_message "Flatpak setup completed"
-      echo "Flatpak setup completed. Full log available in /tmp/flatpak-setup.log"
+      echo "flatpak setup completed. Full log available in /tmp/flatpak-setup.log"
     '';
     deps = [];
   };
