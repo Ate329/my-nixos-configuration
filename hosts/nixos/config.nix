@@ -12,6 +12,7 @@
   imports = [
     ./hardware.nix
     ./users.nix
+    ../../home/themes/stylix.nix
     ../../home/scripts/power_manager.nix
     ../../modules/hardware/amd-drivers.nix
     ../../modules/hardware/nvidia-drivers.nix

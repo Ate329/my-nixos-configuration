@@ -339,65 +339,6 @@ in
       package = pkgs.starship;
     };
 
-    wofi = {
-      enable = true;
-      settings = {
-        allow_images = true;
-        prompt = "Run Programs...";
-        width = "35%";
-        hide_scroll = true;
-        term = "kitty";
-        show = "drun";
-      };
-
-      style = ''
-        * {
-          font-family: JetBrainsMono Nerd Font Mono,monospace;
-          font-weight: bold;
-        }
-        #window {
-          border-radius: 25px;
-          border: 2px solid #${palette.base08};
-          background: #${palette.base00};
-        }
-        #input {
-          border-radius: 10px;
-          border: 2px solid #${palette.base0B};
-          margin: 20px;
-          padding: 15px 25px;
-          background: #${palette.base00};
-          color: #${palette.base05};
-        }
-        #inner-box {
-          border: none;
-          background-color: transparent;
-        }
-        #outer-box {
-          border: none;
-          font-weight: bold;
-          font-size: 14px;
-        }
-        #text {
-          border: none;
-        }
-        #entry {
-          margin: 10px 80px;
-          padding: 20px 20px;
-          border-radius: 10px;
-          border: none;
-        }
-        #entry:focus {
-          border: none;
-        }
-        #entry:hover {
-          border: none;
-        }
-        #entry:selected {
-          background-color: #${palette.base0F};
-          color: #${palette.base00};
-        }
-      '';
-    };
     bash = {
       enable = true;
       enableCompletion = true;
@@ -417,7 +358,7 @@ in
         flake-rebuild = "nh os switch --hostname ${host} /home/${username}/nix-config";
         flake-update = "nh os switch --hostname ${host} --update /home/${username}/nix-config";
         flake-rebuild-impure = "sudo nixos-rebuild switch --flake /home/${username}/nix-config#${host} --impure";
-	gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+        gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
         v = "nvim";
         ls = "lsd";
         ll = "lsd -l";
@@ -425,6 +366,7 @@ in
         lal = "lsd -al";
         ".." = "cd ..";
         neofetch="neofetch --ascii ~/.config/ascii-neofetch";
+        tsvpn = "sudo tailscale up --exit-node=100.73.102.70 --accept-routes"
       };
     };
     home-manager.enable = true;

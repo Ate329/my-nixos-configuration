@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
 
     hyprland = {
       type = "git";
@@ -46,7 +47,7 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, auto-cpufreq, grub2-themes, spicetify-nix, oskars-dotfiles, ... }:
+    inputs@{ nixpkgs, home-manager, auto-cpufreq, grub2-themes, spicetify-nix, oskars-dotfiles, stylix, ... }:
     let
       system = "x86_64-linux";
       host = "nixos";
@@ -73,6 +74,7 @@
             home-manager.nixosModules.home-manager
             grub2-themes.nixosModules.default
             auto-cpufreq.nixosModules.default
+            stylix.nixosModules.stylix
 
             ({pkgs, ...}: {
               nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];
