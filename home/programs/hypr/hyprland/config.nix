@@ -1,4 +1,4 @@
-{ pkgs, lib, username, theme, borderAnim, extraMonitorSettings }:
+{ pkgs, lib, username, colors, borderAnim, extraMonitorSettings }:
 
 ''
   # Start-up apps
@@ -43,8 +43,8 @@
     gaps_in = 6
     gaps_out = 6
     border_size = 2
-    col.active_border = rgba(${theme.base0C}ff) rgba(${theme.base0D}ff) rgba(${theme.base0B}ff) rgba(${theme.base0E}ff) 45deg
-    col.inactive_border = rgba(${theme.base00}cc) rgba(${theme.base01}cc) 45deg
+    col.active_border = rgba(${colors.base0C}ff) rgba(${colors.base0D}ff) rgba(${colors.base0B}ff) rgba(${colors.base0E}ff) 45deg
+    col.inactive_border = rgba(${colors.base00}cc) rgba(${colors.base01}cc) 45deg
     layout = dwindle
     resize_on_border = true
   }
@@ -147,7 +147,7 @@
   # Plugins
   plugin {
     hyprtrails {
-      color = rgba(${theme.base0A}ff)
+      color = rgba(${colors.base0A}ff)
     }
 
     hyprexpo {

@@ -9,8 +9,7 @@
 }:
 
 let
-  palette = config.colorScheme.palette;
-
+  inherit (config.lib.stylix) colors;
   inherit (import ./variables.nix)
     gitUsername
     gitEmail
@@ -85,11 +84,13 @@ in
     stdout="off"
   '';
 
+  /*
   home.file.".config/hypr/hyprpaper.conf".text = ''
     preload = /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
     wallpaper = eDP-1,/home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
     splash = true
   '';
+  */
 
   home.file.".config/swappy/config".text = ''
     [Default]
@@ -126,13 +127,10 @@ in
     };
   };
 
-  # Configure Cursor Theme
+  # Configure Cursor
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 24;
   };
 
   # Theme GTK
@@ -278,59 +276,56 @@ in
     kitty = {
       enable = true;
       package = pkgs.kitty;
-      font.name = "JetBrainsMono Nerd Font";
-      font.size = 14;
       settings = {
         scrollback_lines = 2000;
         wheel_scroll_min_lines = 1;
         window_padding_width = 4;
         confirm_os_window_close = 0;
-        background_opacity = "0.9";
       };
       extraConfig = ''
-        foreground #${palette.base05}
-        background #${palette.base00}
-        color0  #${palette.base03}
-        color1  #${palette.base08}
-        color2  #${palette.base0B}
-        color3  #${palette.base09}
-        color4  #${palette.base0D}
-        color5  #${palette.base0E}
-        color6  #${palette.base0C}
-        color7  #${palette.base06}
-        color8  #${palette.base04}
-        color9  #${palette.base08}
-        color10 #${palette.base0B}
-        color11 #${palette.base0A}
-        color12 #${palette.base0C}
-        color13 #${palette.base0E}
-        color14 #${palette.base0C}
-        color15 #${palette.base07}
-        color16 #${palette.base00}
-        color17 #${palette.base0F}
-        color18 #${palette.base0B}
-        color19 #${palette.base09}
-        color20 #${palette.base0D}
-        color21 #${palette.base0E}
-        color22 #${palette.base0C}
-        color23 #${palette.base06}
-        cursor  #${palette.base07}
-        cursor_text_color #${palette.base00}
-        selection_foreground #${palette.base01}
-        selection_background #${palette.base0D}
-        url_color #${palette.base0C}
-        active_border_color #${palette.base04}
-        inactive_border_color #${palette.base00}
-        bell_border_color #${palette.base03}
+        foreground #${colors.base05}
+        background #${colors.base00}
+        color0  #${colors.base03}
+        color1  #${colors.base08}
+        color2  #${colors.base0B}
+        color3  #${colors.base09}
+        color4  #${colors.base0D}
+        color5  #${colors.base0E}
+        color6  #${colors.base0C}
+        color7  #${colors.base06}
+        color8  #${colors.base04}
+        color9  #${colors.base08}
+        color10 #${colors.base0B}
+        color11 #${colors.base0A}
+        color12 #${colors.base0C}
+        color13 #${colors.base0E}
+        color14 #${colors.base0C}
+        color15 #${colors.base07}
+        color16 #${colors.base00}
+        color17 #${colors.base0F}
+        color18 #${colors.base0B}
+        color19 #${colors.base09}
+        color20 #${colors.base0D}
+        color21 #${colors.base0E}
+        color22 #${colors.base0C}
+        color23 #${colors.base06}
+        cursor  #${colors.base07}
+        cursor_text_color #${colors.base00}
+        selection_foreground #${colors.base01}
+        selection_background #${colors.base0D}
+        url_color #${colors.base0C}
+        active_border_color #${colors.base04}
+        inactive_border_color #${colors.base00}
+        bell_border_color #${colors.base03}
         tab_bar_style fade
         tab_fade 1
-        active_tab_foreground   #${palette.base04}
-        active_tab_background   #${palette.base00}
+        active_tab_foreground   #${colors.base04}
+        active_tab_background   #${colors.base00}
         active_tab_font_style   bold
-        inactive_tab_foreground #${palette.base07}
-        inactive_tab_background #${palette.base08}
+        inactive_tab_foreground #${colors.base07}
+        inactive_tab_background #${colors.base08}
         inactive_tab_font_style bold
-        tab_bar_background #${palette.base00}
+        tab_bar_background #${colors.base00}
       '';
     };
 
@@ -366,7 +361,7 @@ in
         lal = "lsd -al";
         ".." = "cd ..";
         neofetch="neofetch --ascii ~/.config/ascii-neofetch";
-        tsvpn = "sudo tailscale up --exit-node=100.73.102.70 --accept-routes"
+        tsvpn = "sudo tailscale up --exit-node=100.73.102.70 --accept-routes";
       };
     };
     home-manager.enable = true;

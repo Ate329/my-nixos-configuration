@@ -1,7 +1,7 @@
 { pkgs, config, lib, inputs, username, host, ... }:
 
 let
-  theme = config.colorScheme.palette;
+  inherit (config.lib.stylix) colors;
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
   inherit (import ../../../../hosts/${host}/variables.nix)
     browser
@@ -27,7 +27,7 @@ in
       inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
     extraConfig =
-      (import ./config.nix { inherit pkgs lib username theme borderAnim extraMonitorSettings; }) +
+      (import ./config.nix { inherit pkgs lib username colors borderAnim extraMonitorSettings; }) +
       (import ./windowrules.nix) +
       (import ./binds.nix { inherit pkgs lib username terminal browser workspace-switcher; });
   };

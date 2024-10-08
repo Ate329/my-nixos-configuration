@@ -47,7 +47,7 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, auto-cpufreq, grub2-themes, spicetify-nix, oskars-dotfiles, stylix, ... }:
+    inputs@{ nixpkgs, home-manager, auto-cpufreq, grub2-themes, spicetify-nix, oskars-dotfiles, ... }:
     let
       system = "x86_64-linux";
       host = "nixos";
@@ -74,7 +74,7 @@
             home-manager.nixosModules.home-manager
             grub2-themes.nixosModules.default
             auto-cpufreq.nixosModules.default
-            stylix.nixosModules.stylix
+            inputs.stylix.nixosModules.stylix
 
             ({pkgs, ...}: {
               nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];

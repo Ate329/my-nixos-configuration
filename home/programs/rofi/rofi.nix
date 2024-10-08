@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  palette = config.colorScheme.palette;
+  inherit (config.lib.stylix) colors;
 in
 {
   programs = {
@@ -25,15 +25,15 @@ in
         in
         {
           "*" = {
-            bg = mkLiteral "#${palette.base00}";
-            bg-alt = mkLiteral "#${palette.base09}";
-            foreground = mkLiteral "#${palette.base01}";
-            selected = mkLiteral "#${palette.base08}";
-            active = mkLiteral "#${palette.base0B}";
-            text-selected = mkLiteral "#${palette.base00}";
-            text-color = mkLiteral "#${palette.base05}";
-            border-color = mkLiteral "#${palette.base0F}";
-            urgent = mkLiteral "#${palette.base0E}";
+            bg = mkLiteral "#${colors.base00}";
+            bg-alt = mkLiteral "#${colors.base09}";
+            foreground = mkLiteral "#${colors.base01}";
+            selected = mkLiteral "#${colors.base08}";
+            active = mkLiteral "#${colors.base0B}";
+            text-selected = mkLiteral "#${colors.base00}";
+            text-color = mkLiteral "#${colors.base05}";
+            border-color = mkLiteral "#${colors.base0F}";
+            urgent = mkLiteral "#${colors.base0E}";
           };
           "window" = {
             width = mkLiteral "55%";
