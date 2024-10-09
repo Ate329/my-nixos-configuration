@@ -301,7 +301,7 @@ with lib;
         	  border-radius: 10px;
               }
               #memory {
-           	color: #${colors.base0F};
+           	color: #${colors.base08};
         	background: #${colors.base01};
         	margin: 4px;
         	padding: 2px 10px;
@@ -324,7 +324,7 @@ with lib;
         	border-radius: 10px;
               }
               #cpu {
-            	color: #${colors.base07};
+            	color: #${colors.base05};
         	background: #${colors.base01};
         	margin: 4px;
         	padding: 2px 10px;

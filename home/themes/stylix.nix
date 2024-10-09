@@ -56,6 +56,7 @@
         neovim.enable = true;
         firefox.enable = true;
         btop.enable = true;
+        spicetify.enable = true;
       };
     };
   }];

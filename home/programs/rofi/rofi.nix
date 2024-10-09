@@ -28,7 +28,7 @@ in
             bg = mkLiteral "#${colors.base00}";
             bg-alt = mkLiteral "#${colors.base09}";
             foreground = mkLiteral "#${colors.base01}";
-            selected = mkLiteral "#${colors.base08}";
+            selected = mkLiteral "#${colors.base0D}";
             active = mkLiteral "#${colors.base0B}";
             text-selected = mkLiteral "#${colors.base00}";
             text-color = mkLiteral "#${colors.base05}";
