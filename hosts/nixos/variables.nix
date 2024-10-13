@@ -4,7 +4,7 @@
   gitEmail = "justin.he814@gmail.com";
 
   # Base16 Theme
-  theme = "tokyo-night-storm";
+  theme = "catppuccin-macchiato";
 
   # Hyprland Settings
   borderAnim = false; # Enable / Disable Hyprland Border Animation
@@ -12,9 +12,8 @@
 
   # Waybar Settings
   clock24h = true;
-  waybarAnimations = false;
   waybarAnim = false;
-  bar-number = false;
+  bar-number = true;
 
   # Program Options
   browser = "firefox"; # Set Default Browser

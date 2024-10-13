@@ -14,7 +14,15 @@
     image = ../../home/themes/wallpapers/azusa_flower_crop.png;
     # disable if you want to generate colorscheme by picture
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-    autoEnable = false;
+    autoEnable = true;
+
+    targets = {
+      grub = {
+        enable = false;
+        useImage = false;
+      };
+      gtk.enable = false;
+    };
 
     polarity = "dark";
     opacity.terminal = 0.9;
@@ -27,18 +35,18 @@
         name = "JetBrainsMono Nerd Font";
       };
       sansSerif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
+        package = pkgs.ubuntu_font_family;
+        name = "Ubuntu";
       };
       serif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
+        package = pkgs.ubuntu_font_family;
+        name = "Ubuntu";
       };
       sizes = {
-        applications = 12;
+        applications = 13;
         terminal = 14;
-        desktop = 11;
-        popups = 12;
+        desktop = 12;
+        popups = 13;
       };
     };
   };
@@ -46,17 +54,8 @@
     stylix = {
       targets = {
         rofi.enable = false;
-        hyprland.enable = true;
         waybar.enable = false;
         gtk.enable = false;
-        kitty.enable = true;
-        vesktop.enable = true;
-        vscode.enable = true;
-        xresources.enable = true;
-        neovim.enable = true;
-        firefox.enable = true;
-        btop.enable = true;
-        spicetify.enable = true;
       };
     };
   }];

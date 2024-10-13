@@ -26,9 +26,12 @@
       xwayland-run
       hping
       rename
+      vivaldi
+      ncdu
       mupdf
       calibre
       qalculate-qt
+      direnv
       xdotool
       zenith
       opendrop
@@ -42,7 +45,7 @@
       libva
       libva-vdpau-driver
       libva-utils
-      ladybird
+      #ladybird
       mesa
       vdpauinfo
       jq
@@ -168,6 +171,8 @@
       transmission_4-gtk
       distrobox
       mpv
+      vlc
+      smplayer
       gimp
       rustup
       audacity
@@ -209,7 +214,6 @@
       cmake
       gnumake
       tree
-      firefox
       thunderbird
       cargo
       vscode-fhs

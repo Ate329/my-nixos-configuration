@@ -27,6 +27,25 @@
     ../../modules/pkgs/flatpak.nix
   ];
 
+  /*
+  services.flatpak = {
+    enable = true;
+    packages = [ "org.gnome.Calculator" ];
+    removeUnmanagedPackages = true;
+    update = {
+      auto = {
+        enable = true;
+        onCalendar = "weekly";
+      };
+      duringBuild = false;
+    };
+    remote = {
+      name = "flathub";
+      url = "https://flathub.org/repo/flathub.flatpakrepo";
+    };
+  };
+  */
+
   boot = {
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
@@ -41,12 +60,10 @@
       options v4l2loopback devices=1 video_nr=1 card_label="OBS VCam" exclusive_caps=1
     '';
 
-    /*
     # Needed For Some Steam Games
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
     };
-    */
 
     kernelParams = [
       "video=eDP-1:2880x1800@120"
@@ -132,7 +149,7 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Athens";
-  services.automatic-timezoned.enable = true;
+  services.automatic-timezoned.enable = false;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

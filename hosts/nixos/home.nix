@@ -32,6 +32,7 @@ in
     inputs.spicetify-nix.homeManagerModules.default
     ../../home/programs/hypr/default.nix
     ../../home/programs/rofi/default.nix
+    # ../../home/programs/fastfetch/default.nix
     ../../home/programs/swaync.nix
     ../../home/programs/waybar.nix
     ../../home/programs/wlogout.nix
@@ -136,11 +137,13 @@ in
   # Theme GTK
   gtk = {
     enable = true;
+    /*
     font = {
       name = "Ubuntu";
       size = 12;
       package = pkgs.ubuntu_font_family;
     };
+    */
     theme = {
       name = "${config.colorScheme.slug}";
       package = gtkThemeFromScheme { scheme = config.colorScheme; };
