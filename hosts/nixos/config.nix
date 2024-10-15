@@ -13,7 +13,7 @@
     ./hardware.nix
     ./users.nix
     ../../home/themes/stylix.nix
-    ../../home/scripts/power_manager.nix
+    ../../home/scripts/power-manager.nix
     ../../modules/hardware/amd-drivers.nix
     ../../modules/hardware/nvidia-drivers.nix
     ../../modules/hardware/nvidia-prime-drivers.nix

@@ -11,7 +11,6 @@
   exec-once = fcitx5 -d -r
   exec-once = fcitx5-remote -r
   exec-once = sleep 0.5 && firefox
-  exec-once = bash /home/${username}/nix-config/home/scripts/power_manager.sh &
   exec-once = restart-apps
   exec-once = hyprctl setcursor Bibata-Modern-Ice 24
   exec = waypaper --restore
