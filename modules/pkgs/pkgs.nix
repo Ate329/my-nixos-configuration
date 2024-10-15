@@ -27,8 +27,10 @@
       hping
       rename
       vivaldi
+      hyprcursor
       ncdu
       mupdf
+      nwg-look
       calibre
       qalculate-qt
       direnv
@@ -88,6 +90,8 @@
       gnome-boxes
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtgraphicaleffects
+      libsForQt5.qt5ct
+      kdePackages.qt6ct
       libvirt
       lxqt.lxqt-policykit
       logisim-evolution

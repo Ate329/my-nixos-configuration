@@ -41,11 +41,6 @@ in
     ../../modules/pkgs/custom-packages/spicetify.nix
   ];
 
-  # Define Settings For Xresources
-  xresources.properties = {
-    "Xcursor.size" = 24;
-  };
-
   # Place Files Inside Home Directory
   home.file."Pictures/Wallpapers" = {
     source = ../../home/themes/wallpapers;
@@ -128,26 +123,9 @@ in
     };
   };
 
-  # Configure Cursor
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-  };
-
   # Theme GTK
   gtk = {
     enable = true;
-    /*
-    font = {
-      name = "Ubuntu";
-      size = 12;
-      package = pkgs.ubuntu_font_family;
-    };
-    */
-    theme = {
-      name = "${config.colorScheme.slug}";
-      package = gtkThemeFromScheme { scheme = config.colorScheme; };
-    };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
@@ -163,11 +141,8 @@ in
   # Theme QT -> GTK
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
+    style.name = "adwaita-dark";
+    platformTheme.name = "gtk3";
   };
 
   # Scripts

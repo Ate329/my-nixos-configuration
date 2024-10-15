@@ -13,6 +13,7 @@
   exec-once = sleep 0.5 && firefox
   exec-once = bash /home/${username}/nix-config/home/scripts/power_manager.sh &
   exec-once = restart-apps
+  exec-once = hyprctl setcursor Bibata-Modern-Ice 24
   exec = waypaper --restore
 
   # Environment
@@ -31,6 +32,8 @@
   env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
   env = SDL_VIDEODRIVER, wayland,x11
   env = MOZ_ENABLE_WAYLAND, 1
+  env = HYPRCURSOR_THEME, Bibata-Modern-Ice
+  env = HYPRCURSOR_SIZE, 24
   # env = AQ_NO_MODIFIERS, 1 # For systems with limitation (iGPU)
 
   # Monitor configuration
@@ -58,6 +61,8 @@
     touchpad {
       drag_lock = true
       natural_scroll = false
+      disable_while_typing = false
+      scroll_factor = 0.75
     }
 
     sensitivity = 0
@@ -107,12 +112,20 @@
   # Misc
   misc {
     mouse_move_enables_dpms = true
-    key_press_enables_dpms = false
+    key_press_enables_dpms = true
     disable_hyprland_logo = true
     force_default_wallpaper = 1
     background_color = 0xf1eaff
     initial_workspace_tracking = 2
     animate_manual_resizes = true
+    vfr = true
+  }
+
+  # Cursor
+  cursor {
+    sync_gsettings_theme = true
+    inactive_timeout = 15
+    enable_hyprcursor = true
   }
 
   # Workspaces

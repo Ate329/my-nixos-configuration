@@ -55,7 +55,6 @@
       targets = {
         rofi.enable = false;
         waybar.enable = false;
-        gtk.enable = false;
       };
     };
   }];

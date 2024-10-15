@@ -378,6 +378,15 @@
         IdleActionSec=600
       '';
     };
+
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+    };
+
+    open-webui = {
+      enable = true;
+    };
   };
 
   hardware.sane = {
