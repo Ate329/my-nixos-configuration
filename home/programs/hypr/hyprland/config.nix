@@ -60,8 +60,8 @@
     touchpad {
       drag_lock = true
       natural_scroll = false
-      disable_while_typing = false
-      scroll_factor = 0.75
+      disable_while_typing = true
+      scroll_factor = 0.65
     }
 
     sensitivity = 0
