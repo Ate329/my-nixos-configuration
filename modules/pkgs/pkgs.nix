@@ -27,11 +27,18 @@
       hping
       rename
       vivaldi
+      xdg-utils
+      thefuck
+      overlayed
       hyprcursor
+      osu-lazer-bin
+      bottles
+      wmutils-core
+      firefox-devedition
       ncdu
       mupdf
       nwg-look
-      calibre
+      # calibre
       qalculate-qt
       direnv
       xdotool

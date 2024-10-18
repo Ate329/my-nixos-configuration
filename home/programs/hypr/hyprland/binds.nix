@@ -88,8 +88,6 @@ in
   bind = ${modifier}CONTROL_SHIFT,right,exec,${workspace-switcher}/bin/workspace-switcher move right
   bind = ${modifier}SHIFT,Up,workspace,-10
   bind = ${modifier}SHIFT,Down,workspace,+10
-  bind = ${modifier}CONTROL,Right,workspace,e+1
-  bind = ${modifier}CONTROL,Left,workspace,e-1
   bind = ${modifier}SHIFT,left,workspace,-1
   bind = ${modifier}SHIFT,right,workspace,+1
   bind = ${modifier},mouse_down,workspace,e+1

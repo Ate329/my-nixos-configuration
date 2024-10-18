@@ -6,12 +6,11 @@
   windowrule = center,^(discord)$
   windowrule = center,^(swappy)$
   windowrule = center,^(vscode)$
-  windowrule = center,^(vscode-fhs)$
   windowrule = center,^(obsidian)$
   windowrule = center,^(thunar)$
   windowrule = center,^(gimp)$
   windowrule = center,^(wechat-uos)$
-  windowrule = nearestneighbor,^(wechat-uos)$
+  # windowrule = nearestneighbor,^(wechat-uos)$
   windowrule = maximize,^(logisim-evolution)$
   windowrule = center,^(logisim-evolution)$
   windowrule = center,title:^(Wine)(.*)$

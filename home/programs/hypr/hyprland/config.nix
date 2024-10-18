@@ -61,7 +61,7 @@
       drag_lock = true
       natural_scroll = false
       disable_while_typing = true
-      scroll_factor = 0.65
+      scroll_factor = 0.6
     }
 
     sensitivity = 0

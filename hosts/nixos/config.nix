@@ -22,6 +22,7 @@
     ../../modules/services/local-hardware-clock.nix
     ../../modules/services/restart-apps.nix
     ../../modules/pkgs/pkgs.nix
+    ../../modules/pkgs/custom-packages/auto-cpufreq.nix
     ../../modules/pkgs/custom-packages/noise-suppression.nix
     ../../modules/pkgs/custom-packages/steam.nix
     ../../modules/pkgs/flatpak.nix
@@ -240,30 +241,6 @@
 
   hardware.xone.enable = true; # support for the xbox controller USB dongle
 
-  #auto-cpufreq config
-  programs.auto-cpufreq = {
-    enable = true;
-
-    settings = {
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-        energy_performance_preference = "performance";
-        # platform_profile = "performance";
-      };
-
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-        energy_performance_preference = "power";
-        # platform_profile = "low-power";
-        enable_thresholds = true;
-        start_threshold = 30;
-        stop_threshold = 85;
-      };
-    };
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   environment.variables = {
@@ -385,7 +362,7 @@
     };
 
     open-webui = {
-      enable = true;
+      enable = false;
     };
   };
 

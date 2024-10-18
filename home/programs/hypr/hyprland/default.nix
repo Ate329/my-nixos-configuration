@@ -22,7 +22,7 @@ in
     systemd.enable = true;
     plugins = [
       # hyprplugins.hyprtrails
-      hyprplugins.csgo-vulkan-fix
+      # hyprplugins.csgo-vulkan-fix
       hyprplugins.hyprexpo
       inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
