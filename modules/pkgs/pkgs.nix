@@ -27,6 +27,8 @@
       hping
       rename
       vivaldi
+      seatd
+      nixd
       xdg-utils
       thefuck
       overlayed
@@ -34,6 +36,8 @@
       osu-lazer-bin
       bottles
       wmutils-core
+      gopls
+      go
       firefox-devedition
       ncdu
       mupdf

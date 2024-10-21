@@ -105,7 +105,7 @@ in
   bind = ${modifier}SHIFT,S,exec,grim -g "$(slurp)" - | wl-copy
   bindl = ,Print,exec,grim - | wl-copy
   bind = ${modifier},V,exec,cliphist list | rofi -dmenu | cliphist decode | wl-copy
-  bind = ALT,TAB,hyprexpo:expo,toggle
+  # bind = ALT,TAB,hyprexpo:expo,toggle
   bind = ${modifier},TAB,exec,hyprctl dispatch overview:toggle
   bind = ${modifier}SHIFT,TAB,exec,hyprctl dispatch overview:toggle all
   bind = ${modifier},M,exec,kitty btop

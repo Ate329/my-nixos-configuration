@@ -23,7 +23,7 @@ in
     plugins = [
       # hyprplugins.hyprtrails
       # hyprplugins.csgo-vulkan-fix
-      hyprplugins.hyprexpo
+      # hyprplugins.hyprexpo
       inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
     extraConfig =
