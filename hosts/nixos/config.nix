@@ -29,22 +29,22 @@
   ];
 
   /*
-  services.flatpak = {
-    enable = true;
-    packages = [ "org.gnome.Calculator" ];
-    removeUnmanagedPackages = true;
-    update = {
-      auto = {
-        enable = true;
-        onCalendar = "weekly";
+    services.flatpak = {
+      enable = true;
+      packages = [ "org.gnome.Calculator" ];
+      removeUnmanagedPackages = true;
+      update = {
+        auto = {
+          enable = true;
+          onCalendar = "weekly";
+        };
+        duringBuild = false;
       };
-      duringBuild = false;
+      remote = {
+        name = "flathub";
+        url = "https://flathub.org/repo/flathub.flatpakrepo";
+      };
     };
-    remote = {
-      name = "flathub";
-      url = "https://flathub.org/repo/flathub.flatpakrepo";
-    };
-  };
   */
 
   boot = {
@@ -88,25 +88,25 @@
         configurationLimit = 1000;
         useOSProber = false;
         extraEntries = ''
-    	  menuentry "Reboot" --class restart {
-            reboot
-    	  }
-    	  menuentry "Poweroff" --class shutdown {
-      	    halt
-    	  }
-    	  menuentry "UEFI Setup" --class efi {
-      	    fwsetup
-    	  }
-  	'';
+            	  menuentry "Reboot" --class restart {
+                    reboot
+            	  }
+            	  menuentry "Poweroff" --class shutdown {
+              	    halt
+            	  }
+            	  menuentry "UEFI Setup" --class efi {
+              	    fwsetup
+            	  }
+          	'';
       };
       grub2-theme = {
-    	enable = true;
-    	theme = "stylish";
+        enable = true;
+        theme = "stylish";
         #screen = "custom";
         #splashImage = /home/${username}/nix-config/home/themes/wallpapers/azusa_flower_crop.png;
         customResolution = "2880x1800";
         icon = "color";
-    	footer = true;
+        footer = true;
       };
     };
 
@@ -134,8 +134,10 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   networking = {
-    /*nameservers = [ "1.1.1.1" "2606:4700:4700::1111"
-		    "1.0.0.1" "2606:4700:4700::1001"];*/
+    /*
+      nameservers = [ "1.1.1.1" "2606:4700:4700::1111"
+      		    "1.0.0.1" "2606:4700:4700::1001"];
+    */
 
     # If using dhcpcd:
     #dhcpcd.extraConfig = "nohook resolv.conf";
@@ -214,7 +216,10 @@
 
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
     };
 
     # nh config
@@ -277,7 +282,7 @@
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
-      theme = "${import ../../modules/pkgs/sddm-themes/where-is-my-sddm-theme.nix {inherit pkgs;}}";
+      theme = "${import ../../modules/pkgs/sddm-themes/where-is-my-sddm-theme.nix { inherit pkgs; }}";
     };
 
     tailscale = {
@@ -297,6 +302,8 @@
         variant = "";
       };
     };
+
+    gvfs.enable = true;
 
     smartd = {
       enable = true;
@@ -335,7 +342,12 @@
           "bluez5.enable-sbc-xq" = true;
           "bluez5.enable-msbc" = true;
           "bluez5.enable-hw-volume" = true;
-          "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+          "bluez5.roles" = [
+            "hsp_hs"
+            "hsp_ag"
+            "hfp_hf"
+            "hfp_ag"
+          ];
         };
       };
     };
@@ -397,7 +409,10 @@
   # Bluetooth headset control
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
-    after = [ "network.target" "sound.target" ];
+    after = [
+      "network.target"
+      "sound.target"
+    ];
     wantedBy = [ "default.target" ];
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
@@ -442,10 +457,9 @@
     };
   };
 
-
   # automatic upgrade
   system.autoUpgrade = {
-    enable = true;
+    enable = false;
     flake = inputs.self.outPath;
     flags = [
       "--update-input"
