@@ -244,6 +244,10 @@
     };
   };
 
+  nix.extraOptions = ''
+    trusted-users = root ate329
+  '';
+
   hardware.xone.enable = true; # support for the xbox controller USB dongle
 
   nixpkgs.config.allowUnfree = true;
@@ -258,7 +262,6 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
     noto-fonts-extra
     noto-fonts-cjk-serif
     noto-fonts-cjk-sans

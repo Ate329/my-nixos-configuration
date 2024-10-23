@@ -25,6 +25,7 @@
       seatd
       nixd
       xdg-utils
+      devenv
       thefuck
       overlayed
       hyprcursor
