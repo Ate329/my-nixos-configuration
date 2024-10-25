@@ -1,2 +1,0 @@
-/home/ate329/nix-config/devenv.lock
-/home/ate329/nix-config/devenv.nix
