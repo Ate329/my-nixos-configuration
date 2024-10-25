@@ -1,14 +1,9 @@
 {
-  config,
   pkgs,
-  host,
-  inputs,
-  username,
-  options,
   ...
 }:
 {
-# Styling Options
+  # Styling Options
   stylix = {
     enable = true;
     image = ../../home/themes/wallpapers/azusa_flower_crop.png;
@@ -25,7 +20,7 @@
     };
 
     polarity = "dark";
-    opacity.terminal = 0.9;
+    opacity.terminal = 0.87;
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
@@ -50,12 +45,14 @@
       };
     };
   };
-  home-manager.sharedModules = [{
-    stylix = {
-      targets = {
-        rofi.enable = false;
-        waybar.enable = false;
+  home-manager.sharedModules = [
+    {
+      stylix = {
+        targets = {
+          rofi.enable = false;
+          waybar.enable = false;
+        };
       };
-    };
-  }];
+    }
+  ];
 }
