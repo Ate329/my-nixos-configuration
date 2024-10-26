@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 {
   # auto-cpufreq config
   programs.auto-cpufreq = {
@@ -23,13 +22,22 @@
     };
   };
 
+  # Make auto-cpufreq service more resilient
+  systemd.services.auto-cpufreq = {
+    serviceConfig = {
+      Restart = "always";
+      RestartSec = "5s";
+      KillMode = "process";
+    };
+  };
+
   # Create the udev rule
   services.udev.extraRules = ''
     SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${pkgs.systemd}/bin/systemctl start restart-auto-cpufreq.service"
     SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="${pkgs.systemd}/bin/systemctl start restart-auto-cpufreq.service"
   '';
 
-  # Create the systemd service
+  # Service for power change events
   systemd.services.restart-auto-cpufreq = {
     description = "Restart auto-cpufreq service on power state change";
     script = ''
@@ -38,6 +46,27 @@
     serviceConfig = {
       Type = "oneshot";
       User = "root";
+    };
+  };
+
+  # Watchdog service
+  systemd.services.auto-cpufreq-watchdog = {
+    description = "Watchdog for auto-cpufreq service";
+    after = [ "auto-cpufreq.service" ];
+    wantedBy = [ "multi-user.target" ];
+    script = ''
+      while true; do
+        if ! systemctl is-active auto-cpufreq.service > /dev/null; then
+          systemctl start auto-cpufreq.service
+        fi
+        sleep 10
+      done
+    '';
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+      Restart = "always";
+      RestartSec = "5s";
     };
   };
 }
