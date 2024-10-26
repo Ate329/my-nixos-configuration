@@ -8,6 +8,7 @@ let
     "org.kde.isoimagewriter"
     "com.github.cassidyjames.clairvoyant"
     "com.github.cassidyjames.dippi"
+    "com.github.unrud.VideoDownloader"
   ];
 in
 {
@@ -59,6 +60,6 @@ in
       log_message "Flatpak setup completed"
       echo "flatpak setup completed. Full log available in /tmp/flatpak-setup.log"
     '';
-    deps = [];
+    deps = [ ];
   };
 }

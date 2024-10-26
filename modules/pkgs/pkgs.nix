@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   environment.systemPackages =
@@ -24,6 +21,8 @@
       vivaldi
       seatd
       nixd
+      # clipgrab
+      code-cursor
       xdg-utils
       devenv
       thefuck
