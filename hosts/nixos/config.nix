@@ -50,8 +50,8 @@
   boot = {
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_6_1;
 
     # This is for OBS Virtual Cam Support

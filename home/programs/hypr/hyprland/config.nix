@@ -1,4 +1,11 @@
-{ pkgs, lib, username, colors, borderAnim, extraMonitorSettings }:
+{
+  pkgs,
+  lib,
+  username,
+  colors,
+  borderAnim,
+  extraMonitorSettings,
+}:
 
 ''
   # Start-up apps
@@ -10,9 +17,10 @@
   exec-once = hypridle
   exec-once = fcitx5 -d -r
   exec-once = fcitx5-remote -r
-  exec-once = sleep 0.5 && firefox
+  exec-once = sleep 0.1 && firefox
   exec-once = restart-apps
   exec-once = hyprctl setcursor Bibata-Modern-Ice 24
+  exec-once = hyprswitch init --show-title &
   exec = waypaper --restore
 
   # Environment
@@ -175,23 +183,23 @@
     #}
 
     # Hyprspace configuration
-    overview {
-      # Layout settings
-      #panelHeight = 40
-      panelBorderWidth = 1
-      workspaceMargin = 10
-      workspaceBorderSize = 2
-      centerAligned = true
-      hideOverlayLayers = true
-      hideTopLayers = true
+    #overview {
+    #  # Layout settings
+    #  #panelHeight = 40
+    #  panelBorderWidth = 1
+    #  workspaceMargin = 10
+    #  workspaceBorderSize = 2
+    #  centerAligned = true
+    #  hideOverlayLayers = true
+    #  hideTopLayers = true
 
-      # Behavior settings
-      autoDrag = true
-      autoScroll = true
-      exitOnClick = true
-      switchOnDrop = true
-      showNewWorkspace = true
-      showEmptyWorkspace = false
-    }
+    #  # Behavior settings
+    #  autoDrag = true
+    #  autoScroll = true
+    #  exitOnClick = true
+    #  switchOnDrop = true
+    #  showNewWorkspace = true
+    #  showEmptyWorkspace = false
+    #}
   }
 ''

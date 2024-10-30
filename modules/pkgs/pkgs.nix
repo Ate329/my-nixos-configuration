@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   environment.systemPackages =
@@ -13,7 +13,7 @@
       git
       gparted
       nmap
-      xwaylandvideobridge
+      inputs.hyprswitch.packages.x86_64-linux.default
       xwayland-satellite
       xwayland-run
       hping
@@ -21,7 +21,6 @@
       vivaldi
       seatd
       nixd
-      # clipgrab
       code-cursor
       xdg-utils
       devenv

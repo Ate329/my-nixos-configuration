@@ -10,11 +10,7 @@
 
 let
   inherit (config.lib.stylix) colors;
-  inherit (import ./variables.nix)
-    gitUsername
-    gitEmail
-    theme
-    ;
+  inherit (import ./variables.nix) gitUsername gitEmail theme;
 in
 {
   # Home Manager Settings
@@ -81,11 +77,11 @@ in
   '';
 
   /*
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
-    wallpaper = eDP-1,/home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
-    splash = true
-  '';
+    home.file.".config/hypr/hyprpaper.conf".text = ''
+      preload = /home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
+      wallpaper = eDP-1,/home/ate329/Pictures/Wallpapers/azusa_flower_crop.png
+      splash = true
+    '';
   */
 
   home.file.".config/swappy/config".text = ''
@@ -338,7 +334,7 @@ in
         la = "lsd -a";
         lal = "lsd -al";
         ".." = "cd ..";
-        neofetch="neofetch --ascii ~/.config/ascii-neofetch";
+        neofetch = "neofetch --ascii ~/.config/ascii-neofetch";
         tsvpn = "sudo tailscale up --exit-node=100.73.102.70 --accept-routes";
       };
     };

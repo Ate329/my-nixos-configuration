@@ -8,6 +8,8 @@
     nix-colors.url = "github:misterio77/nix-colors";
     stylix.url = "github:danth/stylix";
 
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -21,7 +23,7 @@
     };
 
     Hyprspace = {
-      url = "github:KZDKM/Hyprspace/pull/97/head";
+      url = "github:KZDKM/Hyprspace";
       # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
       inputs.hyprland.follows = "hyprland";
     };

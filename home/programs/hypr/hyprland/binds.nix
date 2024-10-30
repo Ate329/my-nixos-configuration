@@ -1,4 +1,11 @@
-{ pkgs, lib, username, terminal, browser, workspace-switcher }:
+{
+  pkgs,
+  lib,
+  username,
+  terminal,
+  browser,
+  workspace-switcher,
+}:
 
 let
   modifier = "SUPER";
@@ -98,6 +105,34 @@ in
   bind = ${modifier},SPACE,togglespecialworkspace
   bind = ${modifier},M,moveworkspacetomonitor,1 current
 
+  # Hyprswitch
+  $key = TAB
+  $modifier = SUPER
+  $modifier_release = SUPER_L
+  $reverse = SHIFT
+
+  # allows repeated switching with same keypress that starts the submap
+  binde = $modifier, $key, exec, hyprswitch gui --do-initial-execute
+  bind = $modifier, $key, submap, switch
+
+  # allows repeated switching with same keypress that starts the submap
+  binde = $modifier $reverse, $key, exec, hyprswitch gui --do-initial-execute -r
+  bind = $modifier $reverse, $key, submap, switch
+
+  submap = switch
+  # allow repeated window switching in submap (same keys as repeating while starting)
+  binde = $modifier, $key, exec, hyprswitch gui
+  binde = $modifier $reverse, $key, exec, hyprswitch gui -r
+
+  # exit submap and stop hyprswitch
+  bindrt = $modifier, $modifier_release, exec, hyprswitch close
+  bindrt = $modifier, $modifier_release, submap, reset
+
+  # if it somehow doesn't close on releasing $switch_release, escape can kill (doesnt switch)
+  bindr = ,escape, exec, hyprswitch close --kill
+  bindr = ,escape, submap, reset
+  submap = reset
+
   # Utility functions
   bind = ${modifier}SHIFT,W,exec,web-search
   bind = ${modifier}ALT,W,exec,wallsetter
@@ -106,8 +141,8 @@ in
   bindl = ,Print,exec,grim - | wl-copy
   bind = ${modifier},V,exec,cliphist list | rofi -dmenu | cliphist decode | wl-copy
   # bind = ALT,TAB,hyprexpo:expo,toggle
-  bind = ${modifier},TAB,exec,hyprctl dispatch overview:toggle
-  bind = ${modifier}SHIFT,TAB,exec,hyprctl dispatch overview:toggle all
+  # bind = ${modifier},TAB,exec,hyprctl dispatch overview:toggle
+  # bind = ${modifier}SHIFT,TAB,exec,hyprctl dispatch overview:toggle all
   bind = ${modifier},M,exec,kitty btop
   bind = ${modifier},B,exec,list-hypr-bindings
 
