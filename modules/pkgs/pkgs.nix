@@ -19,6 +19,8 @@
       hping
       rename
       vivaldi
+      nix-prefetch-github
+      lazygit
       seatd
       nixd
       code-cursor
