@@ -106,13 +106,11 @@ in
   bind = ${modifier},M,moveworkspacetomonitor,1 current
 
   # Hyprswitch
-  exec-once = hyprswitch init --show-title &
   $key = tab
   $reverse = shift
 
   bind = alt, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=mod=$reverse --sort-recent && hyprswitch dispatch
   bind = alt $reverse, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=mod=$reverse --sort-recent && hyprswitch dispatch -r
-
   bind = super, $key, exec, hyprswitch gui --mod-key super_l --key $key --close mod-key-release --reverse-key=mod=$reverse
   bind = super $reverse, $key, exec, hyprswitch gui --mod-key super_l --key $key --close mod-key-release --reverse-key=mod=$reverse
 
