@@ -4,13 +4,12 @@
   inputs,
   username,
   host,
-  gtkThemeFromScheme,
   ...
 }:
 
 let
   inherit (config.lib.stylix) colors;
-  inherit (import ./variables.nix) gitUsername gitEmail theme;
+  inherit (import ./variables.nix) gitUsername gitEmail;
 in
 {
   # Home Manager Settings
@@ -18,13 +17,9 @@ in
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
 
-  # Set The Colorscheme
-  colorScheme = inputs.nix-colors.colorSchemes."${theme}";
-
   # Import Program Configurations
   imports = [
-    inputs.nix-colors.homeManagerModules.default
-    inputs.hyprland.homeManagerModules.default
+    # inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
     ../../home/programs/hypr/default.nix
     ../../home/programs/rofi/default.nix

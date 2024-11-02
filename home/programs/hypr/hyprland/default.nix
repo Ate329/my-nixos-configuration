@@ -20,7 +20,7 @@ let
 
   workspace-switcher = pkgs.callPackage ../../../../home/scripts/workspace-switcher.nix {
     inherit (pkgs) writeShellScriptBin jq;
-    hyprland = inputs.hyprland.packages.${pkgs.system}.default;
+    # hyprland = inputs.hyprland.packages.${pkgs.system}.default;
   };
 in
 {

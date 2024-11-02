@@ -106,32 +106,15 @@ in
   bind = ${modifier},M,moveworkspacetomonitor,1 current
 
   # Hyprswitch
-  $key = TAB
-  $modifier = SUPER
-  $modifier_release = SUPER_L
-  $reverse = SHIFT
+  exec-once = hyprswitch init --show-title &
+  $key = tab
+  $reverse = shift
 
-  # allows repeated switching with same keypress that starts the submap
-  binde = $modifier, $key, exec, hyprswitch gui --do-initial-execute
-  bind = $modifier, $key, submap, switch
+  bind = alt, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=mod=$reverse --sort-recent && hyprswitch dispatch
+  bind = alt $reverse, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=mod=$reverse --sort-recent && hyprswitch dispatch -r
 
-  # allows repeated switching with same keypress that starts the submap
-  binde = $modifier $reverse, $key, exec, hyprswitch gui --do-initial-execute -r
-  bind = $modifier $reverse, $key, submap, switch
-
-  submap = switch
-  # allow repeated window switching in submap (same keys as repeating while starting)
-  binde = $modifier, $key, exec, hyprswitch gui
-  binde = $modifier $reverse, $key, exec, hyprswitch gui -r
-
-  # exit submap and stop hyprswitch
-  bindrt = $modifier, $modifier_release, exec, hyprswitch close
-  bindrt = $modifier, $modifier_release, submap, reset
-
-  # if it somehow doesn't close on releasing $switch_release, escape can kill (doesnt switch)
-  bindr = ,escape, exec, hyprswitch close --kill
-  bindr = ,escape, submap, reset
-  submap = reset
+  bind = super, $key, exec, hyprswitch gui --mod-key super_l --key $key --close mod-key-release --reverse-key=mod=$reverse
+  bind = super $reverse, $key, exec, hyprswitch gui --mod-key super_l --key $key --close mod-key-release --reverse-key=mod=$reverse
 
   # Utility functions
   bind = ${modifier}SHIFT,W,exec,web-search

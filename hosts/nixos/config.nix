@@ -88,16 +88,16 @@
         configurationLimit = 1000;
         useOSProber = false;
         extraEntries = ''
-            	  menuentry "Reboot" --class restart {
-                    reboot
-            	  }
-            	  menuentry "Poweroff" --class shutdown {
-              	    halt
-            	  }
-            	  menuentry "UEFI Setup" --class efi {
-              	    fwsetup
-            	  }
-          	'';
+          menuentry "Reboot" --class restart {
+              reboot
+          }
+          menuentry "Poweroff" --class shutdown {
+              halt
+          }
+          menuentry "UEFI Setup" --class efi {
+              fwsetup
+          }
+        '';
       };
       grub2-theme = {
         enable = true;
@@ -112,7 +112,7 @@
 
     # Make /tmp a tmpfs
     tmp = {
-      useTmpfs = false;
+      useTmpfs = true;
       tmpfsSize = "30%";
     };
 
@@ -196,7 +196,7 @@
 
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
       systemd.setPath.enable = true;
     };
