@@ -111,8 +111,8 @@ in
 
   bind = alt, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=mod=$reverse --sort-recent && hyprswitch dispatch
   bind = alt $reverse, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=mod=$reverse --sort-recent && hyprswitch dispatch -r
-  bind = super, $key, exec, hyprswitch gui --mod-key super_l --key $key --close mod-key-release --reverse-key=mod=$reverse
-  bind = super $reverse, $key, exec, hyprswitch gui --mod-key super_l --key $key --close mod-key-release --reverse-key=mod=$reverse
+  bind = super, $key, exec, hyprswitch gui --mod-key super_l --key $key --close mod-key-release --reverse-key=mod=$reverse && hyprswitch dispatch
+  bind = super $reverse, $key, exec, hyprswitch gui --mod-key super_l --key $key --close mod-key-release --reverse-key=mod=$reverse && hyprswitch dispatch -r
 
   # Utility functions
   bind = ${modifier}SHIFT,W,exec,web-search
