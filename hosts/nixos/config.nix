@@ -112,7 +112,7 @@
 
     # Make /tmp a tmpfs
     tmp = {
-      useTmpfs = true;
+      useTmpfs = false;
       cleanOnBoot = true;
       tmpfsSize = "50%";
     };

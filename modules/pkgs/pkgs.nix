@@ -17,6 +17,7 @@
       xwayland-satellite
       xwayland-run
       hping
+      q
       rename
       vivaldi
       nix-prefetch-github
