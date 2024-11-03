@@ -258,6 +258,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
     "electron-27.3.11"
+    "electron-30.5.1"
   ];
 
   nixpkgs.config.allowBroken = true;

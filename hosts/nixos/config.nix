@@ -113,7 +113,8 @@
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = true;
-      tmpfsSize = "30%";
+      cleanOnBoot = true;
+      tmpfsSize = "50%";
     };
 
     # Appimage Support
