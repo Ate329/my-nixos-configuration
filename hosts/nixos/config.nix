@@ -243,6 +243,10 @@
         obs-vkcapture
       ];
     };
+
+    openvpn3 = {
+      enable = true;
+    };
   };
 
   nix.extraOptions = ''

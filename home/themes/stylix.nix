@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   # Styling Options
   stylix = {
@@ -16,7 +13,7 @@
         enable = false;
         useImage = false;
       };
-      gtk.enable = false;
+      gtk.enable = true;
     };
 
     polarity = "dark";
@@ -45,12 +42,14 @@
       };
     };
   };
+
   home-manager.sharedModules = [
     {
       stylix = {
         targets = {
           rofi.enable = false;
           waybar.enable = false;
+          spicetify.enable = false;
         };
       };
     }

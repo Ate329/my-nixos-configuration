@@ -19,6 +19,10 @@
       hping
       q
       rename
+      openvpn
+      inetutils
+      pritunl-client
+      batmon
       vivaldi
       nix-prefetch-github
       lazygit

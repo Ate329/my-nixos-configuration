@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  json = pkgs.formats.json {};
+  json = pkgs.formats.json { };
   pw_rnnoise_config = {
     "context.modules" = [
       {
@@ -22,7 +22,10 @@ let
               }
             ];
           };
-          "audio.position" = [ "FL" "FR" ];
+          "audio.position" = [
+            "FL"
+            "FR"
+          ];
           "capture.props" = {
             "node.name" = "effect_input.rnnoise";
             "node.passive" = true;
