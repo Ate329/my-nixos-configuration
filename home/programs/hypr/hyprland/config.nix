@@ -79,7 +79,11 @@
   # Decoration
   decoration {
     rounding = 10
-    drop_shadow = false
+    shadow {
+      enabled = false
+      render_power = 2
+      scale = 0.1
+    }
     blur {
       enabled = true
       size = 5

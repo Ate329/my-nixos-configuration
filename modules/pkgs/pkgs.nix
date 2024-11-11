@@ -234,7 +234,8 @@
       cargo
       vscode-fhs
       libreoffice
-      (wechat-uos.override { uosLicense = ./license.tar.gz; })
+      # (wechat-uos.override { uosLicense = ./license.tar.gz; })
+      wechat-uos
       okular
       discord
       deja-dup
