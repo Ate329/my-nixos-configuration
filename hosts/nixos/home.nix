@@ -138,7 +138,7 @@ in
   };
 
   catppuccin = {
-    enable = true;
+    enable = false;
     flavor = "macchiato";
   };
 
