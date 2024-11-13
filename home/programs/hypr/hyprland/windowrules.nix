@@ -9,18 +9,17 @@
   windowrule = center,^(obsidian)$
   windowrule = center,^(thunar)$
   windowrule = center,^(gimp)$
-  windowrule = center,^(wechat-uos)$
-  windowrule = nearestneighbor,^(wechat-uos)$
   windowrule = center,^(libreoffice)$
   windowrule = center,^(soffice)$
-  windowrulev2 = center,class:^(LibreOffice)$
-  windowrulev2 = center,title:^(LibreOffice.*)$
-  windowrulev2 = center,title:^(.*Start Center)$
-  windowrulev2 = center,class:^(wechat-uos)$,floating:1
   windowrule = maximize,^(logisim-evolution)$
   windowrule = center,^(logisim-evolution)$
   windowrule = center,title:^(Wine)(.*)$
   windowrule = float,title:^(Wine)(.*)$
+  windowrulev2 = center,class:^(LibreOffice)$
+  windowrulev2 = center,title:^(LibreOffice.*)$
+  windowrulev2 = center,title:^(.*Start Center)$
+  windowrulev2 = center,title:^(.*WeChat.*|.*微信.*)$
+  windowrulev2 = nearestneighbor,title:^(.*WeChat.*|.*微信.*)$
   windowrulev2 = stayfocused, title:^()$,class:^(steam)$
   windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
 
