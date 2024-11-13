@@ -21,6 +21,7 @@ in
   imports = [
     # inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
+    inputs.catppuccin.homeManagerModules.catppuccin
     ../../home/programs/hypr/default.nix
     ../../home/programs/rofi/default.nix
     # ../../home/programs/fastfetch/default.nix
@@ -132,8 +133,13 @@ in
   # Theme QT -> GTK
   qt = {
     enable = true;
-    style.name = "adwaita-dark";
-    platformTheme.name = "gtk3";
+    style.name = "kvantum";
+    platformTheme.name = "kvantum";
+  };
+
+  catppuccin = {
+    enable = true;
+    flavor = "macchiato";
   };
 
   # Scripts
@@ -300,6 +306,7 @@ in
 
     starship = {
       enable = true;
+      catppuccin.enable = false;
       package = pkgs.starship;
     };
 

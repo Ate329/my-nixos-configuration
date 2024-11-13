@@ -26,6 +26,7 @@
       vivaldi
       nix-prefetch-github
       lazygit
+      catppuccin
       seatd
       nixd
       code-cursor

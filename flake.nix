@@ -2,11 +2,12 @@
   description = "NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:danth/stylix/pull/605/head";
+    stylix.url = "github:danth/stylix";
     hyprswitch.url = "github:H3rmt/hyprswitch/release";
+    catppuccin.url = "github:catppuccin/nix";
 
     /*
       hyprland = {
@@ -56,6 +57,7 @@
       grub2-themes,
       spicetify-nix,
       oskars-dotfiles,
+      catppuccin,
       ...
     }:
     let
@@ -84,6 +86,7 @@
             home-manager.nixosModules.home-manager
             grub2-themes.nixosModules.default
             auto-cpufreq.nixosModules.default
+            catppuccin.nixosModules.catppuccin
             inputs.stylix.nixosModules.stylix
 
             (
