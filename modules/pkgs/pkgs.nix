@@ -33,6 +33,8 @@
       xdg-utils
       devenv
       thefuck
+      skypeforlinux
+      popsicle
       overlayed
       hyprcursor
       osu-lazer-bin
@@ -268,5 +270,6 @@
     "electron-30.5.1"
   ];
 
+  nixpkgs.config.allowUnsupportedSystem = true;
   nixpkgs.config.allowBroken = true;
 }

@@ -86,7 +86,7 @@
         #font = "/home/${username}/nix-config/home/themes/fonts/JetBrainsMono.ttf";
         fontSize = 48;
         configurationLimit = 1000;
-        useOSProber = false;
+        useOSProber = true;
         extraEntries = ''
           menuentry "Reboot" --class restart {
               reboot
@@ -102,7 +102,6 @@
       grub2-theme = {
         enable = true;
         theme = "stylish";
-        #screen = "custom";
         #splashImage = /home/${username}/nix-config/home/themes/wallpapers/azusa_flower_crop.png;
         customResolution = "2880x1800";
         icon = "color";
@@ -377,7 +376,7 @@
     };
 
     ollama = {
-      enable = true;
+      enable = false;
       acceleration = "rocm";
     };
 

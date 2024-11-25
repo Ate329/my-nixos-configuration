@@ -9,6 +9,7 @@ let
     "com.github.cassidyjames.clairvoyant"
     "com.github.cassidyjames.dippi"
     "com.github.unrud.VideoDownloader"
+    "org.fedoraproject.MediaWriter"
   ];
 in
 {

@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:danth/stylix/pull/610/head";
+    stylix.url = "github:danth/stylix";
     hyprswitch.url = "github:H3rmt/hyprswitch/release";
     catppuccin.url = "github:catppuccin/nix";
 
