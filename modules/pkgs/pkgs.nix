@@ -24,6 +24,8 @@
       pritunl-client
       batmon
       vivaldi
+      disko
+      gnome-disk-utility
       nix-prefetch-github
       lazygit
       catppuccin
@@ -51,6 +53,7 @@
       direnv
       xdotool
       zenith
+      ntfs3g
       opendrop
       nomacs
       adwaita-icon-theme

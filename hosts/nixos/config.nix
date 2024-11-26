@@ -150,6 +150,18 @@
   networking.hostName = "${host}";
   networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/5D2A11EC2A435985";
+    fsType = "ntfs";
+    options = [
+      "rw"
+      "uid=1000"
+      "gid=1000"
+      "umask=022"
+      "nofail"
+    ];
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Athens";
   services.automatic-timezoned.enable = false;
