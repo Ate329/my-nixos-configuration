@@ -284,7 +284,7 @@
     noto-fonts-emoji
     noto-fonts-lgc-plus
     noto-fonts-color-emoji
-    nerdfonts
+    nerd-fonts.jetbrains-mono
     cantarell-fonts
   ];
 

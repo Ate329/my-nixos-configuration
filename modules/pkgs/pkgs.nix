@@ -143,7 +143,6 @@
       gnumake
       ninja
       symbola
-      libstdcxx5
       noto-fonts-color-emoji
       material-icons
       brightnessctl
@@ -203,7 +202,7 @@
       protonup-qt
       font-awesome
       neovide
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      nerd-fonts.jetbrains-mono
       sugar.sddm-sugar-dark # Name: sugar-dark
       tokyo-night # Name: tokyo-night-sddm
       pkgs.libsForQt5.qt5.qtgraphicaleffects

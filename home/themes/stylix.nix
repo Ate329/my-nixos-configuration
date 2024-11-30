@@ -23,7 +23,7 @@
     cursor.size = 24;
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts;
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font";
       };
       sansSerif = {
