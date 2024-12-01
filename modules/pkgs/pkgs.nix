@@ -21,6 +21,8 @@
       rename
       openvpn
       inetutils
+      ffuf
+      wordlists
       pritunl-client
       batmon
       vivaldi
@@ -28,14 +30,20 @@
       gnome-disk-utility
       nix-prefetch-github
       lazygit
+      ngrok
+      wapiti
+      exiftool
       catppuccin
       seatd
       nixd
       code-cursor
       xdg-utils
       devenv
+      binwalk
       thefuck
+      sqlmap
       skypeforlinux
+      hashcat
       popsicle
       overlayed
       hyprcursor

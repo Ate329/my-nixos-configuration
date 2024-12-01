@@ -16,19 +16,19 @@
     }
 
     listener {
-        timeout = 180
+        timeout = 360
         on-timeout = brightnessctl -s set 10
         on-resume = brightnessctl -r
     }
 
     listener {
-        timeout = 180
+        timeout = 360
         on-timeout = brightnessctl -sd rgb:kbd_backlight set 0
         on-resume = brightnessctl -rd rgb:kbd_backlight
     }
 
     listener {
-        timeout = 300
+        timeout = 720
         on-timeout = loginctl lock-session
     }
   '';
