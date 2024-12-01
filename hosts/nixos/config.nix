@@ -378,7 +378,7 @@
 
     logind = {
       powerKeyLongPress = "poweroff";
-      lidSwitchExternalPower = "ignore";
+      lidSwitchExternalPower = "lock";
       extraConfig = ''
         # don’t shutdown when power button is short-pressed
         HandlePowerKey=ignore
