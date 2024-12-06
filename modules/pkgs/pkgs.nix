@@ -30,7 +30,6 @@
       gnome-disk-utility
       nix-prefetch-github
       lazygit
-      ngrok
       wapiti
       exiftool
       catppuccin
