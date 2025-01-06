@@ -123,6 +123,7 @@
       lxqt.lxqt-policykit
       logisim-evolution
       stdenv.cc.cc.lib
+      stdenv
       libcxx
       libgcc
       gnat
