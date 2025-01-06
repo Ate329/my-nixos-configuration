@@ -21,6 +21,8 @@
       rename
       openvpn
       inetutils
+      sony-headphones-client
+      telegram-desktop
       ffuf
       wordlists
       pritunl-client
@@ -47,7 +49,7 @@
       overlayed
       hyprcursor
       osu-lazer-bin
-      bottles
+      # bottles
       wmutils-core
       gopls
       go
@@ -250,7 +252,7 @@
       wechat-uos
       okular
       discord
-      deja-dup
+      # deja-dup
       uwufetch
       waydroid
       teams-for-linux

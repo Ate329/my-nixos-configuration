@@ -139,6 +139,7 @@ in
 
   catppuccin = {
     enable = false;
+    starship.enable = false;
     flavor = "macchiato";
   };
 
@@ -306,7 +307,6 @@ in
 
     starship = {
       enable = true;
-      catppuccin.enable = false;
       package = pkgs.starship;
     };
 
@@ -337,7 +337,8 @@ in
         lal = "lsd -al";
         ".." = "cd ..";
         neofetch = "neofetch --ascii ~/.config/ascii-neofetch";
-        tsvpn = "sudo tailscale up --exit-node=100.73.102.70 --accept-routes";
+        tsvpn = "sudo tailscale up --exit-node=100.64.0.4 --accept-routes";
+        ssh = "kitten ssh";
       };
     };
     home-manager.enable = true;

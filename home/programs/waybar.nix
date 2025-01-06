@@ -10,7 +10,6 @@ let
   inherit (config.lib.stylix) colors;
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
   inherit (import ../../hosts/${host}/variables.nix) bar-number clock24h waybarAnim;
-
 in
 with lib;
 {
@@ -103,8 +102,8 @@ with lib;
           format-source-muted = " ";
           format-icons = {
             headphone = " ";
-            hands-free = " ";
-            headset = " ";
+            hands-free = " ";
+            headset = " ";
             phone = " ";
             portable = " ";
             car = " ";
