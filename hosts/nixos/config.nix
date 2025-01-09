@@ -211,6 +211,7 @@
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
       systemd.setPath.enable = true;
+      withUWSM = true;
     };
 
     firefox.enable = true;
