@@ -337,7 +337,7 @@ in
         lal = "lsd -al";
         ".." = "cd ..";
         neofetch = "neofetch --ascii ~/.config/ascii-neofetch";
-        tsvpn = "sudo tailscale up --exit-node=100.64.0.4 --accept-routes";
+        tsvpn = "tailscale up --accept-routes --exit-node=100.64.0.4 --login-server=https://headscale.ate329.nohost.me --accept-dns --operator=$USER";
         ssh = "kitten ssh";
       };
     };

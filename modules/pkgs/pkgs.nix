@@ -11,6 +11,16 @@
       vim
       wget
       git
+      (pkgs.callPackage ./sddm-themes/sddm-astronaut-theme.nix {
+        theme = "hyprland_kath";
+        themeConfig = {
+          General = {
+            HeaderText = "Hi!";
+            #Background = "/home/user/Desktop/wp.png";
+            FontSize = "25.0";
+          };
+        };
+      })
       gparted
       nmap
       inputs.hyprswitch.packages.x86_64-linux.default
@@ -18,7 +28,16 @@
       xwayland-run
       hping
       q
+      nextcloud-client
       rename
+      nil
+      spotdl
+      mopidy
+      mopidy-soundcloud
+      ffmpeg
+      pipx
+      easyeffects
+      snowflake
       openvpn
       inetutils
       sony-headphones-client

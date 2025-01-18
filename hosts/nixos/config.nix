@@ -302,7 +302,14 @@
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
-      theme = "${import ../../modules/pkgs/sddm-themes/where-is-my-sddm-theme.nix { inherit pkgs; }}";
+      package = pkgs.kdePackages.sddm;
+      #theme = "${import ../../modules/pkgs/sddm-themes/where-is-my-sddm-theme.nix { inherit pkgs; }}";
+      theme = "sddm-astronaut-theme";
+      extraPackages = with pkgs; [
+        kdePackages.qtmultimedia
+        kdePackages.qtsvg
+        kdePackages.qtvirtualkeyboard
+      ];
     };
 
     tailscale = {
@@ -368,6 +375,16 @@
             "hfp_hf"
             "hfp_ag"
           ];
+        };
+      };
+
+      # Lower Audio Latency
+      extraConfig.pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 32;
+          "default.clock.min-quantum" = 32;
+          "default.clock.max-quantum" = 32;
         };
       };
     };

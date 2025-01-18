@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 pkgs.stdenv.mkDerivation {
-  name = "sddm-theme";
+  name = "where-is-my-sddm-theme";
   src = pkgs.fetchFromGitHub {
     owner = "stepanzubkov";
     repo = "where-is-my-sddm-theme";
