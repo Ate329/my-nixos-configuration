@@ -12,7 +12,8 @@
       wget
       git
       (pkgs.callPackage ./sddm-themes/sddm-astronaut-theme.nix {
-        theme = "hyprland_kath";
+        #theme = "hyprland_kath";
+        theme = "jake_the_dog";
         themeConfig = {
           General = {
             HeaderText = "Hi!";
@@ -30,13 +31,15 @@
       q
       nextcloud-client
       rename
+      # ollama-rocm
       nil
       spotdl
       mopidy
       mopidy-soundcloud
       ffmpeg
       pipx
-      easyeffects
+      cosmic-edit
+      cosmic-files
       snowflake
       openvpn
       inetutils
@@ -102,7 +105,7 @@
       youtube-tui
       bilibili
       amdgpu_top
-      qq
+      # qq
       microcode-amd
       zenmonitor
       stress
@@ -117,7 +120,6 @@
       gamescope-wsi
       clinfo
       tailscale
-      webcord
       vesktop
       jstest-gtk
       linuxConsoleTools
@@ -127,8 +129,6 @@
       cmatrix
       mcrcon
       lolcat
-      jellyfin
-      jellyfin-web
       jellyfin-media-player
       tor-browser
       neofetch
@@ -158,7 +158,6 @@
       eza
       v4l-utils
       ydotool
-      #auto-cpufreq
       wl-clipboard
       lm_sensors
       pciutils
@@ -268,14 +267,11 @@
       cargo
       vscode-fhs
       libreoffice
-      # (wechat-uos.override { uosLicense = ./license.tar.gz; })
       wechat-uos
       okular
       discord
-      # deja-dup
       uwufetch
       waydroid
-      teams-for-linux
       gcc
       gcc-unwrapped
       ibus
@@ -292,7 +288,6 @@
       fastfetch
       vim
       sl
-      alacritty
     ];
 
   nixpkgs.config.permittedInsecurePackages = [

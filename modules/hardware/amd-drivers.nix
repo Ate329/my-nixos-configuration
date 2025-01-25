@@ -14,7 +14,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages_5.clr}" ];
+    # pkgs.rocmPackages_5.clr
+    systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 
     services.xserver.videoDrivers = [ "amdgpu" ];
 
@@ -27,7 +28,10 @@ in
       extraPackages = with pkgs; [
         mesa
         amdvlk
-        rocmPackages_5.clr.icd
+        # rocmPackages_5.clr.icd
+        rocmPackages.clr.icd
+        rocmPackages.rccl
+        rocmPackages.half
       ];
       extraPackages32 = with pkgs.driversi686Linux; [
         mesa

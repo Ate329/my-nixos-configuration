@@ -258,51 +258,6 @@ in
         window_padding_width = 4;
         confirm_os_window_close = 0;
       };
-      extraConfig = ''
-        foreground #${colors.base05}
-        background #${colors.base00}
-        color0  #${colors.base03}
-        color1  #${colors.base08}
-        color2  #${colors.base0B}
-        color3  #${colors.base09}
-        color4  #${colors.base0D}
-        color5  #${colors.base0E}
-        color6  #${colors.base0C}
-        color7  #${colors.base06}
-        color8  #${colors.base04}
-        color9  #${colors.base08}
-        color10 #${colors.base0B}
-        color11 #${colors.base0A}
-        color12 #${colors.base0C}
-        color13 #${colors.base0E}
-        color14 #${colors.base0C}
-        color15 #${colors.base07}
-        color16 #${colors.base00}
-        color17 #${colors.base0F}
-        color18 #${colors.base0B}
-        color19 #${colors.base09}
-        color20 #${colors.base0D}
-        color21 #${colors.base0E}
-        color22 #${colors.base0C}
-        color23 #${colors.base06}
-        cursor  #${colors.base07}
-        cursor_text_color #${colors.base00}
-        selection_foreground #${colors.base01}
-        selection_background #${colors.base0D}
-        url_color #${colors.base0C}
-        active_border_color #${colors.base04}
-        inactive_border_color #${colors.base00}
-        bell_border_color #${colors.base03}
-        tab_bar_style fade
-        tab_fade 1
-        active_tab_foreground   #${colors.base04}
-        active_tab_background   #${colors.base00}
-        active_tab_font_style   bold
-        inactive_tab_foreground #${colors.base07}
-        inactive_tab_background #${colors.base08}
-        inactive_tab_font_style bold
-        tab_bar_background #${colors.base00}
-      '';
     };
 
     starship = {

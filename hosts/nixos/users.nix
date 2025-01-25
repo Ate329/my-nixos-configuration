@@ -10,7 +10,7 @@ let
   inherit (import ./variables.nix) gitUsername;
 in
 {
-  users.groups.pcap = {};
+  users.groups.pcap = { };
 
   users.users = {
     "${username}" = {
@@ -23,10 +23,10 @@ in
         "libvirtd"
         "scanner"
         "lp"
-	"pcap"
+        "pcap"
       ];
 
-      shell = pkgs.bash;
+      shell = pkgs.fish;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [ ];
     };
@@ -41,4 +41,5 @@ in
     #   packages = with pkgs; [];
     # };
   };
+  users.defaultUserShell = pkgs.fish;
 }

@@ -13,11 +13,11 @@
         enable = false;
         useImage = false;
       };
-      gtk.enable = true;
+      fish.enable = false;
     };
 
     polarity = "dark";
-    opacity.terminal = 0.87;
+    opacity.terminal = 0.85;
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
@@ -50,6 +50,11 @@
           rofi.enable = false;
           waybar.enable = false;
           spicetify.enable = false;
+          fish.enable = false;
+          kitty = {
+            enable = true;
+            variant256Colors = true;
+          };
         };
       };
     }

@@ -25,6 +25,7 @@
     ../../modules/pkgs/custom-packages/auto-cpufreq.nix
     ../../modules/pkgs/custom-packages/noise-suppression.nix
     ../../modules/pkgs/custom-packages/steam.nix
+    ../../modules/pkgs/custom-packages/fish.nix
     ../../modules/pkgs/flatpak.nix
   ];
 
@@ -50,9 +51,9 @@
   boot = {
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
     # kernelPackages = pkgs.linuxPackages_zen;
-    # kernelPackages = pkgs.linuxPackages_6_1;
+    kernelPackages = pkgs.linuxPackages_6_12;
 
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
@@ -220,6 +221,14 @@
     fuse.userAllowOther = true;
     mtr.enable = true;
 
+    java.enable = true;
+
+    starship = {
+      enable = true;
+      package = pkgs.starship;
+      interactiveOnly = false;
+    };
+
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -379,14 +388,14 @@
       };
 
       # Lower Audio Latency
-      extraConfig.pipewire."92-low-latency" = {
-        "context.properties" = {
-          "default.clock.rate" = 48000;
-          "default.clock.quantum" = 32;
-          "default.clock.min-quantum" = 32;
-          "default.clock.max-quantum" = 32;
-        };
-      };
+      #extraConfig.pipewire."92-low-latency" = {
+      #  "context.properties" = {
+      #    "default.clock.rate" = 48000;
+      #    "default.clock.quantum" = 32;
+      #    "default.clock.min-quantum" = 32;
+      #    "default.clock.max-quantum" = 32;
+      #  };
+      #};
     };
 
     rpcbind.enable = true;
@@ -406,7 +415,7 @@
     };
 
     ollama = {
-      enable = false;
+      enable = false; # Temporarily disable ollama due to rocm packages issues (as always)
       acceleration = "rocm";
     };
 
@@ -453,8 +462,6 @@
     wantedBy = [ "default.target" ];
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
-
-  programs.java.enable = true;
 
   # Security / Polkit
   security.rtkit.enable = true;
