@@ -13,7 +13,7 @@
       git
       (pkgs.callPackage ./sddm-themes/sddm-astronaut-theme.nix {
         #theme = "hyprland_kath";
-        theme = "jake_the_dog";
+        theme = "astronaut";
         themeConfig = {
           General = {
             HeaderText = "Hi!";
