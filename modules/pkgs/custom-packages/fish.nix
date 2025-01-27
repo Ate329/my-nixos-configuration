@@ -8,6 +8,7 @@
   programs.fish = {
     enable = true;
     package = pkgs.fish;
+
     shellAliases = {
       sv = "sudo nvim";
       flake-rebuild = "nh os switch --hostname ${host} /home/${username}/nix-config";
@@ -28,14 +29,10 @@
     shellInit = ''
       # Disable the default Fish greeting
       set fish_greeting
+    '';
 
-      # Display system information
+    interactiveShellInit = ''
       neofetch --ascii ~/.config/ascii-neofetch
-
-      # Conditional execution example
-      #if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-      #  exec Hyprland
-      #end
     '';
   };
 

@@ -46,7 +46,11 @@ in
     source = ../../home/themes/fonts;
     recursive = true;
   };
-  home.file.".config/fish/fish_variables".source = ../../home/shell/fish_variables;
+  # Copy your fish_variables file to the writable location
+  #home.file.".config/fish/fish_variables" = {
+  #  source = ../../home/shell/fish_variables;
+  #  force = true;  # Overwrite existing file during rebuilds
+  #};
   home.file.".config/starship.toml".source = ../../home/shell/starship.toml;
   home.file.".config/ascii-neofetch".source = ../../home/shell/ascii-neofetch;
   home.file.".base16-themes".source = ../../home/themes/base16-themes;
