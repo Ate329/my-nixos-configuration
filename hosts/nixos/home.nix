@@ -4,6 +4,7 @@
   inputs,
   username,
   host,
+  lib,
   ...
 }:
 
@@ -138,8 +139,8 @@ in
   # Theme QT -> GTK
   qt = {
     enable = true;
-    style.name = "kvantum";
-    platformTheme.name = "kvantum";
+    #style.name = "kvantum";
+    platformTheme.name = lib.mkForce "kvantum";
   };
 
   catppuccin = {

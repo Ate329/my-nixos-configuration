@@ -51,5 +51,6 @@
     fishPlugins.puffer
     grc
     fzf
+    fish-lsp
   ];
 }

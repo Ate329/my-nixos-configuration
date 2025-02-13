@@ -31,8 +31,13 @@
       q
       nextcloud-client
       rename
+      passExtensions.pass-import
       # ollama-rocm
       nil
+      jdk17
+      jdk21
+      jdk
+      jre
       spotdl
       mopidy
       mopidy-soundcloud
@@ -44,6 +49,9 @@
       openvpn
       inetutils
       sony-headphones-client
+      pass-wayland
+      pass
+      browserpass
       telegram-desktop
       ffuf
       wordlists
@@ -54,7 +62,6 @@
       gnome-disk-utility
       nix-prefetch-github
       lazygit
-      wapiti
       exiftool
       catppuccin
       seatd
@@ -62,7 +69,6 @@
       code-cursor
       xdg-utils
       devenv
-      binwalk
       thefuck
       sqlmap
       skypeforlinux
@@ -75,7 +81,6 @@
       wmutils-core
       gopls
       go
-      firefox-devedition
       ncdu
       mupdf
       nwg-look

@@ -51,9 +51,9 @@
   boot = {
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
-    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     # kernelPackages = pkgs.linuxPackages_zen;
-    kernelPackages = pkgs.linuxPackages_6_12;
+    # kernelPackages = pkgs.linuxPackages_6_12;
 
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
@@ -215,13 +215,20 @@
       withUWSM = true;
     };
 
-    firefox.enable = true;
+    browserpass.enable = true;
     dconf.enable = true;
     seahorse.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
+    java = {
+      enable = true;
+      package = pkgs.jdk21;
+    };
 
-    java.enable = true;
+    firefox = {
+      enable = true;
+      nativeMessagingHosts.packages = [ pkgs.browserpass ];
+    };
 
     starship = {
       enable = true;
@@ -348,13 +355,31 @@
 
     libinput.enable = true;
     openssh.enable = true;
-    printing.enable = true;
     gnome.gnome-keyring.enable = true;
 
     avahi = {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
+    };
+
+    printing = {
+      enable = true;
+      listenAddresses = [ "*:631" ];
+      allowFrom = [ "all" ];
+      browsing = true;
+      defaultShared = true;
+      openFirewall = true;
+      drivers = [
+        pkgs.hplipWithPlugin
+        pkgs.cnijfilter2
+        pkgs.gutenprint
+        pkgs.gutenprintBin
+      ];
     };
 
     ipp-usb.enable = true;
@@ -401,7 +426,7 @@
     rpcbind.enable = true;
     nfs.server.enable = true;
 
-    power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = false;
 
     logind = {
       powerKeyLongPress = "poweroff";
