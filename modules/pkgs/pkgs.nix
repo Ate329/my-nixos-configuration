@@ -29,7 +29,6 @@
       xwayland-run
       hping
       q
-      nextcloud-client
       rename
       passExtensions.pass-import
       # ollama-rocm
@@ -195,7 +194,6 @@
       playerctl
       nh
       nixfmt-rfc-style
-      discord
       libvirt
       swww
       hyprpaper
@@ -274,7 +272,6 @@
       libreoffice
       wechat-uos
       okular
-      discord
       uwufetch
       waydroid
       gcc

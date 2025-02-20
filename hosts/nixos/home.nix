@@ -9,7 +9,7 @@
 }:
 
 let
-  inherit (config.lib.stylix) colors;
+  # inherit (config.lib.stylix) colors;
   inherit (import ./variables.nix) gitUsername gitEmail;
 in
 {
@@ -298,7 +298,7 @@ in
         lal = "lsd -al";
         ".." = "cd ..";
         neofetch = "neofetch --ascii ~/.config/ascii-neofetch";
-        tsvpn = "tailscale up --accept-routes --exit-node=100.64.0.4 --login-server=https://headscale.ate329.nohost.me --accept-dns --operator=$USER";
+        tsvpn = "sudo tailscale up --accept-routes --exit-node=yunohost-homelab --accept-dns --exit-node-allow-lan-access=true --operator=$USER";
         ssh = "kitten ssh";
       };
     };
