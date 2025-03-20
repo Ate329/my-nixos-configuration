@@ -70,6 +70,19 @@
     kernelParams = [
       "video=eDP-1:2880x1800@120"
       "video=HDMI-A-1:2560x1440@144"
+      # Power saving parameters
+      "amdgpu.ppfeaturemask=0xffffffff" # Enable all AMD GPU power management features
+      "amd_pstate=active" # Use the active AMD pstate driver for better power management
+      "amd_pstate.shared_mem=1" # Enable shared memory for better pstate driver efficiency
+      "amdgpu.runpm=1" # Enable runtime power management for the GPU
+      "mem_sleep_default=deep" # Enable deep sleep mode
+      "nvme.noacpi=1" # Reduce NVMe power consumption
+      "pcie_aspm=force" # Force PCIe Active State Power Management
+      "usbcore.autosuspend=1" # Enable USB autosuspend
+      "sched_energy_aware=1" # Make the scheduler energy aware
+      "processor.max_cstate=10" # Allow deep processor C-states
+      "amd_iommu=pt" # IOMMU pass-through for better power efficiency
+      "psmouse.synaptics_intertouch=1" # Better touchpad support
     ];
 
     initrd.kernelModules = [ "amdgpu" ];
@@ -292,6 +305,8 @@
     ZANEYOS = "true";
   };
 
+  # ryzenadj has been moved to auto-cpufreq.nix
+
   users = {
     mutableUsers = true;
   };
@@ -425,8 +440,6 @@
     rpcbind.enable = true;
     nfs.server.enable = true;
 
-    power-profiles-daemon.enable = false;
-
     logind = {
       powerKeyLongPress = "poweroff";
       lidSwitchExternalPower = "lock";
@@ -446,6 +459,8 @@
     open-webui = {
       enable = false;
     };
+
+    # Power management services have been moved to modules/pkgs/custom-packages/auto-cpufreq.nix
   };
 
   hardware.sane = {
@@ -571,4 +586,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+
+  # Power management services have been moved to modules/pkgs/custom-packages/auto-cpufreq.nix
 }
