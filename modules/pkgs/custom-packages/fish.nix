@@ -33,6 +33,9 @@
 
     interactiveShellInit = ''
       neofetch --ascii ~/.config/ascii-neofetch
+
+      # Initialize starship with our custom configuration
+      starship init fish | source
     '';
   };
 
@@ -52,5 +55,6 @@
     grc
     fzf
     fish-lsp
+    starship
   ];
 }

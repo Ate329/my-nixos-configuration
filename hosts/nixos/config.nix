@@ -230,11 +230,12 @@
       nativeMessagingHosts.packages = [ pkgs.browserpass ];
     };
 
-    starship = {
-      enable = true;
-      package = pkgs.starship;
-      interactiveOnly = false;
-    };
+    # Comment out system-wide starship configuration completely
+    # starship = {
+    #   enable = false;
+    #   package = pkgs.starship;
+    #   interactiveOnly = false;
+    # };
 
     gnupg.agent = {
       enable = true;
@@ -287,6 +288,8 @@
 
   environment.variables = {
     FLAKE = "/home/ate329/nix-config";
+    ZANEYOS_VERSION = "2.0";
+    ZANEYOS = "true";
   };
 
   users = {
@@ -304,11 +307,6 @@
     nerd-fonts.jetbrains-mono
     cantarell-fonts
   ];
-
-  environment.variables = {
-    ZANEYOS_VERSION = "2.0";
-    ZANEYOS = "true";
-  };
 
   # Services to start
   services = {
@@ -360,7 +358,7 @@
     avahi = {
       enable = true;
       nssmdns4 = true;
-      openFirewall = true;
+      openFirewall = false;
       publish = {
         enable = true;
         userServices = true;
@@ -373,9 +371,10 @@
       allowFrom = [ "all" ];
       browsing = true;
       defaultShared = true;
-      openFirewall = true;
+      openFirewall = false;
       drivers = [
-        pkgs.hplipWithPlugin
+        # Commented out due to download error
+        # pkgs.hplipWithPlugin
         pkgs.cnijfilter2
         pkgs.gutenprint
         pkgs.gutenprintBin
@@ -432,7 +431,7 @@
       powerKeyLongPress = "poweroff";
       lidSwitchExternalPower = "lock";
       extraConfig = ''
-        # don’t shutdown when power button is short-pressed
+        # don't shutdown when power button is short-pressed
         HandlePowerKey=ignore
         IdleAction=suspend
         IdleActionSec=600
@@ -567,7 +566,7 @@
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # on your system were taken. It's perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).

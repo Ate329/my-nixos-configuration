@@ -52,6 +52,7 @@ in
   #  source = ../../home/shell/fish_variables;
   #  force = true;  # Overwrite existing file during rebuilds
   #};
+  # Uncomment to use file-based starship configuration
   home.file.".config/starship.toml".source = ../../home/shell/starship.toml;
   home.file.".config/ascii-neofetch".source = ../../home/shell/ascii-neofetch;
   home.file.".base16-themes".source = ../../home/themes/base16-themes;
@@ -266,11 +267,6 @@ in
       };
     };
 
-    starship = {
-      enable = true;
-      package = pkgs.starship;
-    };
-
     bash = {
       enable = false;
       enableCompletion = true;
@@ -298,7 +294,7 @@ in
         lal = "lsd -al";
         ".." = "cd ..";
         neofetch = "neofetch --ascii ~/.config/ascii-neofetch";
-        tsvpn = "sudo tailscale up --accept-routes --exit-node=yunohost-homelab --accept-dns --exit-node-allow-lan-access=true --operator=$USER";
+        tsvpn = "sudo tailscale up --accept-routes --exit-node=yunohost-homelab --accept-dns --exit-node-allow-lan-access=true --operator=ate329";
         ssh = "kitten ssh";
       };
     };

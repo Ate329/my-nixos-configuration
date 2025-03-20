@@ -35,11 +35,15 @@
       nil
       jdk17
       jdk21
+      # Commented out due to download error
+      # hplipWithPlugin
       jdk
       jre
       spotdl
       mopidy
       mopidy-soundcloud
+      onionshare-gui
+      atlauncher
       ffmpeg
       pipx
       cosmic-edit
@@ -260,6 +264,7 @@
       ani-cli
       spotify
       krita
+      llama-cpp
       btop
       lutris
       htop
@@ -271,7 +276,7 @@
       vscode-fhs
       libreoffice
       wechat-uos
-      okular
+      kdePackages.okular
       uwufetch
       waydroid
       gcc
