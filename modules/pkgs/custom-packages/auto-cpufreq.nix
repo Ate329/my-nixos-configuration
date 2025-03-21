@@ -113,8 +113,8 @@
       # Updated frequency ranges for better balance
       CPU_SCALING_MIN_FREQ_ON_AC = 1700000;
       CPU_SCALING_MAX_FREQ_ON_AC = 5100000; # Maximum frequency for Ryzen 7 7840HS
-      CPU_SCALING_MIN_FREQ_ON_BAT = 1200000; # Lower minimum frequency on battery
-      CPU_SCALING_MAX_FREQ_ON_BAT = 3200000; # More conservative max frequency on battery
+      CPU_SCALING_MIN_FREQ_ON_BAT = 1600000; # Increased minimum frequency for better responsiveness
+      CPU_SCALING_MAX_FREQ_ON_BAT = 3800000; # Higher max frequency for better performance
 
       # Power saving for PCI Express Active State Power Management
       # Use default on AC for better performance
@@ -276,16 +276,21 @@
         # On battery - conserve power
         echo "Applying battery power settings"
 
-        # Apply ryzenadj settings with error handling
-        ryzenadj --stapm-limit=12000 --fast-limit=15000 --slow-limit=12000 --tctl-temp=90 --vrmmax-current=35000 || echo "Warning: ryzenadj command failed"
+        # Apply ryzenadj settings with error handling - increased limits for better responsiveness
+        ryzenadj --stapm-limit=18000 --fast-limit=22000 --slow-limit=18000 --tctl-temp=90 --vrmmax-current=45000 || echo "Warning: ryzenadj command failed"
 
-        # Set conservative CPU frequency limits
-        set_cpu_freq 1200000 3200000
+        # Set balanced CPU frequency limits
+        set_cpu_freq 1600000 3800000
 
         # Set governor if available
         for policy in /sys/devices/system/cpu/cpufreq/policy*; do
           if [ -w "$policy/scaling_governor" ]; then
             echo "powersave" > "$policy/scaling_governor" 2>/dev/null || echo "Warning: Could not set governor for $policy"
+          fi
+
+          # Set balanced energy performance preference
+          if [ -w "$policy/energy_performance_preference" ]; then
+            echo "balanced" > "$policy/energy_performance_preference" 2>/dev/null || echo "Warning: Could not set energy_performance_preference"
           fi
         done
       else

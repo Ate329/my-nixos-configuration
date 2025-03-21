@@ -62,6 +62,7 @@
       batmon
       vivaldi
       disko
+      spotube
       gnome-disk-utility
       nix-prefetch-github
       lazygit
