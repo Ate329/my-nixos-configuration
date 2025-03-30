@@ -70,19 +70,22 @@
     kernelParams = [
       "video=eDP-1:2880x1800@120"
       "video=HDMI-A-1:2560x1440@144"
-      # Power saving parameters
-      "amdgpu.ppfeaturemask=0xffffffff" # Enable all AMD GPU power management features
-      "amd_pstate=active" # Use the active AMD pstate driver for better power management
-      "amd_pstate.shared_mem=1" # Enable shared memory for better pstate driver efficiency
+      # AMD power management parameters
+      "amd_pstate=active" # Enable active mode for AMD P-State driver
+      "amd_pstate.shared_mem=1" # Enable shared memory for better power management
+      "processor.max_cstate=5" # Set maximum C-state to 5 (avoiding C6 which can cause issues)
+      "rcu_nocbs=0-15" # Offload RCU callbacks to prevent system freezes
       "amdgpu.runpm=1" # Enable runtime power management for the GPU
-      "mem_sleep_default=deep" # Enable deep sleep mode
-      "nvme.noacpi=1" # Reduce NVMe power consumption
-      "pcie_aspm=force" # Force PCIe Active State Power Management
-      "usbcore.autosuspend=1" # Enable USB autosuspend
-      "sched_energy_aware=1" # Make the scheduler energy aware
-      "processor.max_cstate=10" # Allow deep processor C-states
-      "amd_iommu=pt" # IOMMU pass-through for better power efficiency
-      "psmouse.synaptics_intertouch=1" # Better touchpad support
+      "amdgpu.ppfeaturemask=0xffffffff" # Enable all power features for the GPU
+      "nowatchdog" # Disable the kernel watchdog to save power
+      "nmi_watchdog=0" # Disable NMI watchdog to reduce CPU wakeups
+      "pcie_aspm=powersupersave" # Enable PCI Express Active State Power Management
+      "pcie_aspm.policy=powersupersave" # Use aggressive power saving for PCIE devices
+      "usbcore.autosuspend=-1" # Prevent USB autosuspend to avoid device issues
+      "amdgpu.dpm=1" # Enable DPM for AMD GPU
+      "quiet" # Reduce kernel message output
+      "loglevel=3" # Minimize logging to save power
+      "mitigations=off" # Disable CPU security mitigations for better power efficiency
     ];
 
     initrd.kernelModules = [ "amdgpu" ];
@@ -471,15 +474,29 @@
   hardware.logitech.wireless.enable = false;
   hardware.logitech.wireless.enableGraphical = false;
 
-  # Bluetooth
+  # Bluetooth with power management disabled to prevent disconnections
   hardware.bluetooth = {
     enable = true; # enables support for Bluetooth
     powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
+    disabledPlugins = [
+      "battery"
+      "a2dp-sink"
+      "avrcp"
+    ]; # Disable battery monitoring to avoid power management
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
         Experimental = true;
+        KernelExperimental = true; # Enable experimental kernel features
+        FastConnectable = true; # Improve connection stability
+        JustWorksRepairing = "always"; # Auto reconnect
+        MultiProfile = "multiple"; # Support multiple profiles
+        AutoEnable = true; # Always enable the adapter when available
+      };
+      Policy = {
+        AutoEnable = true; # Automatically enable devices when adapter turns on
+        ReconnectAttempts = 7; # Increased reconnection attempts
+        ReconnectIntervals = "1,2,4,8,16,32,64"; # Retry intervals in seconds
       };
     };
   };
