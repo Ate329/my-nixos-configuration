@@ -24,6 +24,7 @@ in
   bind = ${modifier},T,exec,thunar
   bind = ${modifier},S,exec,spotify
   bind = ${modifier},Z,exec,zeditor
+  bind = ${modifier},N,exec,${terminal} nvim
 
   # System controls
   bind = ${modifier},L,exec,wlogout

@@ -51,8 +51,8 @@
   boot = {
     # Kernel
     # kernelPackages = pkgs.linuxPackages;
-    kernelPackages = pkgs.linuxPackages_latest;
-    # kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_6_12;
 
     # This is for OBS Virtual Cam Support
@@ -303,7 +303,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.variables = {
-    FLAKE = "/home/ate329/nix-config";
+    NH_FLAKE = "/home/ate329/nix-config";
     ZANEYOS_VERSION = "2.0";
     ZANEYOS = "true";
   };
@@ -313,6 +313,10 @@
   users = {
     mutableUsers = true;
   };
+
+  # Create plugdev group for hardware wallet access
+  users.groups.plugdev = { };
+  users.users.${username}.extraGroups = [ "plugdev" ];
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -389,13 +393,11 @@
       allowFrom = [ "all" ];
       browsing = true;
       defaultShared = true;
-      openFirewall = false;
-      drivers = [
-        # Commented out due to download error
-        # pkgs.hplipWithPlugin
-        pkgs.cnijfilter2
-        pkgs.gutenprint
-        pkgs.gutenprintBin
+      openFirewall = true;
+      drivers = with pkgs; [
+        hplipWithPlugin
+        gutenprint
+        gutenprintBin
       ];
     };
 
@@ -605,4 +607,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   # Power management services have been moved to modules/pkgs/custom-packages/auto-cpufreq.nix
+
+  # Enable hardware Ledger support and udev rules
+  hardware.ledger.enable = true;
 }

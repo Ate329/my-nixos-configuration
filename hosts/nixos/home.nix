@@ -22,7 +22,7 @@ in
   imports = [
     # inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     ../../home/programs/hypr/default.nix
     ../../home/programs/rofi/default.nix
     # ../../home/programs/fastfetch/default.nix
@@ -218,10 +218,10 @@ in
         lspkind-nvim
         comment-nvim
         nvim-ts-context-commentstring
-        {
-          plugin = dracula-nvim;
-          config = "colorscheme dracula";
-        }
+        #{
+        #  plugin = dracula-nvim;
+        #  config = "colorscheme dracula";
+        #}
         plenary-nvim
         neodev-nvim
         luasnip
@@ -251,7 +251,7 @@ in
         require("bufferline").setup{}
         require("lualine").setup({
           icons_enabled = true,
-          theme = 'dracula',
+          theme = 'auto',
         })
       '';
     };

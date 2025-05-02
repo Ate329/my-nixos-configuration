@@ -35,8 +35,7 @@
       nil
       jdk17
       jdk21
-      # Commented out due to download error
-      # hplipWithPlugin
+      hplipWithPlugin
       jdk
       jre
       spotdl
@@ -50,6 +49,9 @@
       cosmic-files
       snowflake
       openvpn
+      ledger-live-desktop
+      electrum
+      helix
       inetutils
       sony-headphones-client
       pass-wayland
@@ -191,14 +193,12 @@
       yad
       python311Full
       python312Full
-      python3Full
       python311Packages.pip
       python312Packages.pip
-      python311Packages.django
-      jupyter
       playerctl
       nh
       nixfmt-rfc-style
+      remmina
       libvirt
       swww
       hyprpaper
@@ -211,7 +211,6 @@
       waypaper
       nodejs_22
       nodejs_20
-      nodejs_18
       heroic
       vlc
       neovim-qt
