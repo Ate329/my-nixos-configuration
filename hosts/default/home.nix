@@ -9,11 +9,7 @@
 }:
 let
   palette = config.colorScheme.palette;
-  inherit (import ./variables.nix)
-    gitUsername
-    gitEmail
-    theme
-    ;
+  inherit (import ./variables.nix) gitUsername gitEmail theme;
 in
 {
   # Home Manager Settings
@@ -91,7 +87,6 @@ in
     fill_shape=false
   '';
 
-
   # Install & Configure Git
   programs.git = {
     enable = true;
@@ -162,6 +157,7 @@ in
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
+    (import ../../scripts/btc-price.nix { inherit pkgs; })
     (import ../../scripts/themechange.nix {
       inherit pkgs;
       inherit host;
@@ -407,7 +403,7 @@ in
         la = "lsd -a";
         lal = "lsd -al";
         ".." = "cd ..";
-        neofetch="neofetch --ascii ~/.config/ascii-neofetch";
+        neofetch = "neofetch --ascii ~/.config/ascii-neofetch";
       };
     };
     home-manager.enable = true;

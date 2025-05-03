@@ -31,7 +31,7 @@ with lib;
           "memory"
         ];
         modules-right = [
-          "custom/hyprbindings"
+          "custom/btcprice"
           "custom/exit"
           "idle_inhibitor"
           "custom/themeselector"
@@ -131,10 +131,12 @@ with lib;
           # exec = "rofi -show drun";
           on-click = "sleep 0.1 && rofi-launcher";
         };
-        "custom/hyprbindings" = {
+        "custom/btcprice" = {
           tooltip = false;
-          format = " Bindings";
-          on-click = "sleep 0.1 && list-hypr-bindings";
+          format = "{}";
+          interval = 10; # Update every 10 seconds
+          exec = "~/.config/waybar/btc-price.sh";
+          on-click = "xdg-open https://www.binance.com/en/price/bitcoin";
         };
         "idle_inhibitor" = {
           format = "{icon}";
@@ -350,8 +352,8 @@ with lib;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
-              #custom-hyprbindings {
-            	color: #${colors.base0E};
+              #custom-btcprice {
+            	color: #${colors.base0B};
         	background: #${colors.base01};
         	margin: 4px;
         	padding: 2px 10px;

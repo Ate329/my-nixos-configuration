@@ -32,6 +32,7 @@ in
     ../../home/programs/waypaper.nix
     ../../home/programs/fcitx5.nix
     ../../modules/pkgs/custom-packages/spicetify.nix
+    ../../home/scripts/btc-price.nix
   ];
 
   # Place Files Inside Home Directory
