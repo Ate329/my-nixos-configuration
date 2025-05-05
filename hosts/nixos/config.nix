@@ -50,7 +50,6 @@
 
   boot = {
     # Kernel
-    # kernelPackages = pkgs.linuxPackages;
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_6_12;
@@ -76,7 +75,6 @@
       "processor.max_cstate=5" # Set maximum C-state to 5 (avoiding C6 which can cause issues)
       "rcu_nocbs=0-15" # Offload RCU callbacks to prevent system freezes
       "amdgpu.runpm=1" # Enable runtime power management for the GPU
-      "amdgpu.ppfeaturemask=0xffffffff" # Enable all power features for the GPU
       "nowatchdog" # Disable the kernel watchdog to save power
       "nmi_watchdog=0" # Disable NMI watchdog to reduce CPU wakeups
       "pcie_aspm=powersupersave" # Enable PCI Express Active State Power Management
@@ -266,6 +264,17 @@
         thunar-archive-plugin
         thunar-volman
       ];
+    };
+
+    kdeconnect = {
+      enable = true;
+      package = pkgs.kdePackages.kdeconnect-kde;
+    };
+
+    clash-verge = {
+      enable = true;
+      package = pkgs.clash-verge-rev;
+      autoStart = true;
     };
 
     # nh config

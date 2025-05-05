@@ -200,12 +200,12 @@
       nixfmt-rfc-style
       remmina
       libvirt
+      gnome-calendar
       swww
       hyprpaper
       swaybg
       # nodePackages_latest.webtorrent-cli
       webtorrent_desktop
-      clash-verge-rev
       grim
       hypridle
       waypaper
@@ -257,7 +257,6 @@
       gh
       unzip
       zip
-      gnome-tweaks
       obsidian
       zed-editor
       miru

@@ -55,6 +55,7 @@ with lib;
           format = if clock24h == true then '' {:L%H:%M}'' else '' {:L%I:%M %p}'';
           tooltip = true;
           tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
+          on-click = "sleep 0.1 && gnome-calendar";
         };
         "hyprland/window" = {
           max-length = 25;
@@ -88,7 +89,7 @@ with lib;
           format-ethernet = " {bandwidthDownOctets}";
           format-wifi = "{icon} {signalStrength}%";
           format-disconnected = "󰤮";
-          tooltip = false;
+          tooltip = true;
         };
         "tray" = {
           spacing = 12;
@@ -116,27 +117,31 @@ with lib;
           on-click = "sleep 0.1 && pavucontrol";
         };
         "custom/themeselector" = {
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "Theme Selector";
           format = ""; # 
           on-click = "sleep 0.1 && theme-selector";
         };
         "custom/exit" = {
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "Lock Menu";
           format = "";
           on-click = "sleep 0.1 && wlogout";
         };
         "custom/startmenu" = {
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "Rofi Start Menu (I Love NixOS)";
           format = " ";
           # exec = "rofi -show drun";
           on-click = "sleep 0.1 && rofi-launcher";
         };
         "custom/btcprice" = {
-          tooltip = false;
+          tooltip = true;
+          tooltip-format = "BTC price in USDC in real time";
           format = "{}";
           interval = 10; # Update every 10 seconds
           exec = "~/.config/waybar/btc-price.sh";
-          on-click = "xdg-open https://www.binance.com/en/price/bitcoin";
+          on-click = "xdg-open https://coinmarketcap.com/currencies/bitcoin/";
         };
         "idle_inhibitor" = {
           format = "{icon}";
@@ -147,7 +152,7 @@ with lib;
           tooltip = "true";
         };
         "custom/notification" = {
-          tooltip = false;
+          tooltip = true;
           format = "{icon} {}";
           format-icons = {
             notification = "<span foreground='red'><sup></sup></span>";
@@ -186,7 +191,7 @@ with lib;
             "󰁹"
           ];
           on-click = "";
-          tooltip = false;
+          tooltip = true;
         };
       }
     ];
