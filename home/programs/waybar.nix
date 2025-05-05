@@ -203,13 +203,15 @@ with lib;
             	font-weight: bold;
               }
               window#waybar {
-        	background-color: #${colors.base00};
-        	border-bottom: 1px solid rgba(26,27,38,0);
+        	/* background-color: #${colors.base00}; */
+        	/* border-bottom: 1px solid rgba(26,27,38,0); */
+        	background-color: transparent;
+        	border-bottom: 1px solid transparent;
         	border-radius: 0px;
         	color: #${colors.base0F};
               }
               #workspaces {
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base02}, 0.7); /* Catppuccin Surface0 */
         	margin: 2px;
         	padding: 0px 1px;
         	border-radius: 15px;
@@ -303,12 +305,12 @@ with lib;
         	  margin: 4px;
         	  padding: 2px 10px;
         	  color: #${colors.base05};
-        	  background: #${colors.base01};
+        	  background-color: alpha(#${colors.base01}, 0.7); /* Catppuccin Surface1 */
         	  border-radius: 10px;
               }
               #memory {
            	color: #${colors.base08};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
@@ -331,63 +333,63 @@ with lib;
               }
               #cpu {
             	color: #${colors.base05};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
               #disk {
             	color: #${colors.base03};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
               #battery {
             	color: #${colors.base08};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
               #network {
             	color: #${colors.base09};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
               #custom-btcprice {
             	color: #${colors.base0B};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
               #tray {
             	color: #${colors.base05};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
               #pulseaudio {
             	color: #${colors.base0D};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
               #custom-notification {
             	color: #${colors.base0C};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px;
         	padding: 2px 10px;
         	border-radius: 10px;
               }
               #custom-themeselector {
             	color: #${colors.base0D};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px 0px;
         	padding: 2px 15px 1px 4px;
         	border-radius: 0px 11px 10px 0px;
@@ -410,14 +412,14 @@ with lib;
               }
               #idle_inhibitor {
             	color: #${colors.base09};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	margin: 4px 0px;
         	padding: 2px 14px 2px 10px;
         	border-radius: 0px;
               }
               #custom-exit {
             	color: #${colors.base0E};
-        	background: #${colors.base01};
+        	background-color: alpha(#${colors.base01}, 0.7);
         	border-radius: 10px 0px 0px 10px;
         	margin: 4px 0px;
         	padding: 2px 5px 2px 11px;
