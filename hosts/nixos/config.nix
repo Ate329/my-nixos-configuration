@@ -249,11 +249,6 @@
       ];
     };
 
-    kdeconnect = {
-      enable = true;
-      package = pkgs.kdePackages.kdeconnect-kde;
-    };
-
     clash-verge = {
       enable = true;
       package = pkgs.clash-verge-rev;

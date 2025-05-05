@@ -16,6 +16,7 @@ let
     "com.github.unrud.VideoDownloader"
     "org.fedoraproject.MediaWriter"
     "org.onionshare.OnionShare"
+    "org.kde.kdenlive"
   ];
 
   # Helper function to create a standard Flatpak command
