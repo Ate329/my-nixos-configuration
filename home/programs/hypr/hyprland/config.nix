@@ -41,7 +41,7 @@
   env = MOZ_ENABLE_WAYLAND, 1
   env = HYPRCURSOR_THEME, Bibata-Modern-Ice
   env = HYPRCURSOR_SIZE, 24
-  # env = AQ_NO_MODIFIERS, 1 # For systems with limitation (iGPU)
+  env = AQ_NO_MODIFIERS, 1 # For systems with limitation (iGPU)
 
   # Monitor configuration
   monitor = eDP-1, highres, auto, auto

@@ -29,24 +29,7 @@
     ../../modules/pkgs/flatpak.nix
   ];
 
-  /*
-    services.flatpak = {
-      enable = true;
-      packages = [ "org.gnome.Calculator" ];
-      removeUnmanagedPackages = true;
-      update = {
-        auto = {
-          enable = true;
-          onCalendar = "weekly";
-        };
-        duringBuild = false;
-      };
-      remote = {
-        name = "flathub";
-        url = "https://flathub.org/repo/flathub.flatpakrepo";
-      };
-    };
-  */
+  services.flatpak.enable = true;
 
   boot = {
     # Kernel

@@ -41,7 +41,6 @@
       spotdl
       mopidy
       mopidy-soundcloud
-      onionshare-gui
       atlauncher
       ffmpeg
       pipx
