@@ -47,6 +47,11 @@
       url = "github:oskardotglobal/.dotfiles/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -58,6 +63,8 @@
       spicetify-nix,
       oskars-dotfiles,
       catppuccin,
+      stylix,
+      nix-flatpak,
       ...
     }:
     let
@@ -88,6 +95,7 @@
             auto-cpufreq.nixosModules.default
             catppuccin.nixosModules.catppuccin
             inputs.stylix.nixosModules.stylix
+            nix-flatpak.nixosModules.nix-flatpak
 
             (
               { pkgs, ... }:

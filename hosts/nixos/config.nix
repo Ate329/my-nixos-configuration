@@ -26,10 +26,7 @@
     ../../modules/pkgs/custom-packages/noise-suppression.nix
     ../../modules/pkgs/custom-packages/steam.nix
     ../../modules/pkgs/custom-packages/fish.nix
-    ../../modules/pkgs/flatpak.nix
   ];
-
-  services.flatpak.enable = true;
 
   boot = {
     # Kernel
@@ -66,7 +63,6 @@
       "amdgpu.dpm=1" # Enable DPM for AMD GPU
       "quiet" # Reduce kernel message output
       "loglevel=3" # Minimize logging to save power
-      "mitigations=off" # Disable CPU security mitigations for better power efficiency
     ];
 
     initrd.kernelModules = [ "amdgpu" ];
@@ -146,6 +142,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "${host}";
+  # Ensure network is online before services depending on it start
+  systemd.services.NetworkManager-wait-online.enable = true;
   networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
   fileSystems."/mnt/games" = {
@@ -223,7 +221,7 @@
     };
 
     firefox = {
-      enable = true;
+      enable = false;
       nativeMessagingHosts.packages = [ pkgs.browserpass ];
     };
 
@@ -338,6 +336,46 @@
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
+    };
+
+    flatpak = {
+      enable = true;
+      packages = [
+        "org.blender.Blender"
+        "net.ankiweb.Anki"
+        "org.kde.isoimagewriter"
+        "com.cassidyjames.clairvoyant"
+        "com.github.cassidyjames.dippi"
+        "com.github.unrud.VideoDownloader"
+        "org.fedoraproject.MediaWriter"
+        "org.onionshare.OnionShare"
+        "org.kde.kdenlive"
+        "dev.serebit.Waycheck"
+        "app.zen_browser.zen"
+      ];
+      remotes = [
+        {
+          name = "flathub";
+          location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+        }
+      ];
+      update = {
+        onActivation = true;
+        auto = {
+          enable = true;
+          onCalendar = "daily";
+        };
+      };
+      restartOnFailure = {
+        enable = true;
+        restartDelay = "60s";
+        exponentialBackoff = {
+          enable = false;
+          steps = 10;
+          maxDelay = "1h";
+        };
+      };
+      uninstallUnmanaged = true;
     };
 
     xserver = {

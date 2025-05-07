@@ -17,7 +17,7 @@
   exec-once = hypridle
   exec-once = fcitx5 -d -r
   exec-once = fcitx5-remote -r
-  exec-once = sleep 0.1 && firefox
+  exec-once = sleep 0.1 && flatpak run app.zen_browser.zen
   exec-once = restart-apps
   exec-once = hyprctl setcursor Bibata-Modern-Ice 24
   exec-once = hyprswitch init --show-title &

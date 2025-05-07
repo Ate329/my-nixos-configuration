@@ -76,7 +76,6 @@
       devenv
       thefuck
       sqlmap
-      skypeforlinux
       hashcat
       popsicle
       overlayed

@@ -16,6 +16,6 @@
   bar-number = true;
 
   # Program Options
-  browser = "firefox"; # Set Default Browser
+  browser = ""; # Set Default Browser
   terminal = "kitty"; # Set Default System Terminal
 }
