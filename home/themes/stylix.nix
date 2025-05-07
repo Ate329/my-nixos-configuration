@@ -5,7 +5,7 @@
     enable = true;
     image = ../../home/themes/wallpapers/azusa_flower_crop.png;
     # disable if you want to generate colorscheme by picture
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
     autoEnable = true;
 
     targets = {
@@ -51,6 +51,7 @@
           waybar.enable = false;
           spicetify.enable = false;
           fish.enable = false;
+          neovim.enable = false;
           kitty = {
             enable = true;
             variant256Colors = true;

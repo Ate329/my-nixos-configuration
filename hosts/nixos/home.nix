@@ -227,10 +227,7 @@ in
         lspkind-nvim
         comment-nvim
         nvim-ts-context-commentstring
-        #{
-        #  plugin = dracula-nvim;
-        #  config = "colorscheme dracula";
-        #}
+        { plugin = catppuccin-nvim; }
         plenary-nvim
         neodev-nvim
         luasnip
@@ -246,6 +243,7 @@ in
       extraLuaConfig = ''
         ${builtins.readFile ../../home/programs/nvim/options.lua}
         ${builtins.readFile ../../home/programs/nvim/keymaps.lua}
+        ${builtins.readFile ../../home/programs/nvim/plugins/catppuccin.lua}
         ${builtins.readFile ../../home/programs/nvim/plugins/alpha.lua}
         ${builtins.readFile ../../home/programs/nvim/plugins/autopairs.lua}
         ${builtins.readFile ../../home/programs/nvim/plugins/auto-session.lua}

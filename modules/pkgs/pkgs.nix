@@ -62,7 +62,6 @@
       wordlists
       pritunl-client
       batmon
-      vivaldi
       disko
       spotube
       gnome-disk-utility

@@ -360,7 +360,7 @@ with lib;
         	border-radius: 10px;
               }
               #custom-btcprice {
-            	color: #${colors.base0B};
+              color: #${colors.base04};
         	background-color: alpha(#${colors.base01}, 0.2);
         	margin: 4px;
         	padding: 2px 10px;
