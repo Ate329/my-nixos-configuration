@@ -52,6 +52,7 @@
       electrum
       helix
       inetutils
+      bitwarden-desktop
       sony-headphones-client
       pass-wayland
       pass

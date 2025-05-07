@@ -16,6 +16,6 @@
   bar-number = true;
 
   # Program Options
-  browser = ""; # Set Default Browser
+  browser = "flatpak run app.zen_browser.zen"; # Set Default Browser
   terminal = "kitty"; # Set Default System Terminal
 }
