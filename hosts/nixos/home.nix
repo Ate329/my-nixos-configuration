@@ -294,7 +294,7 @@ in
         flake-update = "nh os switch --hostname ${host} --update /home/${username}/nix-config";
         flake-rebuild-impure = "sudo nixos-rebuild switch --flake /home/${username}/nix-config#${host} --impure";
         gcCleanup = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-        v = "nvim";
+        nv = "nvim";
         ls = "lsd";
         ll = "lsd -l";
         la = "lsd -a";

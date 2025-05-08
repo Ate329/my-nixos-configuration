@@ -1,6 +1,6 @@
 -- File: home/programs/nvim/plugins/catppuccin.lua
 require("catppuccin").setup({
-    flavour = "frappe", -- Or "latte", "macchiato", "mocha"
+    flavour = "macchiato", -- Or "latte", "frappe", "mocha"
     background = { -- :h background
         light = "latte",
         dark = "mocha",
