@@ -49,20 +49,12 @@
     kernelParams = [
       "video=eDP-1:2880x1800@120"
       "video=HDMI-A-1:2560x1440@144"
-      # AMD power management parameters
-      "amd_pstate=active" # Enable active mode for AMD P-State driver
-      "amd_pstate.shared_mem=1" # Enable shared memory for better power management
-      "processor.max_cstate=5" # Set maximum C-state to 5 (avoiding C6 which can cause issues)
-      "rcu_nocbs=0-15" # Offload RCU callbacks to prevent system freezes
-      "amdgpu.runpm=1" # Enable runtime power management for the GPU
-      "nowatchdog" # Disable the kernel watchdog to save power
-      "nmi_watchdog=0" # Disable NMI watchdog to reduce CPU wakeups
-      "pcie_aspm=powersupersave" # Enable PCI Express Active State Power Management
-      "pcie_aspm.policy=powersupersave" # Use aggressive power saving for PCIE devices
-      "usbcore.autosuspend=-1" # Prevent USB autosuspend to avoid device issues
-      "amdgpu.dpm=1" # Enable DPM for AMD GPU
-      "quiet" # Reduce kernel message output
-      "loglevel=3" # Minimize logging to save power
+      # AMD power management parameters - relying mostly on TLP now
+      "amd_pstate=active" # Keep active mode for AMD P-State driver
+      "rcu_nocbs=0-15" # Keep for system stability
+      "usbcore.autosuspend=-1" # Keep for device stability
+      "amdgpu.dpm=1" # Keep, generally needed for AMD GPU
+      "quiet" # Keep for cleaner boot
     ];
 
     initrd.kernelModules = [ "amdgpu" ];
@@ -160,7 +152,8 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Athens";
-  services.automatic-timezoned.enable = false;
+  # services.automatic-timezoned.enable = true;
+  # services.localtimed.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -204,7 +197,7 @@
 
     hyprland = {
       enable = true;
-      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
       systemd.setPath.enable = true;
       withUWSM = true;
@@ -250,7 +243,7 @@
     clash-verge = {
       enable = true;
       package = pkgs.clash-verge-rev;
-      autoStart = true;
+      autoStart = false;
     };
 
     # nh config
@@ -352,6 +345,7 @@
         "org.kde.kdenlive"
         "dev.serebit.Waycheck"
         "app.zen_browser.zen"
+        "io.github.Predidit.Kazumi"
       ];
       remotes = [
         {

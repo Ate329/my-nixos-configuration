@@ -20,7 +20,7 @@ in
 
   # Import Program Configurations
   imports = [
-    # inputs.hyprland.homeManagerModules.default
+    inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
     inputs.catppuccin.homeModules.catppuccin
     ../../home/programs/hypr/default.nix
@@ -34,6 +34,13 @@ in
     ../../modules/pkgs/custom-packages/spicetify.nix
     ../../home/scripts/btc-price.nix
   ];
+
+  # Wayland specific configuration
+  wayland.windowManager.hyprland = {
+    enable = true;
+    systemd.enable = true;
+    xwayland.enable = true;
+  };
 
   # Place Files Inside Home Directory
   home.file."Pictures/Wallpapers" = {

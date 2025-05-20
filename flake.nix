@@ -9,25 +9,20 @@
     hyprswitch.url = "github:H3rmt/hyprswitch/release";
     catppuccin.url = "github:catppuccin/nix";
 
-    /*
-      hyprland = {
-        type = "git";
-        url = "https://github.com/hyprwm/Hyprland";
-        submodules = true;
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-      hyprland-plugins = {
-        url = "github:hyprwm/hyprland-plugins";
-        inputs.hyprland.follows = "hyprland";
-      };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
-      Hyprspace = {
-        url = "github:KZDKM/Hyprspace";
-        # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-        inputs.hyprland.follows = "hyprland";
-      };
-    */
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";

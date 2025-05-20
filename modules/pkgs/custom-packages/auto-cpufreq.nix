@@ -16,7 +16,7 @@
   # === 1. auto-cpufreq configuration ===
   # Dynamic CPU frequency management based on system load and power state
   programs.auto-cpufreq = {
-    enable = true;
+    enable = false; # Disabled in favor of TLP
     settings = {
       charger = {
         governor = "performance";
@@ -36,7 +36,7 @@
     };
   };
 
-  # Make auto-cpufreq service more resilient
+  # Make auto-cpufreq service more resilient - Settings restored but service not active due to enable = false
   systemd.services.auto-cpufreq = {
     serviceConfig = {
       Restart = "always";
@@ -45,7 +45,7 @@
     };
   };
 
-  # Create the auto-cpufreq udev rule
+  # Create the auto-cpufreq udev rule - Restored, but restart target service won't run effectively
   services.udev.extraRules = ''
     # Auto-cpufreq power change rules
     SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${pkgs.systemd}/bin/systemctl start restart-auto-cpufreq.service"
@@ -57,7 +57,7 @@
     SUBSYSTEM=="power_supply", ATTR{status}=="Full", RUN+="${pkgs.systemd}/bin/systemctl start ryzen-power.service"
   '';
 
-  # Service for power change events
+  # Service for power change events - Restored but won't be triggered effectively
   systemd.services.restart-auto-cpufreq = {
     description = "Restart auto-cpufreq service on power state change";
     script = ''
@@ -69,8 +69,9 @@
     };
   };
 
-  # Watchdog service
+  # Watchdog service - Restored but target service won't run
   systemd.services.auto-cpufreq-watchdog = {
+    enable = false; # Explicitly disable the watchdog as auto-cpufreq is disabled
     description = "Watchdog for auto-cpufreq service";
     after = [ "auto-cpufreq.service" ];
     wantedBy = [ "multi-user.target" ];
@@ -112,9 +113,9 @@
       # Phoenix-specific AMD CPU settings - balanced power saving on battery
       # Updated frequency ranges based on user preferences
       CPU_SCALING_MIN_FREQ_ON_AC = 1700000;
-      CPU_SCALING_MAX_FREQ_ON_AC = 5100000; # Maximum frequency for Ryzen 7 7840HS
-      CPU_SCALING_MIN_FREQ_ON_BAT = 1600000; # Set to 1600MHz as requested
-      CPU_SCALING_MAX_FREQ_ON_BAT = 3800000; # Set to 3800MHz as requested
+      CPU_SCALING_MAX_FREQ_ON_AC = 5100000;
+      CPU_SCALING_MIN_FREQ_ON_BAT = 1600000;
+      CPU_SCALING_MAX_FREQ_ON_BAT = 3800000;
 
       # Power saving for PCI Express Active State Power Management
       # Use default on AC for better performance
@@ -166,22 +167,6 @@
       # WiFi power saving - maximum power saving on battery
       WIFI_PWR_ON_AC = "off";
       WIFI_PWR_ON_BAT = "on"; # Enable maximum WiFi power saving
-
-      # CPU scaling drivers - use powersave for maximum battery life
-      SCALING_GOVERNOR_ON_AC = "performance";
-      SCALING_GOVERNOR_ON_BAT = "powersave"; # Changed to powersave for consistent scaling behavior
-
-      # Enable aggressive power saving across all devices when on battery
-      CPU_HWP_ON_AC = "performance";
-      CPU_HWP_ON_BAT = "power";
-
-      # Control the minimum P-state that the CPU is allowed to enter (Intel only, but safe to set)
-      ENERGY_PERF_POLICY_ON_AC = "performance";
-      ENERGY_PERF_POLICY_ON_BAT = "power";
-
-      # Set maximum CPU frequency for Intel P-state driver (Ryzen will use scaling_max_freq)
-      CPU_MAX_PERF_ON_AC = 100; # Maximum performance on AC
-      CPU_MAX_PERF_ON_BAT = 75; # Increased from 65% to 75% for better usability
     };
   };
 
@@ -190,7 +175,7 @@
 
   # === 3. Additional thermal and power management ===
   # Enable thermald for better thermal management
-  services.thermald.enable = true;
+  services.thermald.enable = false;
 
   # Enable UPower for better battery management
   services.upower = {
@@ -201,41 +186,11 @@
     criticalPowerAction = "Hibernate";
   };
 
-  # Add audio power saving kernel parameters
-  hardware.alsa.config = ''
-    options snd_hda_intel power_save=1
-    options snd_ac97_codec power_save=1
-  '';
-
-  # Add kernel module options for better power management - Modified to avoid USB issues
-  boot.extraModprobeConfig = ''
-    # Power saving for PCIe ASPM - only apply on battery
-    options pcie_aspm policy=powersupersave
-    # NVMe power saving
-    options nvme_core default_ps_max_latency_us=500000
-    # Disable power management for USB devices to prevent disconnections
-    options usbcore autosuspend=-1
-  '';
-
   # PowerManagement settings
   powerManagement = {
-    enable = true;
-    powertop.enable = true;
-    cpuFreqGovernor = "powersave"; # Will be overridden by TLP/auto-cpufreq when they're active
+    enable = true; # Keep basic suspend/hibernate enabled
+    powertop.enable = false; # Disabled, TLP handles tunables
   };
-
-  # AMD CPU power management via kernel parameters disabled to prevent device disconnections
-
-  # Additional AMD-specific kernel parameters - DISABLED to prevent device issues
-  # boot.kernelParams = [
-  #   # AMD Pstate driver parameters - core CPU power management
-  #   "amd_pstate=active"
-  #   "amd_pstate.shared_mem=1"
-  #
-  #   # Additional AMD power saving parameters
-  #   "processor.max_cstate=10" # Allow deep C-states for better power savings
-  #   "amdgpu.runpm=1" # Enable runtime power management for the GPU
-  # ];
 
   # === 4. ryzenadj service for hardware-level control ===
   # AMD-specific tool that allows direct control of CPU power parameters
@@ -253,29 +208,10 @@
     ];
     script = ''
       #!/bin/bash
+      set -euo pipefail # Add error checking
 
-      # Function to safely set CPU frequency limits
-      set_cpu_freq() {
-        local min_freq=$1
-        local max_freq=$2
-
-        if [ -d /sys/devices/system/cpu/cpufreq ]; then
-          for policy in /sys/devices/system/cpu/cpufreq/policy*; do
-            if [ -d "$policy" ]; then
-              # Check if we can write to these files before attempting
-              if [ -w "$policy/scaling_min_freq" ]; then
-                echo "$min_freq" > "$policy/scaling_min_freq" 2>/dev/null || echo "Warning: Could not set min freq for $policy"
-              fi
-
-              if [ -w "$policy/scaling_max_freq" ]; then
-                echo "$max_freq" > "$policy/scaling_max_freq" 2>/dev/null || echo "Warning: Could not set max freq for $policy"
-              fi
-            fi
-          done
-        else
-          echo "CPU frequency scaling interface not found"
-        fi
-      }
+      # Function to safely set CPU frequency limits - REMOVED as TLP handles this
+      # set_cpu_freq() { ... }
 
       # Check if ryzenadj exists and is executable
       if ! command -v ryzenadj >/dev/null 2>&1; then
@@ -285,60 +221,26 @@
 
       # Determine power state
       on_battery=0
+      # Use a more robust way to check power status if possible, this is a basic check
       if grep -q "Discharging" /sys/class/power_supply/*/status 2>/dev/null; then
         on_battery=1
-        echo "Running on battery power"
+        echo "ryzen-power: Running on battery power"
       else
-        echo "Running on AC power"
+        echo "ryzen-power: Running on AC power"
       fi
 
       if [ $on_battery -eq 1 ]; then
-        # On battery - improved balance between power saving and performance
-        echo "Applying balanced power settings for better performance while preserving battery life"
+        # On battery - apply ryzenadj limits only
+        echo "ryzen-power: Applying battery ryzenadj limits."
+        ryzenadj --stapm-limit=18000 --fast-limit=25000 --slow-limit=18000 --tctl-temp=90 --vrmmax-current=55000 --power-saving || echo "Warning: ryzenadj command failed for battery settings"
 
-        # Apply ryzenadj settings with error handling - balanced power limits
-        # While still maintaining reasonable power consumption
-        ryzenadj --stapm-limit=18000 --fast-limit=25000 --slow-limit=18000 --tctl-temp=90 --vrmmax-current=55000 --power-saving || echo "Warning: ryzenadj command failed"
-
-        # Set CPU frequency limits to match user preferences
-        set_cpu_freq 1600000 3800000
-
-        # Set governor to powersave for maximum power savings
-        for policy in /sys/devices/system/cpu/cpufreq/policy*; do
-          if [ -w "$policy/scaling_governor" ]; then
-            echo "powersave" > "$policy/scaling_governor" 2>/dev/null || echo "Warning: Could not set governor for $policy"
-          fi
-
-          # Set energy performance preference for better responsiveness
-          if [ -w "$policy/energy_performance_preference" ]; then
-            echo "balance-power" > "$policy/energy_performance_preference" 2>/dev/null || echo "Warning: Could not set energy_performance_preference"
-          fi
-        done
       else
-        # On AC - maximize performance with thermal limits
-        echo "Applying AC power settings - Maximum Performance"
-
-        # Apply ryzenadj settings with error handling - maximized power limits for best performance
-        # This allows the CPU to reach its full potential when plugged in
-        ryzenadj --stapm-limit=60000 --fast-limit=75000 --slow-limit=60000 --tctl-temp=95 --vrmmax-current=150000 || echo "Warning: ryzenadj command failed"
-
-        # Set CPU frequency limits to maximum for Phoenix series
-        set_cpu_freq 1700000 5100000
-
-        # Set governor if available - use performance governor for maximum performance
-        for policy in /sys/devices/system/cpu/cpufreq/policy*; do
-          if [ -w "$policy/scaling_governor" ]; then
-            echo "performance" > "$policy/scaling_governor" 2>/dev/null || echo "Warning: Could not set governor for $policy"
-          fi
-
-          # Additional performance settings for max performance on AC
-          if [ -w "$policy/energy_performance_preference" ]; then
-            echo "performance" > "$policy/energy_performance_preference" 2>/dev/null || echo "Warning: Could not set energy_performance_preference"
-          fi
-        done
+        # On AC - apply ryzenadj limits only
+        echo "ryzen-power: Applying AC ryzenadj limits."
+        ryzenadj --stapm-limit=60000 --fast-limit=75000 --slow-limit=60000 --tctl-temp=95 --vrmmax-current=150000 || echo "Warning: ryzenadj command failed for AC settings"
       fi
 
-      echo "Power settings applied successfully"
+      echo "ryzen-power: Ryzenadj settings applied successfully"
     '';
     serviceConfig = {
       Type = "oneshot";

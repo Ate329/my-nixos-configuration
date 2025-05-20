@@ -268,7 +268,6 @@
       cmake
       gnumake
       tree
-      thunderbird
       cargo
       vscode-fhs
       libreoffice
@@ -298,6 +297,7 @@
     "openssl-1.1.1w"
     "electron-27.3.11"
     "electron-30.5.1"
+    "ventoy-1.1.05"
   ];
 
   nixpkgs.config.allowUnsupportedSystem = true;
