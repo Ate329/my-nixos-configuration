@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs_kernel_src,
   host,
   inputs,
   username,
@@ -31,7 +32,7 @@
   boot = {
     # Kernel
     # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs_kernel_src.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_6_12;
 
     # This is for OBS Virtual Cam Support
@@ -54,7 +55,6 @@
       "rcu_nocbs=0-15" # Keep for system stability
       "usbcore.autosuspend=-1" # Keep for device stability
       "amdgpu.dpm=1" # Keep, generally needed for AMD GPU
-      "quiet" # Keep for cleaner boot
     ];
 
     initrd.kernelModules = [ "amdgpu" ];
@@ -243,7 +243,8 @@
     clash-verge = {
       enable = true;
       package = pkgs.clash-verge-rev;
-      autoStart = false;
+      autoStart = true;
+      tunMode = true;
     };
 
     # nh config
@@ -375,8 +376,6 @@
     xserver = {
       enable = true;
 
-      displayManager.gdm.enable = false;
-      desktopManager.gnome.enable = false;
       desktopManager.cinnamon.enable = false;
 
       xkb = {
@@ -384,6 +383,8 @@
         variant = "";
       };
     };
+    displayManager.gdm.enable = false;
+    desktopManager.gnome.enable = false;
 
     gvfs.enable = true;
 
@@ -529,17 +530,6 @@
     package = pkgs.pulseaudioFull;
   };
 
-  # Bluetooth headset control
-  systemd.user.services.mpris-proxy = {
-    description = "Mpris proxy";
-    after = [
-      "network.target"
-      "sound.target"
-    ];
-    wantedBy = [ "default.target" ];
-    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-  };
-
   # Security / Polkit
   security.rtkit.enable = true;
   security.polkit.enable = true;
@@ -610,6 +600,10 @@
   drivers.intel.enable = false;
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
+
+  environment.systemPackages = with pkgs; [
+    playerctl # Added for media key control
+  ];
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];

@@ -39,6 +39,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+    systemd.variables = [ "--all" ];
     xwayland.enable = true;
   };
 
@@ -314,4 +315,6 @@ in
     };
     home-manager.enable = true;
   };
+
+  services.mpris-proxy.enable = true;
 }

@@ -25,9 +25,7 @@ in
           rocsolver
           hipsparse
           rocfft
-          # Needed for OpenCL/HIP runtime itself
           clr
-          # From your existing config (also needed in combined env)
           rccl
           half
         ];

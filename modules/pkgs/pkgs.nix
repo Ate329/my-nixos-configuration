@@ -28,6 +28,7 @@
       xwayland-satellite
       xwayland-run
       hping
+      clash-verge-rev
       q
       rename
       passExtensions.pass-import
@@ -42,6 +43,7 @@
       mopidy
       mopidy-soundcloud
       atlauncher
+      python312Packages.websocket-client
       ffmpeg
       pipx
       cosmic-edit
@@ -81,14 +83,14 @@
       overlayed
       hyprcursor
       osu-lazer-bin
-      # bottles
+      bottles
       wmutils-core
       gopls
       go
       ncdu
       mupdf
       nwg-look
-      # calibre
+      calibre
       qalculate-qt
       direnv
       xdotool
@@ -114,7 +116,7 @@
       youtube-tui
       bilibili
       amdgpu_top
-      # qq
+      qq
       microcode-amd
       zenmonitor
       stress
@@ -209,7 +211,6 @@
       waypaper
       nodejs_22
       nodejs_20
-      heroic
       vlc
       neovim-qt
       neovim
@@ -286,7 +287,6 @@
       wine64Packages.fonts
       wineWowPackages.fonts
       wineWow64Packages.fonts
-      heroic
       prismlauncher
       fastfetch
       vim

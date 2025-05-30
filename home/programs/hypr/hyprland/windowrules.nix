@@ -6,7 +6,7 @@
   # Basic window rules for common applications
   windowrulev2 = noborder, class:rofi
   windowrulev2 = center, class:rofi
-  windowrulev2 = center, class:steam
+  # windowrulev2 = center, class:steam
   windowrulev2 = center, class:discord
   windowrulev2 = center, class:swappy
   windowrulev2 = center, class:vscode
@@ -32,8 +32,8 @@
   windowrulev2 = nearestneighbor, title:.*WeChat.*|.*微信.*
 
   # Steam specific rules
-  windowrulev2 = stayfocused, title:^$,class:steam
-  windowrulev2 = minsize 1 1, title:^$,class:steam
+  #windowrulev2 = stayfocused, title:^$,class:steam
+  #windowrulev2 = minsize 1 1, title:^$,class:steam
 
   # Dialog window rules
   windowrulev2 = float, title:Open File.*
