@@ -55,6 +55,7 @@
       "rcu_nocbs=0-15" # Keep for system stability
       "usbcore.autosuspend=-1" # Keep for device stability
       "amdgpu.dpm=1" # Keep, generally needed for AMD GPU
+      "transparent_hugepage=madvise" # Better memory management
     ];
 
     initrd.kernelModules = [ "amdgpu" ];
@@ -271,6 +272,22 @@
     openvpn3 = {
       enable = true;
     };
+
+    # Enable ccache for faster rebuilds
+    ccache.enable = true;
+  };
+
+  nix.settings = {
+    max-jobs = 8; # Parallel build jobs
+    # Enable hardware-specific optimizations
+    system-features = [
+      "benchmark"
+      "big-parallel"
+      "kvm"
+      "nixos-test"
+    ];
+    # Enable all available CPU features for builds
+    extra-platforms = [ "x86_64-linux" ];
   };
 
   nix.extraOptions = ''
@@ -281,14 +298,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.variables = {
-    NH_FLAKE = "/home/ate329/nix-config";
-    ZANEYOS_VERSION = "2.0";
-    ZANEYOS = "true";
-  };
-
-  # ryzenadj has been moved to auto-cpufreq.nix
-
   users = {
     mutableUsers = true;
   };
@@ -296,6 +305,12 @@
   # Create plugdev group for hardware wallet access
   users.groups.plugdev = { };
   users.users.${username}.extraGroups = [ "plugdev" ];
+
+  environment.variables = {
+    NH_FLAKE = "/home/ate329/nix-config";
+    ZANEYOS_VERSION = "2.0";
+    ZANEYOS = "true";
+  };
 
   fonts.packages = with pkgs; [
     noto-fonts

@@ -83,6 +83,7 @@
       hyprcursor
       osu-lazer-bin
       bottles
+      furmark
       wmutils-core
       gopls
       go
