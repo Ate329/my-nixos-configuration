@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
-    hyprswitch.url = "github:H3rmt/hyprswitch/release";
+    hyprswitch.url = "github:H3rmt/hyprswitch/old-release-hyprswitch";
     catppuccin.url = "github:catppuccin/nix";
 
     hyprland = {

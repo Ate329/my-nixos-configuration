@@ -493,32 +493,28 @@
     extraBackends = [ pkgs.sane-airscan ];
     disabledDefaultBackends = [ "escl" ];
   };
-  hardware.logitech.wireless.enable = false;
-  hardware.logitech.wireless.enableGraphical = false;
 
-  # Bluetooth with power management disabled to prevent disconnections
+  hardware.enableAllFirmware = true; # Ensure all firmware is available
+
   hardware.bluetooth = {
     enable = true; # enables support for Bluetooth
     powerOnBoot = true; # powers up the default Bluetooth controller on boot
-    disabledPlugins = [
-      "battery"
-      "a2dp-sink"
-      "avrcp"
-    ]; # Disable battery monitoring to avoid power management
+
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
         Experimental = true;
-        KernelExperimental = true; # Enable experimental kernel features
-        FastConnectable = true; # Improve connection stability
-        JustWorksRepairing = "always"; # Auto reconnect
-        MultiProfile = "multiple"; # Support multiple profiles
+        KernelExperimental = true;
+        FastConnectable = false;
+        JustWorksRepairing = "confirm";
+        MultiProfile = "multiple";
         AutoEnable = true; # Always enable the adapter when available
       };
+
       Policy = {
-        AutoEnable = true; # Automatically enable devices when adapter turns on
-        ReconnectAttempts = 7; # Increased reconnection attempts
-        ReconnectIntervals = "1,2,4,8,16,32,64"; # Retry intervals in seconds
+        AutoEnable = true;
+        ReconnectAttempts = 5;
+        ReconnectIntervals = "1,2,4,8,16";
       };
     };
   };
@@ -600,6 +596,16 @@
   drivers.intel.enable = false;
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
+
+  systemd.user.services.mpris-proxy = {
+    description = "Mpris proxy";
+    after = [
+      "network.target"
+      "sound.target"
+    ];
+    wantedBy = [ "default.target" ];
+    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+  };
 
   environment.systemPackages = with pkgs; [
     playerctl # Added for media key control

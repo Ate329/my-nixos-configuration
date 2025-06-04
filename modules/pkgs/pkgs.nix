@@ -76,7 +76,6 @@
       code-cursor
       xdg-utils
       devenv
-      thefuck
       sqlmap
       hashcat
       popsicle
