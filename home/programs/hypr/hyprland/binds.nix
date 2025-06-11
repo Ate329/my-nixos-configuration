@@ -125,7 +125,6 @@ in
   # bind = ALT,TAB,hyprexpo:expo,toggle
   # bind = ${modifier},TAB,exec,hyprctl dispatch overview:toggle
   # bind = ${modifier}SHIFT,TAB,exec,hyprctl dispatch overview:toggle all
-  bind = ${modifier},M,exec,kitty btop
   bind = ${modifier},B,exec,list-hypr-bindings
 
   # Text-to-image functions

@@ -6,7 +6,7 @@
 }:
 
 let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in
 {
   # allow spotify to be installed if you don't have unfree enabled already
@@ -17,11 +17,12 @@ in
     # Commented due to the existence of stylix
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "macchiato";
+    wayland = true;
 
     enabledExtensions = with spicePkgs.extensions; [
       adblock
       fullAppDisplay
-      shuffle # shuffle+ (special characters are sanitized out of ext names)
+      shuffle
       hidePodcasts
       beautifulLyrics
       copyLyrics

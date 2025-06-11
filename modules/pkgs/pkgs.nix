@@ -46,7 +46,6 @@
       python312Packages.websocket-client
       ffmpeg
       pipx
-      cosmic-edit
       cosmic-files
       snowflake
       openvpn

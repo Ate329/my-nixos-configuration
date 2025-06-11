@@ -30,8 +30,7 @@
   ];
 
   boot = {
-    # Kernel
-    # kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs_kernel_src.linuxPackages_latest;
     kernelPackages = pkgs_kernel_src.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_6_12;
 
@@ -123,13 +122,24 @@
   networking = {
     /*
       nameservers = [ "1.1.1.1" "2606:4700:4700::1111"
-      		    "1.0.0.1" "2606:4700:4700::1001"];
+        		    "1.0.0.1" "2606:4700:4700::1001"];
     */
 
-    # If using dhcpcd:
-    #dhcpcd.extraConfig = "nohook resolv.conf";
-    # If using NetworkManager:
     networkmanager.dns = "default";
+    firewall = {
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
+    };
   };
 
   # Enable networking
@@ -153,8 +163,8 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Athens";
-  # services.automatic-timezoned.enable = true;
-  # services.localtimed.enable = true;
+  #services.automatic-timezoned.enable = true;
+  #services.localtimed.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -521,9 +531,9 @@
         Experimental = true;
         KernelExperimental = true;
         FastConnectable = false;
-        JustWorksRepairing = "confirm";
+        JustWorksRepairing = "always";
         MultiProfile = "multiple";
-        AutoEnable = true; # Always enable the adapter when available
+        AutoEnable = true;
       };
 
       Policy = {
