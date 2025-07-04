@@ -139,11 +139,6 @@ in
     };
   };
 
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
-  };
-
   # Theme GTK
   gtk = {
     enable = true;

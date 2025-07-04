@@ -43,7 +43,6 @@
       mopidy
       mopidy-soundcloud
       atlauncher
-      python312Packages.websocket-client
       ffmpeg
       pipx
       cosmic-files

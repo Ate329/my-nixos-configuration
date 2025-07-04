@@ -13,7 +13,7 @@ in
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "spotify" ];
 
   programs.spicetify = {
-    enable = true;
+    enable = false;
     # Commented due to the existence of stylix
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "macchiato";

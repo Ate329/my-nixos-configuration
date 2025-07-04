@@ -122,24 +122,13 @@
   networking = {
     /*
       nameservers = [ "1.1.1.1" "2606:4700:4700::1111"
-        		    "1.0.0.1" "2606:4700:4700::1001"];
+      		    "1.0.0.1" "2606:4700:4700::1001"];
     */
 
+    # If using dhcpcd:
+    #dhcpcd.extraConfig = "nohook resolv.conf";
+    # If using NetworkManager:
     networkmanager.dns = "default";
-    firewall = {
-      allowedTCPPortRanges = [
-        {
-          from = 1714;
-          to = 1764;
-        }
-      ];
-      allowedUDPPortRanges = [
-        {
-          from = 1714;
-          to = 1764;
-        }
-      ];
-    };
   };
 
   # Enable networking
@@ -163,8 +152,8 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Athens";
-  #services.automatic-timezoned.enable = true;
-  #services.localtimed.enable = true;
+  # services.automatic-timezoned.enable = true;
+  # services.localtimed.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -305,6 +294,15 @@
   '';
 
   hardware.xone.enable = true; # support for the xbox controller USB dongle
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      # Overlay to disable buildDocs for rocdbgapi
+      rocmPackages = prev.rocmPackages.overrideScope (
+        rocmFinal: rocmPrev: { rocdbgapi = rocmPrev.rocdbgapi.override { buildDocs = false; }; }
+      );
+    })
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
