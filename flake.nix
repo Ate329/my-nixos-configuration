@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs_kernel_src.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
@@ -53,7 +52,6 @@
   outputs =
     inputs@{
       nixpkgs,
-      nixpkgs_kernel_src,
       home-manager,
       auto-cpufreq,
       grub2-themes,
@@ -84,10 +82,6 @@
             inherit inputs;
             inherit username;
             inherit host;
-            pkgs_kernel_src = import nixpkgs_kernel_src {
-              inherit system;
-              config.allowUnfree = true;
-            };
           };
           modules = [
             ./hosts/${host}/config.nix
@@ -111,10 +105,6 @@
                 inherit username;
                 inherit inputs;
                 inherit host;
-                pkgs_kernel_src = import nixpkgs_kernel_src {
-                  inherit system;
-                  config.allowUnfree = true;
-                };
               };
               home-manager.useGlobalPkgs = false;
               home-manager.useUserPackages = true;

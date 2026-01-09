@@ -10,8 +10,8 @@
     [Settings]
     language = en
     folder = /home/${username}/nix-config/home/themes/wallpapers
-    wallpaper = /home/${username}/nix-config/home/themes/wallpapers/azusa_flower_crop.png
-    # wallpaper = /home/${username}/nix-config/home/themes/wallpapers/richard-horvath-_nWaeTF6qo0-unsplash.png
+    # wallpaper = /home/${username}/nix-config/home/themes/wallpapers/azusa_flower_crop.png
+    wallpaper = /home/${username}/nix-config/home/themes/wallpapers/richard-horvath-_nWaeTF6qo0-unsplash.png
     backend = swaybg
     monitors = All
     fill = Fill

@@ -1,44 +1,44 @@
 ''
-  # Updated window rules using the new windowrulev2 syntax for Hyprland
-  windowrulev2 = pseudo, class:fcitx
-  windowrulev2 = pseudo, class:fcitx5
+  # Updated window rules using the new usage for Hyprland
+  windowrule = pseudo on, match:class fcitx
+  windowrule = pseudo on, match:class fcitx5
 
   # Basic window rules for common applications
-  windowrulev2 = noborder, class:rofi
-  windowrulev2 = center, class:rofi
-  # windowrulev2 = center, class:steam
-  windowrulev2 = center, class:discord
-  windowrulev2 = center, class:swappy
-  windowrulev2 = center, class:vscode
-  windowrulev2 = center, class:obsidian
-  windowrulev2 = center, class:thunar
-  windowrulev2 = center, class:gimp
-  windowrulev2 = center, class:libreoffice
-  windowrulev2 = center, class:soffice
-  windowrulev2 = maximize, class:logisim-evolution
-  windowrulev2 = center, class:logisim-evolution
+  windowrule = border_size 0, match:class rofi
+  windowrule = center on, match:class rofi
+  # windowrule = center, match:class steam
+  windowrule = center on, match:class discord
+  windowrule = center on, match:class swappy
+  windowrule = center on, match:class vscode
+  windowrule = center on, match:class obsidian
+  windowrule = center on, match:class thunar
+  windowrule = center on, match:class gimp
+  windowrule = center on, match:class libreoffice
+  windowrule = center on, match:class soffice
+  windowrule = maximize on, match:class logisim-evolution
+  windowrule = center on, match:class logisim-evolution
 
   # Window rules for wine applications
-  windowrulev2 = center, title:.*Wine.*
-  windowrulev2 = float, title:.*Wine.*
+  windowrule = center on, match:title .*Wine.*
+  windowrule = float on, match:title .*Wine.*
 
   # LibreOffice specific rules
-  windowrulev2 = center, class:LibreOffice
-  windowrulev2 = center, title:.*LibreOffice.*
-  windowrulev2 = center, title:.*Start Center.*
+  windowrule = center on, match:class LibreOffice
+  windowrule = center on, match:title .*LibreOffice.*
+  windowrule = center on, match:title .*Start Center.*
 
   # WeChat/微信 rules
-  windowrulev2 = center, title:.*WeChat.*|.*微信.*
-  windowrulev2 = nearestneighbor, title:.*WeChat.*|.*微信.*
+  windowrule = center on, match:title .*WeChat.*|.*微信.*
+  # windowrule = nearestneighbor on, match:title .*WeChat.*|.*微信.*
 
   # Steam specific rules
-  #windowrulev2 = stayfocused, title:^$,class:steam
-  #windowrulev2 = minsize 1 1, title:^$,class:steam
+  #windowrule = stayfocused on, match:title ^$, match:class steam
+  #windowrule = minsize 1 1, match:title ^$, match:class steam
 
   # Dialog window rules
-  windowrulev2 = float, title:Open File.*
-  windowrulev2 = float, title:Select a File.*
-  windowrulev2 = float, title:Open Folder.*
-  windowrulev2 = float, title:Save As.*
-  windowrulev2 = float, title:Library.*
+  windowrule = float on, match:title Open File.*
+  windowrule = float on, match:title Select a File.*
+  windowrule = float on, match:title Open Folder.*
+  windowrule = float on, match:title Save As.*
+  windowrule = float on, match:title Library.*
 ''

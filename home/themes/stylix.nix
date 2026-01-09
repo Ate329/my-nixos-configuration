@@ -11,7 +11,7 @@
     targets = {
       grub = {
         enable = false;
-        useImage = false;
+        useWallpaper = false;
       };
       fish.enable = false;
     };
@@ -27,11 +27,11 @@
         name = "JetBrainsMono Nerd Font";
       };
       sansSerif = {
-        package = pkgs.ubuntu_font_family;
+        package = pkgs.ubuntu-classic;
         name = "Ubuntu";
       };
       serif = {
-        package = pkgs.ubuntu_font_family;
+        package = pkgs.ubuntu-classic;
         name = "Ubuntu";
       };
       sizes = {

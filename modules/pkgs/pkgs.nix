@@ -30,6 +30,7 @@
       hping
       clash-verge-rev
       q
+      antigravity
       rename
       passExtensions.pass-import
       # ollama-rocm
@@ -48,11 +49,9 @@
       cosmic-files
       snowflake
       openvpn
-      ledger-live-desktop
       electrum
       helix
       inetutils
-      bitwarden-desktop
       sony-headphones-client
       pass-wayland
       pass
@@ -116,15 +115,12 @@
       amdgpu_top
       qq
       microcode-amd
-      zenmonitor
       stress
       virtualbox
       getent
       iconv
       glibc_memusage
       alsa-utils
-      ventoy-full
-      minecraft
       gamescope
       gamescope-wsi
       clinfo
@@ -185,14 +181,13 @@
       brightnessctl
       virt-viewer
       swappy
-      rofi-wayland
+      rofi
       appimage-run
       networkmanagerapplet
       yad
-      python311Full
-      python312Full
-      python311Packages.pip
-      python312Packages.pip
+      python3
+      python311
+      python312
       playerctl
       nh
       nixfmt-rfc-style
@@ -220,7 +215,6 @@
       file-roller
       swaynotificationcenter
       imv
-      transmission_3-gtk
       transmission_4-gtk
       distrobox
       mpv
@@ -256,13 +250,11 @@
       zip
       obsidian
       zed-editor
-      miru
       ani-cli
       spotify
       krita
       llama-cpp
       btop
-      lutris
       htop
       cmake
       gnumake
@@ -270,7 +262,7 @@
       cargo
       vscode-fhs
       libreoffice
-      wechat-uos
+      # wechat-uos
       kdePackages.okular
       uwufetch
       waydroid
@@ -285,7 +277,6 @@
       wine64Packages.fonts
       wineWowPackages.fonts
       wineWow64Packages.fonts
-      prismlauncher
       fastfetch
       vim
       sl
@@ -295,7 +286,7 @@
     "openssl-1.1.1w"
     "electron-27.3.11"
     "electron-30.5.1"
-    "ventoy-1.1.05"
+    "python3.13-ecdsa-0.19.1"
   ];
 
   nixpkgs.config.allowUnsupportedSystem = true;

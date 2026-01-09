@@ -110,15 +110,7 @@
   }
 
   # Gestures
-  gestures {
-    workspace_swipe = true
-    workspace_swipe_fingers = 3
-    workspace_swipe_invert = false
-    workspace_swipe_min_speed_to_force = 25
-    workspace_swipe_forever = true
-    workspace_swipe_direction_lock_threshold = 5
-    workspace_swipe_distance = 350
-  }
+  gesture = 3, horizontal, workspace
 
   # Misc
   misc {

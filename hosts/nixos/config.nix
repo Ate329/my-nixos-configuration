@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs_kernel_src,
   host,
   inputs,
   username,
@@ -30,8 +29,8 @@
   ];
 
   boot = {
-    # kernelPackages = pkgs_kernel_src.linuxPackages_latest;
-    kernelPackages = pkgs_kernel_src.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_6_12;
 
     # This is for OBS Virtual Cam Support
@@ -151,9 +150,9 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Athens";
-  # services.automatic-timezoned.enable = true;
-  # services.localtimed.enable = true;
+  # time.timeZone = "Europe/Athens";
+  services.automatic-timezoned.enable = true;
+  services.localtimed.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -178,8 +177,7 @@
       addons = with pkgs; [
         rime-data
         fcitx5-rime
-        fcitx5-chinese-addons
-        fcitx5-pinyin-moegirl
+        qt6Packages.fcitx5-chinese-addons
         fcitx5-gtk
         fcitx5-mozc
         fcitx5-skk
@@ -243,7 +241,7 @@
     clash-verge = {
       enable = true;
       package = pkgs.clash-verge-rev;
-      autoStart = true;
+      autoStart = false;
       tunMode = true;
     };
 
@@ -304,6 +302,11 @@
     })
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+    "python3.13-ecdsa-0.19.1"
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   users = {
@@ -322,10 +325,8 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-extra
     noto-fonts-cjk-serif
     noto-fonts-cjk-sans
-    noto-fonts-emoji
     noto-fonts-lgc-plus
     noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
@@ -489,19 +490,19 @@
     nfs.server.enable = true;
 
     logind = {
-      powerKeyLongPress = "poweroff";
-      lidSwitchExternalPower = "lock";
-      extraConfig = ''
-        # don't shutdown when power button is short-pressed
-        HandlePowerKey=ignore
-        IdleAction=suspend
-        IdleActionSec=600
-      '';
+      settings = {
+        Login = {
+          HandlePowerKey = "ignore"; # don't shutdown when power button is short-pressed
+          IdleAction = "suspend";
+          IdleActionSec = 600;
+          HandlePowerKeyLongPress = "poweroff";
+          HandleLidSwitchExternalPower = "lock";
+        };
+      };
     };
 
     ollama = {
       enable = false; # Temporarily disable ollama due to rocm packages issues (as always)
-      acceleration = "rocm";
     };
 
     open-webui = {
@@ -651,5 +652,5 @@
   # Power management services have been moved to modules/pkgs/custom-packages/auto-cpufreq.nix
 
   # Enable hardware Ledger support and udev rules
-  hardware.ledger.enable = true;
+  hardware.ledger.enable = false;
 }
